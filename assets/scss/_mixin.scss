@@ -1,0 +1,147 @@
+@import "./variables.scss";
+
+// 반응형, 브라우저 크기가 576px 이하일때
+@mixin mini {
+    @media (max-width: $mini) {
+        @content;
+    }
+}
+
+// 반응형, 브라우저 크기가 768px 이하일때
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+// 반응형, 브라우저 크기가 992px 이하일때
+@mixin tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+// 반응형, 브라우저 크기가 1200px 이하일때
+@mixin desktop {
+    @media (max-width: $desktop) {
+        @content;
+    }
+}
+
+@mixin transition($property: all, $duration: 0.3s, $ease: ease) {
+    transition: $property $duration $ease;
+}
+
+@mixin flex ($j:center, $a:center) {
+    display: flex;
+    justify-content: $j;
+    align-items: $a;
+}
+
+@mixin col-grid ($columns, $gap:inherit) {
+    display: grid;
+    grid-template-columns: $columns;
+    gap: $gap;
+}
+
+@mixin button ($color, $bg-color) {
+    width: 12rem;
+    height:3rem;
+    text-transform:uppercase;
+    color:$color;
+    background-color: transparent;
+    border:1px solid $color;
+    border-radius: 2rem;
+    cursor: pointer;
+    @include flex(center,center);
+    @include transition;
+    &:hover {
+        background-color: $color;
+        color: $bg-color;
+    }
+}
+
+@mixin arrowButton ($color, $bg-color) {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    width: 12rem;
+    height: auto;
+
+    .circle {
+        @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+        position: relative;
+        display: block;
+        margin: 0;
+        width: 3rem;
+        height: 3rem;
+        background: $bg-color;
+        border-radius: 1.625rem;
+
+        .icon {
+            @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            background: $color;
+
+            &.arrow {
+                @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+                left: 0.625rem;
+                width: 1.125rem;
+                height: 0.125rem;
+                background: none;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    top: -0.3rem;
+                    right: 0.0625rem;
+                    width: 0.625rem;
+                    height: 0.625rem;
+                    border-top: 0.125rem solid $color;
+                    border-right: 0.125rem solid $color;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+
+    .button-text {
+        @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+        @include flex(center, center);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0 0 0 1.85rem;
+        color: $bg-color;
+        line-height: 1.6;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    &:hover {
+        .circle {
+            width: 100%;
+
+            .icon {
+                &.arrow {
+                    background: $color;
+                    transform: translate(1rem, 0);
+                }
+            }
+        }
+
+        .button-text {
+            color: $color;
+        }
+    }
+}
