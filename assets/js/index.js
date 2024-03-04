@@ -43,7 +43,6 @@ function projectBackScroll() {
 
 //프로젝트 보기방식 변경 
 function projectChange(check) {
-
     projectBody.style.opacity = 0;
 
     projectBody.addEventListener('transitionend', () => {
@@ -53,7 +52,7 @@ function projectChange(check) {
             projectClassSet('grid');
         }
         projectBody.style.opacity = 1;
-    })
+    },{ once : true })
 }
 
 projectSwitch.addEventListener('change', () => projectChange(projectSwitch.checked));
@@ -66,7 +65,7 @@ const designBtn = document.getElementById('design-openBtn');
 const designTab = document.querySelectorAll('.design-tab li');
 const tabContent = document.querySelector('.design-list > ul');
 const tabContentLi = document.querySelectorAll('.design-list > ul > li');
-const ContentLiHeight = `${tabContentLi[0].offsetHeight}px`;
+const ContentLiHeight = `${tabContentLi[0].offsetHeight-1}px`;
 
 // 탭 콘텐츠 변경에 따른 동적 높이값 조정을 위해 따로 관리
 function designMaxHeight() {
@@ -141,6 +140,25 @@ designTab.forEach((e, idx) => {
 })
 
 /* ---------- 디자인섹션 end ---------- */
+
+
+function aboutLayoutSet(value) {
+    if(value === 'grid') {
+        img.setAttribute('data-aos', 'fade-up');
+        text.forEach(el => {
+            el.setAttribute('data-aos', 'fade-up');
+        });
+        projectClassSet('grid');
+    } else {
+        img.setAttribute('data-aos', '');
+        text.forEach(el => {
+            el.setAttribute('data-aos', '');
+        });
+        projectClassSet('full');
+    }
+}
+
+/* ---------- 어바웃 반응형 레이아웃 end ---------- */
 
 
 // 메인 이미지 롤링 애니메이션
@@ -277,47 +295,33 @@ tabContentLi.forEach(e => {
 /* ---------- 모달 end ---------- */
 
 
-function responsiveSet() {
-    const img = document.querySelector('.about-img');
-    const text = document.querySelectorAll('.about-text > *');
-
-    if (matchMedia("screen and (max-width: 992px)").matches) {
-        img.setAttribute('data-aos', 'fade-up');
-        text.forEach(el => {
-            el.setAttribute('data-aos', 'fade-up');
-        });
-        projectClassSet('grid');
-    } else {
-        img.setAttribute('data-aos', '');
-        text.forEach(el => {
-            el.setAttribute('data-aos', '');
-        });
-        projectClassSet('full');
-    }
-}
-
-/* ---------- responsive set end ---------- */
-
 
 const loading = document.querySelector('.loading');
 const wrapper = document.querySelector('.wrapper');
+const img = document.querySelector('.about-img');
+const text = document.querySelectorAll('.about-text > *');
 
 window.addEventListener('load', () => {
     // 스크롤 중간에서 새로고침 대비 이중 처리 1
     mainSetLayout();
     mainRolling();
-    responsiveSet();
     designMinHeight();
     if (project.className === 'full') projectBackScroll();
-
-    document.body.classList.remove('before-load');
 
     // 스크롤 중간에서 새로고침 대비 이중 처리 2
-    mainSetLayout();
-    mainRolling();
-    designMinHeight();
-    if (project.className === 'full') projectBackScroll();
+    // mainSetLayout();
+    // mainRolling();
+    // designMinHeight();
+    // if (project.className === 'full') projectBackScroll();
 
+    // 992px 이하일때
+    if (matchMedia("screen and (max-width: 992px)").matches) {
+        aboutLayoutSet('grid');
+    } else {
+        aboutLayoutSet('full');
+    }
+
+    document.body.classList.remove('before-load');
     // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
     loading.addEventListener('transitionend', (e) => {
         document.body.removeChild(e.target);
@@ -333,7 +337,13 @@ window.addEventListener('load', () => {
 
     window.addEventListener('resize', () => {
         mainSetLayout();
-        responsiveSet();
+        designMinHeight();
+
+        if (matchMedia("screen and (max-width: 992px)").matches) {
+            aboutLayoutSet('grid');
+        } else {
+            aboutLayoutSet('full');
+        }
     });
 
 });

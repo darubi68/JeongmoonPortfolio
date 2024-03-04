@@ -441,6 +441,11 @@ header > div h5 {
   -webkit-animation: hand 1.5s infinite;
           animation: hand 1.5s infinite;
 }
+#main .main-text > div strong {
+  font-size: 1.6rem;
+  line-height: 2rem;
+  display: block;
+}
 @-webkit-keyframes text {
   0% {
     top: 0;
@@ -659,6 +664,8 @@ section,
   -webkit-transform: translateY(2rem);
       -ms-transform: translateY(2rem);
           transform: translateY(2rem);
+  -o-object-position: top;
+     object-position: top;
 }
 #about .about-text {
   width: 50%;
@@ -1190,7 +1197,7 @@ section,
 #project.grid .project-list > :nth-child(7) .project-thumbnail {
   background-color: #cdddee;
 }
-#project.grid .project-list .project-content h3 {
+#project.grid .project-list .project-content h4 {
   padding: 0.2rem 0;
 }
 #project.grid .project-list .project-content > div {
@@ -1408,12 +1415,12 @@ section,
 .modal#inactive-modal .modal-container .modal-content .modal-body > div {
   text-align: center;
 }
-.modal#inactive-modal .modal-container .modal-content .modal-body > div h4 {
+.modal#inactive-modal .modal-container .modal-content .modal-body > div strong {
   font-weight: 400;
   padding-bottom: 1rem;
   color: #4d8d6e;
 }
-.modal#inactive-modal .modal-container .modal-content .modal-body > div h4 span {
+.modal#inactive-modal .modal-container .modal-content .modal-body > div strong span {
   font-weight: 700;
 }
 .modal#inactive-modal .modal-container .modal-content .modal-body > div p {
@@ -1441,6 +1448,7 @@ section,
 
 #contact .section-grid {
   padding: 8rem 4rem;
+  border-radius: 0 10rem 0 0;
 }
 #contact .contact-head h1 {
   font-size: 4rem;
@@ -1468,21 +1476,24 @@ section,
 }
 #contact.full .section-grid {
   background-color: #fff;
-  border-radius: 0 10rem 0 0;
 }
 #contact.grid {
-  background-color: #cde3d8;
+  background-color: #fff;
 }
 #contact.grid .section-grid {
-  background-color: transparent;
+  background-color: #cde3d8;
 }
 #contact.grid .contact-head h2 {
   color: #f3f3f3;
 }
 
 @media (max-width: 1200px) {
-  #main .main-text > div .text-obj span {
+  #main .main-text > div .text-obj span, #main .main-text > div .text-obj p {
     font-size: 6vw;
+  }
+  #main .main-text > div strong {
+    font-size: 1.5rem;
+    line-height: 1.9rem;
   }
   #design .design-list ul {
     display: grid;
@@ -1513,19 +1524,14 @@ section,
     left: 0;
     width: 100%;
     max-width: inherit;
-    padding: 8rem 4rem;
+    padding: 12rem 4rem 8rem;
     z-index: 10;
     background: rgba(255, 255, 255, 0.85);
   }
-  #main .main-text img {
-    width: 5rem;
-    padding: 0.8rem;
+  #main .main-text > div .text-obj span, #main .main-text > div .text-obj p {
+    font-size: 4.6rem;
   }
-  #main .main-text > div .text-obj span {
-    font-size: 9vw;
-  }
-  #main .main-text > div h4 {
-    font-size: max(1.4rem, 2.5vw);
+  #main .main-text > div strong {
     width: 80%;
   }
   #main .main-img {
@@ -1560,18 +1566,18 @@ section,
     width: 100%;
     max-width: inherit;
     min-height: inherit;
-    height: 50vh;
+    height: 55vh;
     position: relative;
     margin-bottom: 3rem;
   }
   #about .about-img .about-imgBackground {
     height: calc(100% - 2rem);
-    width: 27rem;
+    width: 38.5vh;
     left: 0;
   }
   #about .about-img img {
-    width: 27rem;
     height: calc(100% - 2rem);
+    width: 38.5vh;
     left: 2rem;
     max-width: inherit;
   }
@@ -1580,40 +1586,89 @@ section,
     max-width: inherit;
     padding: 0;
   }
+  #design,
+  #project {
+    padding: 8rem 4rem;
+  }
   .project-viewSwitch {
     display: none;
   }
   #project.grid .project-list .project-thumbnail {
     height: 16rem;
   }
-  #contact .contact-head h1 {
-    font-size: 4rem;
-    line-height: 4.6rem;
-  }
-  #contact .contact-head h2 {
-    font-size: 2.4rem;
-    line-height: 3rem;
-  }
 }
 @media (max-width: 768px) {
+  body {
+    font-size: 0.9rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+    line-height: 3.5rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
+  h3 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+  }
+  h4 {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+  }
   h5 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+  }
+  p.b-text {
+    font-size: 1rem;
   }
   #about .section-grid,
   #design,
   #project,
   #contact .section-grid {
-    padding: 6rem 1rem;
+    padding: 6rem 2rem;
   }
   #nav,
   #header {
     padding: 0 2rem;
   }
   #main .main-text {
-    padding: 10rem 2rem;
+    padding: 12rem 2rem 8rem;
   }
-  #main .main-text > div h4 {
-    font-size: 1.6rem;
+  #main .main-text > div .text-obj span, #main .main-text > div .text-obj p {
+    font-size: max(3.2rem, 9vw);
+    line-height: max(3.6rem, 10vw);
+  }
+  #main .main-text > div strong {
+    font-size: max(1.2rem, 3vw);
+    line-height: max(1.6rem, 4vw);
+  }
+  #main .main-text img {
+    width: 5rem;
+    padding: 0.8rem;
+  }
+  #main .main-img {
+    border-radius: 0 0 0 5rem;
+  }
+  #about .about-img {
+    height: 48vh;
+  }
+  #about .about-img .about-imgBackground,
+  #about .about-img img {
+    width: 36.96vh;
+  }
+  #about .about-text .text-card > p {
+    line-height: 1.6rem;
+  }
+  #about .about-text .text-card > p:last-of-type {
+    padding-bottom: 4rem;
+  }
+  #about .career-card ul li {
+    padding-top: 0.6rem;
+  }
+  #about .career-card:not(:last-of-type) {
+    padding-bottom: 3rem;
   }
   #design .design-tab {
     display: none;
@@ -1627,21 +1682,55 @@ section,
   #project.grid .project-list li:not(:last-of-type) {
     padding-bottom: 3rem;
   }
+  #contact .contact-head h1 {
+    font-size: 3rem;
+    line-height: 3.6rem;
+  }
+  #contact .contact-head h2 {
+    margin-bottom: 1rem;
+  }
+  #top-button {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+  #top-button .icon {
+    font-size: 1.2rem;
+  }
 }
 @media (max-width: 576px) {
-  h2 {
-    font-size: 2.6rem;
+  h1 {
+    font-size: 2.2rem;
     line-height: 3.2rem;
   }
+  #about .section-grid,
+  #design,
+  #project,
+  #contact .section-grid {
+    padding: 5rem 1rem;
+  }
+  #nav,
+  #header {
+    padding: 0 1rem;
+  }
+  #main .main-text {
+    padding: 12rem 1rem 6rem;
+  }
+  #main .main-text > div strong {
+    width: 100%;
+    max-width: 28rem;
+  }
+  #main .main-text img {
+    width: 4rem;
+    padding: 0.6rem;
+  }
   #about .about-img {
-    height: max(30rem, 105vw);
+    height: 45vh;
+    margin-bottom: 2rem;
   }
   #about .about-img .about-imgBackground {
-    width: calc(100% - 1rem);
     height: calc(100% - 1rem);
   }
   #about .about-img img {
-    width: calc(100% - 1rem);
     height: calc(100% - 1rem);
     -webkit-transform: translateY(1rem);
         -ms-transform: translateY(1rem);
@@ -1659,19 +1748,34 @@ section,
   #about .career-card ul li {
     padding-top: 0.7rem;
   }
+  #about .career-card:not(:last-of-type) {
+    padding-bottom: 2rem;
+  }
+  #design .design-head {
+    margin-bottom: 2rem;
+  }
   #design .design-list ul {
     display: block;
   }
+  #project .project-head {
+    margin-bottom: 2rem;
+  }
+  #project.grid .project-list li:not(:last-of-type) {
+    padding-bottom: 2rem;
+  }
+  #project.grid .project-list .project-content > div p {
+    padding-bottom: 0.6rem;
+  }
   #contact.grid .contact-head h1 {
-    font-size: max(3rem, 10vw);
-    line-height: max(3.6rem, 12vw);
+    font-size: 2.6rem;
+    line-height: 3rem;
   }
   #contact.grid .contact-head img {
     width: 0.7rem;
     height: 0.7rem;
   }
   #contact.grid .contact-head h2 {
-    font-size: max(1.8rem, 7vw);
-    line-height: max(2.4rem, 8vw);
+    font-size: 1.6rem;
+    line-height: 2.2rem;
   }
 }

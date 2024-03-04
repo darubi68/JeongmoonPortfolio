@@ -316,6 +316,12 @@ header {
                 }
             }
 
+            strong {
+                font-size: 1.6rem;
+                line-height: 2rem;
+                display: block;
+            }
+
         }
 
         @keyframes text {
@@ -475,6 +481,7 @@ section,
             border-radius: 1rem;
             right: 4rem;
             transform: translateY(2rem);
+            object-position: top;
         }
     }
 
@@ -845,7 +852,7 @@ section,
             }
 
             .project-content {
-                h3 {
+                h4 {
                     padding: 0.2rem 0;
                 }
 
@@ -1001,7 +1008,7 @@ section,
                     >div {
                         text-align: center;
 
-                        h4 {
+                        strong {
                             font-weight: 400;
                             padding-bottom: 1rem;
                             color: $primery-1;
@@ -1049,6 +1056,7 @@ section,
 #contact {
     .section-grid {
         padding: 8rem 4rem;
+        border-radius: 0 10rem 0 0;
     }
 
     .contact-head {
@@ -1086,15 +1094,14 @@ section,
 
         .section-grid {
             background-color: #fff;
-            border-radius: 0 10rem 0 0;
         }
     }
 
     &.grid {
-        background-color: $primery-4;
+        background-color: #fff;
 
         .section-grid {
-            background-color: transparent;
+            background-color: $primery-4;
         }
 
         .contact-head h2 {
@@ -1108,13 +1115,15 @@ section,
 @include desktop {
 
     #main .main-text>div {
-        .text-obj span {
-            font-size: 6vw;
+        .text-obj {
+            span,p {
+                font-size: 6vw;
+            }
         }
-
-        // h4 {
-        //     font-size: 2.4vw;
-        // }
+        strong {
+            font-size: 1.5rem;
+            line-height: 1.9rem;
+        }
     }
 
     #design {
@@ -1160,22 +1169,18 @@ section,
             left: 0;
             width: 100%;
             max-width: inherit;
-            padding: 8rem 4rem;
+            padding: 12rem 4rem 8rem;
             z-index: 10;
             background: rgba(255, 255, 255, 0.85);
 
-            img {
-                width: 5rem;
-                padding: 0.8rem;
-            }
-
             >div {
-                .text-obj span {
-                    font-size: 9vw;
-                }
+                .text-obj {
+                    span,p {
+                        font-size: 4.6rem;
+                    }  
+                } 
 
-                h4 {
-                    font-size: max(1.4rem, 2.5vw);
+                strong {
                     width: 80%;
                 }
             }
@@ -1220,19 +1225,19 @@ section,
             width: 100%;
             max-width: inherit;
             min-height: inherit;
-            height: 50vh;
+            height: 55vh;
             position: relative;
             margin-bottom: 3rem;
 
             .about-imgBackground {
                 height: calc(100% - 2rem);
-                width: 27rem;
+                width: calc(55vh * 0.7);
                 left: 0;
             }
 
             img {
-                width: 27rem;
                 height: calc(100% - 2rem);
+                width: calc(55vh * 0.7);
                 left: 2rem;
                 max-width: inherit;
             }
@@ -1246,6 +1251,11 @@ section,
         }
     }
 
+    #design,
+    #project {
+        padding:8rem 4rem;
+    }
+
     .project-viewSwitch {
         display: none;
     }
@@ -1255,34 +1265,49 @@ section,
             height: 16rem;
         }
     }
-
-    #contact {
-        .contact-head {
-            h1 {
-                font-size: 4rem;
-                line-height: 4.6rem;
-            }
-
-            h2 {
-                font-size: 2.4rem;
-                line-height: 3rem;
-            }
-        }
-    }
 }
 
 
 // 768px 이하
 @include mobile {
+
+    body {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        line-height: 3.5rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+    }
+    
+    h3 {
+        font-size: 1.6rem;
+        line-height: 2rem;
+    }
+    
+    h4 {
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+    }
+    
     h5 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+    }
+    
+    p.b-text {
+        font-size: 1rem;
     }
 
     #about .section-grid,
     #design,
     #project,
     #contact .section-grid {
-        padding: 6rem 1rem;
+        padding: 6rem 2rem;
     }
 
     #nav,
@@ -1292,26 +1317,59 @@ section,
 
     #main {
         .main-text {
-            padding: 10rem 2rem;
+            padding: 12rem 2rem 8rem;
+            >div {
+                .text-obj {
+                    span,p {
+                        font-size: max(3.2rem,9vw);
+                        line-height: max(3.6rem,10vw);
+                    }
+                }
+                strong {
+                    font-size: max(1.2rem, 3vw);
+                    line-height: max(1.6rem, 4vw);
+                }
+            }
 
-            >div h4 {
-                font-size: 1.6rem;
+            img {
+                width: 5rem;
+                padding: 0.8rem;
+            }
+        }
+
+        .main-img {
+            border-radius: 0 0 0 5rem;
+        }
+    }
+    
+    #about {
+        .about-img {
+            height:48vh;
+            .about-imgBackground,
+            img {
+                width: calc(48vh * 0.77);
+            }
+        }
+        .about-text {
+            .text-card>p {
+                line-height: 1.6rem;
+    
+                &:last-of-type {
+                    padding-bottom: 4rem;
+                }
+            }
+        }
+
+        .career-card {
+            ul li {
+                padding-top:0.6rem;
+            }
+
+            &:not(:last-of-type) {
+                padding-bottom:3rem;
             }
         }
     }
-
-    // #about .about-img {
-    //     .about-imgBackground {
-    //         left: 50%;
-    //         transform: translateX(calc(-50% - 2rem));
-    //     }
-
-    //     img {
-    //         left: 50%;
-    //         transform: translateX(-50%);
-    //         top: 2rem;
-    //     }
-    // }
 
     #design {
         .design-tab {
@@ -1330,28 +1388,77 @@ section,
             padding-bottom: 3rem;
         }
     }
+
+    #contact .contact-head {
+        h1 {
+            font-size: 3rem;
+            line-height: 3.6rem;
+        }
+        h2 {
+            margin-bottom:1rem;
+        }
+    }
+
+    #top-button {
+        width:2.4rem;
+        height:2.4rem;
+        .icon {
+            font-size: 1.2rem;
+        }
+    }
 }
 
 
 // 576px 이하
 @include mini {
 
-    h2 {
-        font-size: 2.6rem;
+
+    h1 {
+        font-size: 2.2rem;
         line-height: 3.2rem;
+    }
+
+    #about .section-grid,
+    #design,
+    #project,
+    #contact .section-grid {
+        padding: 5rem 1rem;
+    }
+
+    #nav,
+    #header {
+        padding: 0 1rem;
+    }
+
+    #main .main-text {
+        padding: 12rem 1rem 6rem;
+        > div {
+            .text-obj {
+                span,p {
+                    // font-size: 3rem;
+                    // line-height: 3.6rem;
+                }
+            }
+            strong {
+                width:100%;
+                max-width: 28rem;
+            }
+        }
+        img {
+            width:4rem;
+            padding: 0.6rem;
+        }
     }
 
     #about {
         .about-img {
-            height: max(30rem, 105vw);
-
+            height:45vh;
+            margin-bottom:2rem;
             .about-imgBackground {
-                width: calc(100% - 1rem);
                 height: calc(100% - 1rem);
             }
 
             img {
-                width: calc(100% - 1rem);
                 height: calc(100% - 1rem);
                 transform: translateY(1rem);
                 left: 1rem;
@@ -1373,19 +1480,39 @@ section,
             ul li {
                 padding-top: 0.7rem;
             }
+
+            &:not(:last-of-type) {
+                padding-bottom:2rem;
+            }
         }
     }
 
     #design {
+        .design-head {
+            margin-bottom:2rem;
+        }
         .design-list ul {
             display: block;
         }
     }
 
+    #project .project-head {
+        margin-bottom:2rem;
+    }
+
+    #project.grid .project-list {
+        li:not(:last-of-type) {
+            padding-bottom:2rem;
+        }
+        .project-content > div p {
+            padding-bottom:0.6rem;
+        }
+    }
+
     #contact.grid .contact-head {
         h1 {
-            font-size: max(3rem, 10vw);
-            line-height: max(3.6rem, 12vw);
+            font-size: 2.6rem;
+            line-height: 3rem;
         }
 
         img {
@@ -1394,8 +1521,8 @@ section,
         }
 
         h2 {
-            font-size: max(1.8rem, 7vw);
-            line-height: max(2.4rem, 8vw);
+            font-size: 1.6rem;
+            line-height: 2.2rem;
         }
     }
 }
