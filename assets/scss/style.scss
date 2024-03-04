@@ -14,7 +14,7 @@
 body {
     font-weight: 300;
     font-style: normal;
-    font-size: 1.2rem;
+    font-size: 1rem;
     background-color: #fff;
     color: $text-color;
 
@@ -57,21 +57,23 @@ h2 {
 }
 
 h1 {
-    font-size: 5rem;
-    line-height: 5.6rem;
+    font-size: 3rem;
+    line-height: 4rem;
 }
 
 h2 {
-    font-size: 3rem;
-    line-height: 3.6rem;
+    font-size: 2rem;
+    line-height: 3rem;
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
 }
 
 h4 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    line-height: 2rem;
 }
 
 h5 {
@@ -82,8 +84,8 @@ h6 {
     font-size: 1.2rem;
 }
 
-p {
-    font-size: 1.2rem;
+p.b-text {
+    font-size: 1.1rem;
 }
 
 .en {
@@ -259,7 +261,7 @@ header {
         align-items: center;
 
         h5 {
-            letter-spacing: 0.1px;
+            letter-spacing: -0.5px;
         }
     }
 }
@@ -357,7 +359,7 @@ header {
         width: 50%;
         height: 100%;
         overflow: hidden;
-        border-radius: 0 0 0 2rem;
+        border-radius: 0 0 0 10rem;
         background-color: $primery-2;
         position: relative;
 
@@ -432,8 +434,6 @@ header {
                 transform: translateY(-200%);
             }
         }
-
-
     }
 }
 
@@ -483,9 +483,9 @@ section,
         max-width: $max-width/2;
         padding: 10rem 0;
 
-        >p {
+        .text-card>p {
             line-height: 2rem;
-            padding-bottom: 2rem;
+            padding-bottom: 1.4rem;
 
             &:last-of-type {
                 padding-bottom: 5rem;
@@ -495,7 +495,7 @@ section,
 
     .career-card {
         &:not(:last-of-type) {
-            padding-bottom: 3rem;
+            padding-bottom: 4rem;
         }
 
         .career-listTitle {
@@ -509,7 +509,7 @@ section,
             }
 
             h5 {
-                padding: 0.2rem 0;
+                padding: 0.1rem 0 0.3rem;
             }
 
             p {
@@ -534,11 +534,6 @@ section,
     .design-head {
         @include flex(space-between, center);
         margin-bottom: 3rem;
-
-        img {
-            width: 0.7rem;
-            height: 0.7rem;
-        }
     }
 
     .design-tab {
@@ -555,7 +550,6 @@ section,
             @include transition;
 
             p {
-                font-size: 1rem;
                 color: $text-subColor;
                 @include transition;
             }
@@ -575,7 +569,7 @@ section,
                 padding: 0 3rem;
 
                 p {
-                    font-size: 1.6rem;
+                    font-size: 1.5rem;
                     font-weight: bold;
                     color: inherit;
                 }
@@ -639,7 +633,6 @@ section,
                 .design-thumbnail {
                     height: 15rem;
                     border-radius: 1rem;
-                    // box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
                     overflow: hidden;
 
                     img {
@@ -651,21 +644,15 @@ section,
                     }
                 }
 
+                //1.2+0.3+1.4 = 2.9rem
                 h5 {
                     padding: 1.2rem 0 0.3rem 0;
-                }
-
-                .design-keyword {
-                    span {
-                        font-size: 90%;
-                    }
                 }
             }
         }
     }
 
     .design-btn {
-        margin-top: 2rem;
         @include flex;
 
         button {
@@ -681,7 +668,6 @@ section,
     @include flex(center, center);
 
     .section-grid {
-        width: 100%;
         max-width: $max-width;
     }
 
@@ -773,6 +759,8 @@ section,
     }
 
     &.full {
+        overflow: hidden;
+
         .project-card {
             padding: 4rem;
             @include flex(space-between, center);
@@ -793,10 +781,6 @@ section,
 
                 >*:not(button) {
                     padding-bottom: 2rem;
-                }
-
-                h3 {
-                    padding-top: 0.5rem;
                 }
 
                 >div {
@@ -921,7 +905,7 @@ section,
         width: 100%;
         height: 100%;
         position: absolute;
-        background-color: $primery-4;
+        background-color: rgba(205, 227, 216, 0.2);
         left: 0;
         bottom: 0;
         z-index: -10;
@@ -1064,11 +1048,13 @@ section,
 
 #contact {
     .section-grid {
-        padding: 7rem 4rem;
+        padding: 8rem 4rem;
     }
 
     .contact-head {
         h1 {
+            font-size: 4rem;
+            line-height: 4.6rem;
             color: $primery-1;
         }
 
@@ -1095,8 +1081,21 @@ section,
         }
     }
 
+    &.full {
+        background-color: rgba(205, 227, 216, 0.2);
+
+        .section-grid {
+            background-color: #fff;
+            border-radius: 0 10rem 0 0;
+        }
+    }
+
     &.grid {
         background-color: $primery-4;
+
+        .section-grid {
+            background-color: transparent;
+        }
 
         .contact-head h2 {
             color: $back-color;
@@ -1113,9 +1112,9 @@ section,
             font-size: 6vw;
         }
 
-        h4 {
-            font-size: 2.4vw;
-        }
+        // h4 {
+        //     font-size: 2.4vw;
+        // }
     }
 
     #design {
@@ -1140,9 +1139,9 @@ section,
         }
 
         .project-content {
-            h3 {
-                font-size: 1.6rem;
-            }
+            // h3 {
+            //     font-size: 1.6rem;
+            // }
         }
     }
 }
@@ -1155,37 +1154,65 @@ section,
         display: inherit;
         position: relative;
 
-        .main-text {
+        & .main-text {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             max-width: inherit;
-            padding: 10rem 4rem;
+            padding: 8rem 4rem;
             z-index: 10;
             background: rgba(255, 255, 255, 0.85);
 
+            img {
+                width: 5rem;
+                padding: 0.8rem;
+            }
+
             >div {
                 .text-obj span {
-                    font-size: 10vw;
+                    font-size: 9vw;
                 }
 
                 h4 {
-                    font-size: 2rem;
-                    max-width: 46rem;
+                    font-size: max(1.4rem, 2.5vw);
+                    width: 80%;
                 }
             }
         }
 
-        .main-img {
+        & .main-img {
             width: 100%;
+
+            .main-imgGrid {
+                left: 5rem;
+                top: -10rem;
+            }
+
+            .main-imgBox {
+                & .main-original {
+                    animation: rolling1 50s linear infinite;
+                }
+
+                & .main-clone {
+                    animation: rolling2 50s linear infinite;
+                }
+
+                & .original {
+                    animation: rolling1 50s linear 0.5s infinite;
+                }
+
+                & .clone {
+                    animation: rolling2 50s linear 0.5s infinite;
+                }
+            }
         }
     }
 
     #about {
         .section-grid {
             display: inherit;
-            padding: 10rem 4rem;
+            padding: 8rem 4rem;
         }
 
         .about-img {
@@ -1193,7 +1220,7 @@ section,
             width: 100%;
             max-width: inherit;
             min-height: inherit;
-            height: 38rem;
+            height: 50vh;
             position: relative;
             margin-bottom: 3rem;
 
@@ -1255,7 +1282,7 @@ section,
     #design,
     #project,
     #contact .section-grid {
-        padding: 8rem 2rem;
+        padding: 6rem 1rem;
     }
 
     #nav,
@@ -1314,13 +1341,6 @@ section,
         line-height: 3.2rem;
     }
 
-    #about .section-grid,
-    #design,
-    #project,
-    #contact .section-grid {
-        padding: 6rem 2rem;
-    }
-
     #about {
         .about-img {
             height: max(30rem, 105vw);
@@ -1369,8 +1389,8 @@ section,
         }
 
         img {
-            width:0.7rem;
-            height:0.7rem;
+            width: 0.7rem;
+            height: 0.7rem;
         }
 
         h2 {

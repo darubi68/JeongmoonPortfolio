@@ -55,7 +55,7 @@
 body {
   font-weight: 300;
   font-style: normal;
-  font-size: 1.2rem;
+  font-size: 1rem;
   background-color: #fff;
   color: #393939;
 }
@@ -98,21 +98,23 @@ h2 {
 }
 
 h1 {
-  font-size: 5rem;
-  line-height: 5.6rem;
+  font-size: 3rem;
+  line-height: 4rem;
 }
 
 h2 {
-  font-size: 3rem;
-  line-height: 3.6rem;
+  font-size: 2rem;
+  line-height: 3rem;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  line-height: 2.2rem;
 }
 
 h4 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  line-height: 2rem;
 }
 
 h5 {
@@ -123,8 +125,8 @@ h6 {
   font-size: 1.2rem;
 }
 
-p {
-  font-size: 1.2rem;
+p.b-text {
+  font-size: 1.1rem;
 }
 
 .en {
@@ -346,7 +348,7 @@ header > div {
           align-items: center;
 }
 header > div h5 {
-  letter-spacing: 0.1px;
+  letter-spacing: -0.5px;
 }
 
 #main {
@@ -503,7 +505,7 @@ header > div h5 {
   width: 50%;
   height: 100%;
   overflow: hidden;
-  border-radius: 0 0 0 2rem;
+  border-radius: 0 0 0 10rem;
   background-color: #94baa8;
   position: relative;
 }
@@ -663,15 +665,15 @@ section,
   max-width: 590px;
   padding: 10rem 0;
 }
-#about .about-text > p {
+#about .about-text .text-card > p {
   line-height: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1.4rem;
 }
-#about .about-text > p:last-of-type {
+#about .about-text .text-card > p:last-of-type {
   padding-bottom: 5rem;
 }
 #about .career-card:not(:last-of-type) {
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
 }
 #about .career-card .career-listTitle {
   display: -webkit-box;
@@ -689,7 +691,7 @@ section,
   padding-top: 1rem;
 }
 #about .career-card ul h5 {
-  padding: 0.2rem 0;
+  padding: 0.1rem 0 0.3rem;
 }
 #about .career-card ul p {
   color: #747474;
@@ -726,10 +728,6 @@ section,
           align-items: center;
   margin-bottom: 3rem;
 }
-#design .design-head img {
-  width: 0.7rem;
-  height: 0.7rem;
-}
 #design .design-tab {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -761,7 +759,6 @@ section,
   transition: all 0.3s ease;
 }
 #design .design-tab li p {
-  font-size: 1rem;
   color: #747474;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -781,7 +778,7 @@ section,
   padding: 0 3rem;
 }
 #design .design-tab li.active p {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: inherit;
 }
@@ -850,11 +847,7 @@ section,
 #design .design-list ul > li h5 {
   padding: 1.2rem 0 0.3rem 0;
 }
-#design .design-list ul > li .design-keyword span {
-  font-size: 90%;
-}
 #design .design-btn {
-  margin-top: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -905,7 +898,6 @@ section,
           align-items: center;
 }
 #project .section-grid {
-  width: 100%;
   max-width: 1180px;
 }
 #project .project-head {
@@ -1005,6 +997,9 @@ section,
   max-height: 100%;
   max-width: 100%;
 }
+#project.full {
+  overflow: hidden;
+}
 #project.full .project-card {
   padding: 4rem;
   display: -webkit-box;
@@ -1039,9 +1034,6 @@ section,
 }
 #project.full .project-card .project-content > *:not(button) {
   padding-bottom: 2rem;
-}
-#project.full .project-card .project-content h3 {
-  padding-top: 0.5rem;
 }
 #project.full .project-card .project-content > div {
   display: none;
@@ -1295,7 +1287,7 @@ section,
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: #cde3d8;
+  background-color: rgba(205, 227, 216, 0.2);
   left: 0;
   bottom: 0;
   z-index: -10;
@@ -1448,9 +1440,11 @@ section,
 }
 
 #contact .section-grid {
-  padding: 7rem 4rem;
+  padding: 8rem 4rem;
 }
 #contact .contact-head h1 {
+  font-size: 4rem;
+  line-height: 4.6rem;
   color: #4d8d6e;
 }
 #contact .contact-head img {
@@ -1469,8 +1463,18 @@ section,
   color: #747474;
   padding-bottom: 0.2rem;
 }
+#contact.full {
+  background-color: rgba(205, 227, 216, 0.2);
+}
+#contact.full .section-grid {
+  background-color: #fff;
+  border-radius: 0 10rem 0 0;
+}
 #contact.grid {
   background-color: #cde3d8;
+}
+#contact.grid .section-grid {
+  background-color: transparent;
 }
 #contact.grid .contact-head h2 {
   color: #f3f3f3;
@@ -1479,9 +1483,6 @@ section,
 @media (max-width: 1200px) {
   #main .main-text > div .text-obj span {
     font-size: 6vw;
-  }
-  #main .main-text > div h4 {
-    font-size: 2.4vw;
   }
   #design .design-list ul {
     display: grid;
@@ -1500,9 +1501,6 @@ section,
   #project.grid .project-list .project-thumbnail {
     height: 18rem;
   }
-  #project.grid .project-list .project-content h3 {
-    font-size: 1.6rem;
-  }
 }
 @media (max-width: 992px) {
   #main {
@@ -1515,30 +1513,54 @@ section,
     left: 0;
     width: 100%;
     max-width: inherit;
-    padding: 10rem 4rem;
+    padding: 8rem 4rem;
     z-index: 10;
     background: rgba(255, 255, 255, 0.85);
   }
+  #main .main-text img {
+    width: 5rem;
+    padding: 0.8rem;
+  }
   #main .main-text > div .text-obj span {
-    font-size: 10vw;
+    font-size: 9vw;
   }
   #main .main-text > div h4 {
-    font-size: 2rem;
-    max-width: 46rem;
+    font-size: max(1.4rem, 2.5vw);
+    width: 80%;
   }
   #main .main-img {
     width: 100%;
   }
+  #main .main-img .main-imgGrid {
+    left: 5rem;
+    top: -10rem;
+  }
+  #main .main-img .main-imgBox .main-original {
+    -webkit-animation: rolling1 50s linear infinite;
+            animation: rolling1 50s linear infinite;
+  }
+  #main .main-img .main-imgBox .main-clone {
+    -webkit-animation: rolling2 50s linear infinite;
+            animation: rolling2 50s linear infinite;
+  }
+  #main .main-img .main-imgBox .original {
+    -webkit-animation: rolling1 50s linear 0.5s infinite;
+            animation: rolling1 50s linear 0.5s infinite;
+  }
+  #main .main-img .main-imgBox .clone {
+    -webkit-animation: rolling2 50s linear 0.5s infinite;
+            animation: rolling2 50s linear 0.5s infinite;
+  }
   #about .section-grid {
     display: inherit;
-    padding: 10rem 4rem;
+    padding: 8rem 4rem;
   }
   #about .about-img {
     padding: 0;
     width: 100%;
     max-width: inherit;
     min-height: inherit;
-    height: 38rem;
+    height: 50vh;
     position: relative;
     margin-bottom: 3rem;
   }
@@ -1581,7 +1603,7 @@ section,
   #design,
   #project,
   #contact .section-grid {
-    padding: 8rem 2rem;
+    padding: 6rem 1rem;
   }
   #nav,
   #header {
@@ -1610,12 +1632,6 @@ section,
   h2 {
     font-size: 2.6rem;
     line-height: 3.2rem;
-  }
-  #about .section-grid,
-  #design,
-  #project,
-  #contact .section-grid {
-    padding: 6rem 2rem;
   }
   #about .about-img {
     height: max(30rem, 105vw);
