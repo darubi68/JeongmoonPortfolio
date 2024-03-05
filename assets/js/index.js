@@ -196,6 +196,12 @@ function mainRolling() {
             clone.classList.add('clone');
         }
     }
+
+    document.body.classList.remove('before-load');
+    // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
+    loading.addEventListener('transitionend', (e) => {
+        document.body.removeChild(e.target);
+    });
 }
 
 // 메인 이미지 롤링 셋팅
@@ -314,12 +320,6 @@ window.addEventListener('load', () => {
     mainSetLayout();
     mainRolling();
     designMinHeight();
-
-    document.body.classList.remove('before-load');
-    // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
-    loading.addEventListener('transitionend', (e) => {
-        document.body.removeChild(e.target);
-    });
 
     // 992px 이하일때
     if (matchMedia("screen and (max-width: 992px)").matches) {
