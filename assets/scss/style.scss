@@ -80,10 +80,6 @@ h5 {
     font-size: 1.4rem;
 }
 
-h6 {
-    font-size: 1.2rem;
-}
-
 p.b-text {
     font-size: 1.1rem;
 }
@@ -269,7 +265,7 @@ header {
 
 #main {
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     @include transition(height);
     @include flex(flex-end, center);
 
@@ -281,7 +277,7 @@ header {
         @include flex(space-between, flex-start);
         flex-direction: column;
 
-        img {
+        >img {
             width: 6rem;
             border: $dashed;
             border-radius: 1rem;
@@ -299,7 +295,6 @@ header {
                     position: relative;
                     animation: text 1.5s infinite;
                     font-size: 5rem;
-                    line-height: 5.6rem;
                     font-weight: bold;
 
                     @for $i from 1 through 7 {
@@ -309,10 +304,11 @@ header {
                     }
                 }
 
-                p {
-                    display: inline-block;
-                    font-size: 5rem;
-                    line-height: 5.6rem;
+                img {
+                    width: 5rem;
+                    margin-left:0.5rem;
+                    object-fit: contain;
+                    object-position: 0 30%;
                     animation: hand 1.5s infinite;
                 }
             }
@@ -1117,13 +1113,16 @@ section,
 
     #main .main-text>div {
         .text-obj {
-            span,p {
+            span{
                 font-size: 6vw;
+            }
+            img {
+                width: 6vw;
             }
         }
         strong {
-            font-size: 1.5rem;
-            line-height: 1.9rem;
+            font-size: 1.4rem;
+            line-height: 1.8rem;
         }
     }
 
@@ -1164,7 +1163,7 @@ section,
         display: inherit;
         position: relative;
 
-        & .main-text {
+        .main-text {
             position: absolute;
             top: 0;
             left: 0;
@@ -1176,9 +1175,12 @@ section,
 
             >div {
                 .text-obj {
-                    span,p {
-                        font-size: 4.6rem;
-                    }  
+                    span {
+                        font-size: 4.2rem;
+                    }
+                    img {
+                        width: 4.2rem;
+                    }
                 } 
 
                 strong {
@@ -1187,7 +1189,7 @@ section,
             }
         }
 
-        & .main-img {
+        .main-img {
             width: 100%;
 
             .main-imgGrid {
@@ -1276,31 +1278,36 @@ section,
     }
 
     h1 {
-        font-size: 2.5rem;
-        line-height: 3.5rem;
+        font-size: 2.2rem;
+        line-height: 3.2rem;
     }
     
     h2 {
-        font-size: 1.8rem;
-        line-height: 2.8rem;
+        font-size: 1.7rem;
+        line-height: 2.7rem;
     }
     
     h3 {
-        font-size: 1.6rem;
-        line-height: 2rem;
+        font-size: 1.5rem;
+        line-height: 1.9rem;
     }
     
     h4 {
-        font-size: 1.4rem;
-        line-height: 1.8rem;
+        font-size: 1.3rem;
+        line-height: 1.7rem;
     }
     
     h5 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     p.b-text {
         font-size: 1rem;
+    }
+
+    .point-title img {
+        width:0.55rem;
+        height:0.55rem;
     }
 
     #about .section-grid,
@@ -1318,22 +1325,25 @@ section,
     #main {
         .main-text {
             padding: 12rem 2rem 8rem;
+
+            >img {
+                width: 5rem;
+                padding: 0.8rem;
+            }
+
             >div {
                 .text-obj {
-                    span,p {
+                    span{
                         font-size: max(3.2rem,9vw);
-                        line-height: max(3.6rem,10vw);
+                    }
+                    img {
+                        width:9vw;
                     }
                 }
                 strong {
-                    font-size: max(1.2rem, 3vw);
-                    line-height: max(1.6rem, 4vw);
+                    font-size: 1.2rem;
+                    line-height: 1.6rem;
                 }
-            }
-
-            img {
-                width: 5rem;
-                padding: 0.8rem;
             }
         }
 
@@ -1411,8 +1421,6 @@ section,
 
 // 576px 이하
 @include mini {
-
-
     h1 {
         font-size: 2.2rem;
         line-height: 3.2rem;
@@ -1422,7 +1430,7 @@ section,
     #design,
     #project,
     #contact .section-grid {
-        padding: 5rem 1rem;
+        padding: 6rem 1rem;
     }
 
     #nav,
@@ -1432,34 +1440,45 @@ section,
 
     #main .main-text {
         padding: 12rem 1rem 6rem;
+
+        >img {
+            width:4rem;
+            padding: 0.6rem;
+        }
+        
         > div {
             .text-obj {
-                span,p {
-                    // font-size: 3rem;
-                    // line-height: 3.6rem;
+                span{
+                    font-size: max(2.8rem, 9vw);
                 }
             }
             strong {
                 width:100%;
-                max-width: 28rem;
+                max-width: 26rem;
+                font-size: max(1.1rem, 3.2vw);
+                line-height: max(1.5rem, 4.2vw);
+            }
+            img {
+                width: max(3rem, 9vw);
             }
         }
-        img {
-            width:4rem;
-            padding: 0.6rem;
-        }
+
     }
 
     #about {
         .about-img {
-            height:45vh;
             margin-bottom:2rem;
-            .about-imgBackground {
+            min-height: 25rem;
+            height: 45vh;
+
+            .about-imgBackground,
+            img {
                 height: calc(100% - 1rem);
+                width:calc(100% - 1rem);
+                max-width: 22rem;
             }
 
             img {
-                height: calc(100% - 1rem);
                 transform: translateY(1rem);
                 left: 1rem;
                 object-position: top;
@@ -1523,6 +1542,13 @@ section,
         h2 {
             font-size: 1.6rem;
             line-height: 2.2rem;
+        }
+    }
+
+    #top-button {
+        right:1rem;
+        &.top-active {
+            bottom:1rem;
         }
     }
 }
