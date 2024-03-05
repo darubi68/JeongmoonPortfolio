@@ -128,7 +128,7 @@ img.point-rect {
     right: 0;
     z-index: 100;
     background-color: #fff;
-    @include transition;
+    @include transition($duration:1s);
     opacity: 0;
     @include flex;
     z-index: 950;
@@ -594,44 +594,11 @@ section,
     }
 
     .design-list {
-        @include transition(height);
-        overflow: hidden;
-
-        ul {
-            @include col-grid(repeat(3, 1fr), 0 3rem);
-            @include transition(opacity);
-
-            &.all {
-                @for $i from 1 through 2 {
-                    li[data-num='#{$i}'] {
-                        display: block;
-                    }
-                }
-            }
-
-            &.web {
-                li[data-num='1'] {
-                    display: block;
-                }
-
-                li[data-num='2'] {
-                    display: none;
-                }
-            }
-
-            &.rep {
-                li[data-num='1'] {
-                    display: none;
-                }
-
-                li[data-num='2'] {
-                    display: block;
-                }
-            }
-
-            >li {
+        ul.swiper-wrapper {
+            li.swiper-slide {
                 cursor: pointer;
                 padding-bottom: 3rem;
+                opacity: 5;
 
                 &:not(.inactive):hover img {
                     transform: scale(1.2);
@@ -643,7 +610,7 @@ section,
                 }
 
                 .design-thumbnail {
-                    height: 15rem;
+                    height: 16rem;
                     border-radius: 1rem;
                     overflow: hidden;
 
@@ -656,19 +623,16 @@ section,
                     }
                 }
 
-                //1.2+0.3+1.4 = 2.9rem
                 h5 {
                     padding: 1.2rem 0 0.3rem 0;
                 }
             }
         }
-    }
-
-    .design-btn {
-        @include flex;
-
-        button {
-            @include button($title-color, $back-color);
+        .swiper-pagination {
+            bottom:0;
+            .swiper-pagination-bullet-active {
+                background-color: $primery-1;
+            }
         }
     }
 }
@@ -1138,16 +1102,6 @@ section,
         }
     }
 
-    #design {
-        .design-list ul {
-            @include col-grid(repeat(2, 1fr), 0 2rem);
-        }
-
-        .design-btn {
-            margin-top: 0rem;
-        }
-    }
-
     #project.full .project-card {
         padding: 4rem 2rem;
     }
@@ -1450,7 +1404,7 @@ section,
         &#inactive-modal .modal-container {
             max-width: 20rem;
 
-            .modal-content .modal-body >div {
+            .modal-content .modal-body>div {
                 strong {
                     font-size: 1.4rem;
                     padding-bottom: 0.5rem;
@@ -1566,10 +1520,6 @@ section,
     #design {
         .design-head {
             margin-bottom: 2rem;
-        }
-
-        .design-list ul {
-            display: block;
         }
     }
 

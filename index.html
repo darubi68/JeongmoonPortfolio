@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
     <title>Jeongmoon Han</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css"
-        integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
@@ -151,21 +149,10 @@
                         <h1>Design</h1>
                         <img src="./assets/img/point.png" alt="디자인 포인트 이미지">
                     </div>
-                    <ul class="design-tab">
-                        <li id="all" class="active">
-                            <p>all</p>
-                        </li>
-                        <li id="web">
-                            <p>web</p>
-                        </li>
-                        <li id="res">
-                            <p>responsive</p>
-                        </li>
-                    </ul>
                 </article>
-                <article class="design-list">
-                    <ul class="all">
-                        <li data-num="1" data-img="bang">
+                <article class="swiper design-list">
+                    <ul id="all" class="swiper-wrapper">
+                        <li class="swiper-slide" data-img="bang">
                             <div class="design-thumbnail">
                                 <img src="./assets/img/design/1.png" alt="">
                             </div>
@@ -180,7 +167,7 @@
                                 <span>부드러운</span>
                             </div>
                         </li>
-                        <li data-num="2" data-img="yunjac">
+                        <li class="swiper-slide" data-img="yunjac">
                             <div class="design-thumbnail">
                                 <img src="./assets/img/design/2.png" alt="">
                             </div>
@@ -193,7 +180,7 @@
                                 <span>스크롤이벤트</span>
                             </div>
                         </li>
-                        <li data-num="1" class="inactive">
+                        <li class="swiper-slide inactive">
                             <div class="design-thumbnail">
                                 <img src="./assets/img/design/3.jpg" alt="">
                             </div>
@@ -206,7 +193,7 @@
                                 <span>슬라이드</span>
                             </div>
                         </li>
-                        <li data-num="1" data-img="bang">
+                        <li class="swiper-slide" data-img="bang">
                             <div class="design-thumbnail">
                                 <img src="./assets/img/design/1.png" alt="">
                             </div>
@@ -221,7 +208,7 @@
                                 <span>부드러운</span>
                             </div>
                         </li>
-                        <li data-num="2" data-img="yunjac">
+                        <li class="swiper-slide" data-img="yunjac">
                             <div class="design-thumbnail">
                                 <img src="./assets/img/design/2.png" alt="">
                             </div>
@@ -234,10 +221,36 @@
                                 <span>스크롤이벤트</span>
                             </div>
                         </li>
+                        <li class="swiper-slide inactive">
+                            <div class="design-thumbnail">
+                                <img src="./assets/img/design/3.jpg" alt="">
+                            </div>
+                            <h5>와이즈웨딩 리뉴얼 웹사이트</h5>
+                            <div class="design-keyword">
+                                <span>웹</span>
+                                <span>·</span>
+                                <span>메인</span>
+                                <span>·</span>
+                                <span>슬라이드</span>
+                            </div>
+                        </li>
+                        <li class="swiper-slide" data-img="bang">
+                            <div class="design-thumbnail">
+                                <img src="./assets/img/design/1.png" alt="">
+                            </div>
+                            <h5>뱅앤올룹슨 리뉴얼 웹사이트</h5>
+                            <div class="design-keyword">
+                                <span>웹</span>
+                                <span>·</span>
+                                <span>메인</span>
+                                <span>·</span>
+                                <span>서브</span>
+                                <span>·</span>
+                                <span>부드러운</span>
+                            </div>
+                        </li>
                     </ul>
-                </article>
-                <article class="design-btn">
-                    <button type="button" id="design-openBtn">view more</button>
+                    <div class="swiper-pagination"></div>
                 </article>
             </div>
         </section>
@@ -539,8 +552,9 @@
     </footer>
 
     <!-- <script type="text/javascript" src="./assets/js/scrooth.js"></script> -->
-    <script type="text/javascript" src="./assets/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="./assets/js/index.js"></script>
     <script>
         AOS.init();
     </script>

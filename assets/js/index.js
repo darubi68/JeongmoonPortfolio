@@ -62,91 +62,52 @@ projectSwitch.addEventListener('change', () => projectChange(projectSwitch.check
 /* ---------- 프로젝트섹션 end ---------- */
 
 
-const designList = document.querySelector('.design-list');
-const designBtn = document.getElementById('design-openBtn');
-const designTab = document.querySelectorAll('.design-tab li');
-const tabContent = document.querySelector('.design-list > ul');
 const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 
-let tabHeight = tabContentLi[0].offsetHeight;
-
-// 탭 콘텐츠 변경에 따른 동적 높이값 조정을 위해 따로 관리
-function designMaxHeight() {
-    designList.style.height = `${designList.scrollHeight}px`;
-}
-
-function designMinHeight() {
-    designList.style.height = `${tabHeight}px`;
-}
-
-// 디자인 더보기 활성화
-let designView = [false, false, false];
-let tabNum = 0;
-
-function designOpen(route) {
-    if (route === 'tabChange') {
-        if (!designView[tabNum]) {
-            designMinHeight();
-            designBtn.innerHTML = 'view more';
-        } else {
-            designMaxHeight();
-            designBtn.innerHTML = 'close';
-        }
-    } else {
-        if (!designView[tabNum]) {
-            if(designList.scrollHeight === designList.offsetHeight) return false;
-            designMaxHeight();
-            designBtn.innerHTML = 'close';
-            designView[tabNum] = true;
-        } else {
-            designMinHeight();
-            designBtn.innerHTML = 'view more';
-            designView[tabNum] = false;
-            document.getElementById('design').scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    }
-}
-
-designBtn.addEventListener('click', () => {
-    designOpen('click');
+tabContentLi.forEach(e => {
+    e.addEventListener('click', () => {
+        modalOpen(e);
+    })
 });
 
-// 디자인 탭 메뉴에 따른 콘텐츠 변경
-function tabContentChang(idx) {
-    if (tabNum === idx) return false;
-
-    tabNum = idx;
-    tabContent.style.opacity = 0;
-
-    tabContent.addEventListener('transitionend', (e) => {
-        if (idx === 0) {
-            tabContent.className = 'all';
-        } else if (idx === 1) {
-            tabContent.className = 'web';
-        } else {
-            tabContent.className = 'rep';
+let swiper = new Swiper(".design-list", {
+    // mousewheel: true,    
+    slidesPerView: '1',
+    centeredSlides: true,
+    spaceBetween: 10,
+    grabCursor: true,
+    // loop: true,
+    speed: 300,
+    pagination: {
+        el: ".design-list .swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+    },
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+    breakpoints: {
+        768: {
+            slidesPerView: '2',
+            spaceBetween: 30,
+        },
+        992: {
+            slidesPerView: '2',
+            spaceBetween: 30,
+        },
+        1200: {
+            slidesPerView: '3',
+            spaceBetween: 40,
         }
-        designOpen('tabChange');
-        tabContent.style.opacity = 1;
-    });
-}
-
-// 디자인 탭 이벤트
-designTab.forEach((e, idx) => {
-    e.addEventListener('click', function (e) {
-        e.preventDefault();
-        for (let i = 0; i < designTab.length; i++) {
-            designTab[i].classList.remove('active');
-        }
-        tabContentChang(idx);
-        this.classList.add('active');
-    })
-})
+    },
+});
 
 /* ---------- 디자인섹션 end ---------- */
 
+
+const img = document.querySelector('.about-img');
+const text = document.querySelectorAll('.about-text > *');
 
 function aboutLayoutSet(value) {
     if (value === 'grid') {
@@ -196,12 +157,6 @@ function mainRolling() {
             clone.classList.add('clone');
         }
     }
-
-    document.body.classList.remove('before-load');
-    // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
-    loading.addEventListener('transitionend', (e) => {
-        document.body.removeChild(e.target);
-    });
 }
 
 // 메인 이미지 롤링 셋팅
@@ -212,6 +167,7 @@ function mainSetLayout() {
 }
 
 /* ---------- 메인 end ---------- */
+
 
 const nav = document.getElementById("nav");
 const header = document.getElementById("header");
@@ -273,7 +229,7 @@ const modalCloseBtn = document.querySelectorAll('.modal-close');
 function modalOpen(e) {
     document.body.classList.add('not-scroll');
 
-    if (e.className) {
+    if (e.classList.contains('inactive')) {
         inactiveModal.classList.add('modal-show');
         inactiveModal.classList.remove('modal-hide');
     } else {
@@ -298,20 +254,11 @@ modalCloseBtn.forEach(e => {
     })
 });
 
-tabContentLi.forEach(e => {
-    e.addEventListener('click', () => {
-        modalOpen(e);
-    })
-});
-
 /* ---------- 모달 end ---------- */
 
 
 
 const loading = document.querySelector('.loading');
-const wrapper = document.querySelector('.wrapper');
-const img = document.querySelector('.about-img');
-const text = document.querySelectorAll('.about-text > *');
 
 window.addEventListener('load', () => {
     let vh = window.innerHeight * 0.01;
@@ -319,7 +266,6 @@ window.addEventListener('load', () => {
 
     mainSetLayout();
     mainRolling();
-    designMinHeight();
 
     // 992px 이하일때
     if (matchMedia("screen and (max-width: 992px)").matches) {
@@ -339,14 +285,17 @@ window.addEventListener('load', () => {
 
     window.addEventListener('resize', () => {
         mainSetLayout();
-        designMinHeight();
-
-        tabHeight = tabContentLi[0].offsetHeight;
 
         if (matchMedia("screen and (max-width: 992px)").matches) {
             aboutLayoutSet('grid');
         } else {
             aboutLayoutSet('full');
         }
+    });
+
+    document.body.classList.remove('before-load');
+    // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
+    loading.addEventListener('transitionend', (e) => {
+        document.body.removeChild(e.target);
     });
 });
