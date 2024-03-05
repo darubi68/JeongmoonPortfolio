@@ -68,13 +68,15 @@ const designTab = document.querySelectorAll('.design-tab li');
 const tabContent = document.querySelector('.design-list > ul');
 const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 
+let tabHeight = tabContentLi[0].offsetHeight;
+
 // 탭 콘텐츠 변경에 따른 동적 높이값 조정을 위해 따로 관리
 function designMaxHeight() {
     designList.style.height = `${designList.scrollHeight}px`;
 }
 
 function designMinHeight() {
-    designList.style.height = `${tabContentLi[0].offsetHeight-1}px`;
+    designList.style.height = `${tabHeight}px`;
 }
 
 // 디자인 더보기 활성화
@@ -92,6 +94,7 @@ function designOpen(route) {
         }
     } else {
         if (!designView[tabNum]) {
+            if(designList.scrollHeight === designList.offsetHeight) return false;
             designMaxHeight();
             designBtn.innerHTML = 'close';
             designView[tabNum] = true;
@@ -99,6 +102,9 @@ function designOpen(route) {
             designMinHeight();
             designBtn.innerHTML = 'view more';
             designView[tabNum] = false;
+            document.getElementById('design').scrollIntoView({
+                behavior: 'smooth'
+            });
         }
     }
 }
@@ -112,7 +118,6 @@ function tabContentChang(idx) {
     if (tabNum === idx) return false;
 
     tabNum = idx;
-
     tabContent.style.opacity = 0;
 
     tabContent.addEventListener('transitionend', (e) => {
@@ -191,11 +196,13 @@ function mainRolling() {
             clone.classList.add('clone');
         }
     }
-    loadingSet();
 }
 
 // 메인 이미지 롤링 셋팅
 function mainSetLayout() {
+    let vh = window.innerHeight * 0.01;
+    document.getElementById('main').style.height = `calc(${vh}px * 100)`;
+
     const b = window.innerHeight * Math.cos(55 * Math.PI / 180);
     const a = (window.innerWidth / 2) * Math.cos(35 * Math.PI / 180);
     document.querySelector('.main-imgGrid').style.width = `${a+b}px`;
@@ -303,22 +310,16 @@ const wrapper = document.querySelector('.wrapper');
 const img = document.querySelector('.about-img');
 const text = document.querySelectorAll('.about-text > *');
 
-// window.addEventListener('DOMContentLoaded', function () {
-
-// });
-
-function loadingSet () {
-    document.body.classList.remove('before-load');
-    // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
-    loading.addEventListener('transitionend', (e) => {
-        document.body.removeChild(e.target);
-    });
-}
-
 window.addEventListener('load', () => {
     mainSetLayout();
     mainRolling();
     designMinHeight();
+
+    // document.body.classList.remove('before-load');
+    // // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
+    // loading.addEventListener('transitionend', (e) => {
+    //     document.body.removeChild(e.target);
+    // });
 
     // 992px 이하일때
     if (matchMedia("screen and (max-width: 992px)").matches) {
@@ -339,6 +340,8 @@ window.addEventListener('load', () => {
     window.addEventListener('resize', () => {
         mainSetLayout();
         designMinHeight();
+
+        tabHeight = tabContentLi[0].offsetHeight;
 
         if (matchMedia("screen and (max-width: 992px)").matches) {
             aboutLayoutSet('grid');
