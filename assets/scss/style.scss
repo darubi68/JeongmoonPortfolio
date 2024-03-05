@@ -131,6 +131,7 @@ img.point-rect {
     @include transition;
     opacity: 0;
     @include flex;
+    z-index: 950;
 }
 
 .loading-circle {
