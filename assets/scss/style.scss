@@ -270,6 +270,7 @@ header {
 #main {
     width: 100%;
     height: 100vh;
+    @include transition(height);
     @include flex(flex-end, center);
 
     .main-text {
