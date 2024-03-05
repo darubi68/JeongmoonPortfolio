@@ -191,6 +191,7 @@ function mainRolling() {
             clone.classList.add('clone');
         }
     }
+    loadingSet();
 }
 
 // 메인 이미지 롤링 셋팅
@@ -302,7 +303,19 @@ const wrapper = document.querySelector('.wrapper');
 const img = document.querySelector('.about-img');
 const text = document.querySelectorAll('.about-text > *');
 
-window.addEventListener('DOMContentLoaded', function () {
+// window.addEventListener('DOMContentLoaded', function () {
+
+// });
+
+function loadingSet () {
+    document.body.classList.remove('before-load');
+    // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
+    loading.addEventListener('transitionend', (e) => {
+        document.body.removeChild(e.target);
+    });
+}
+
+window.addEventListener('load', () => {
     mainSetLayout();
     mainRolling();
     designMinHeight();
@@ -314,14 +327,6 @@ window.addEventListener('DOMContentLoaded', function () {
         projectBackScroll();
         aboutLayoutSet('full');
     }
-});
-
-window.onload = function () {
-    document.body.classList.remove('before-load');
-    // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
-    loading.addEventListener('transitionend', (e) => {
-        document.body.removeChild(e.target);
-    });
 
     window.addEventListener('scroll', () => {
         navOpen();
@@ -341,8 +346,4 @@ window.onload = function () {
             aboutLayoutSet('full');
         }
     });
-}
-
-// window.addEventListener('load', () => {
-
-// });
+});
