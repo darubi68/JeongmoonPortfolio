@@ -52,7 +52,9 @@ function projectChange(check) {
             projectClassSet('grid');
         }
         projectBody.style.opacity = 1;
-    },{ once : true })
+    }, {
+        once: true
+    })
 }
 
 projectSwitch.addEventListener('change', () => projectChange(projectSwitch.checked));
@@ -142,7 +144,7 @@ designTab.forEach((e, idx) => {
 
 
 function aboutLayoutSet(value) {
-    if(value === 'grid') {
+    if (value === 'grid') {
         img.setAttribute('data-aos', 'fade-up');
         text.forEach(el => {
             el.setAttribute('data-aos', 'fade-up');
@@ -300,7 +302,7 @@ const wrapper = document.querySelector('.wrapper');
 const img = document.querySelector('.about-img');
 const text = document.querySelectorAll('.about-text > *');
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     mainSetLayout();
     mainRolling();
     designMinHeight();
@@ -314,7 +316,7 @@ window.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-window.addEventListener('load', () => {
+window.onload = function () {
     document.body.classList.remove('before-load');
     // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
     loading.addEventListener('transitionend', (e) => {
@@ -339,4 +341,8 @@ window.addEventListener('load', () => {
             aboutLayoutSet('full');
         }
     });
-});
+}
+
+// window.addEventListener('load', () => {
+
+// });
