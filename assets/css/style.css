@@ -680,7 +680,7 @@ section,
   padding-bottom: 5rem;
 }
 #about .career-card:not(:last-of-type) {
-  padding-bottom: 4rem;
+  padding-bottom: 3rem;
 }
 #about .career-card .career-listTitle {
   display: -webkit-box;
@@ -695,10 +695,15 @@ section,
   color: #94baa8;
 }
 #about .career-card ul li {
-  padding-top: 1rem;
+  padding: 1rem 0;
+}
+#about .career-card ul li:not(:first-child) {
+  border-top: 1px dashed #747474;
+  border-color: #bebebe;
+  border-color: #cde3d8;
 }
 #about .career-card ul h5 {
-  padding: 0.1rem 0 0.3rem;
+  padding: 0.2rem 0;
 }
 #about .career-card ul p {
   color: #747474;
@@ -1365,10 +1370,11 @@ section,
 .modal .icon {
   font-weight: bold;
   font-size: 2rem;
+  color: #fff;
 }
 .modal#inactive-modal .modal-container {
   position: relative;
-  max-width: 24rem;
+  max-width: 22rem;
   background-color: #f3f3f3;
   border-radius: 50%;
 }
@@ -1395,13 +1401,8 @@ section,
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.modal#inactive-modal .modal-container .modal-content .modal-head,
-.modal#inactive-modal .modal-container .modal-content .modal-footer {
-  height: 2rem;
-}
 .modal#inactive-modal .modal-container .modal-content .modal-body {
   max-width: 100%;
-  height: calc(100% - 8rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1419,6 +1420,8 @@ section,
   font-weight: 400;
   padding-bottom: 1rem;
   color: #4d8d6e;
+  font-size: 1.6rem;
+  display: block;
 }
 .modal#inactive-modal .modal-container .modal-content .modal-body > div strong span {
   font-weight: 700;
@@ -1426,18 +1429,22 @@ section,
 .modal#inactive-modal .modal-container .modal-content .modal-body > div p {
   line-height: 1.6rem;
 }
-.modal#activation-modal .modal-container {
+.modal#inactive-modal .modal-container .modal-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.modal#design-modal .modal-container {
   width: 100%;
   height: 100%;
   overflow-y: auto;
 }
-.modal#activation-modal .modal-container img {
+.modal#design-modal .modal-container img {
   width: 100%;
   display: block;
 }
-.modal#activation-modal .modal-close {
+.modal#design-modal .modal-close {
   position: absolute;
-  color: #fff;
   top: 1rem;
   right: 1rem;
 }
@@ -1601,6 +1608,12 @@ section,
   #project.grid .project-list .project-thumbnail {
     height: 16rem;
   }
+  .modal#design-modal {
+    padding: 4rem 2rem 2rem;
+  }
+  .modal#design-modal .modal-content {
+    max-width: inherit;
+  }
 }
 @media (max-width: 768px) {
   body {
@@ -1632,6 +1645,13 @@ section,
     width: 0.55rem;
     height: 0.55rem;
   }
+  #top-button {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+  #top-button .icon {
+    font-size: 1.2rem;
+  }
   #about .section-grid,
   #design,
   #project,
@@ -1653,7 +1673,7 @@ section,
     font-size: max(3.2rem, 9vw);
   }
   #main .main-text > div .text-obj img {
-    width: 9vw;
+    width: max(3rem, 9vw);
   }
   #main .main-text > div strong {
     font-size: 1.2rem;
@@ -1676,7 +1696,7 @@ section,
     padding-bottom: 4rem;
   }
   #about .career-card ul li {
-    padding-top: 0.6rem;
+    padding: 0.5rem 0;
   }
   #about .career-card:not(:last-of-type) {
     padding-bottom: 3rem;
@@ -1700,18 +1720,30 @@ section,
   #contact .contact-head h2 {
     margin-bottom: 1rem;
   }
-  #top-button {
-    width: 2.4rem;
-    height: 2.4rem;
+  .modal {
+    padding: 2rem;
   }
-  #top-button .icon {
-    font-size: 1.2rem;
+  .modal#inactive-modal .modal-container {
+    max-width: 20rem;
+  }
+  .modal#inactive-modal .modal-container .modal-content .modal-body > div strong {
+    font-size: 1.4rem;
+    padding-bottom: 0.5rem;
+  }
+  .modal#inactive-modal .modal-container .modal-content .modal-body > div p {
+    line-height: 1.4rem;
   }
 }
 @media (max-width: 576px) {
   h1 {
     font-size: 2.2rem;
     line-height: 3.2rem;
+  }
+  #top-button {
+    right: 1rem;
+  }
+  #top-button.top-active {
+    bottom: 1rem;
   }
   #about .section-grid,
   #design,
@@ -1767,9 +1799,6 @@ section,
   #about .about-text > p:last-of-type {
     padding-bottom: 3rem;
   }
-  #about .career-card ul li {
-    padding-top: 0.7rem;
-  }
   #about .career-card:not(:last-of-type) {
     padding-bottom: 2rem;
   }
@@ -1781,12 +1810,6 @@ section,
   }
   #project .project-head {
     margin-bottom: 2rem;
-  }
-  #project.grid .project-list li:not(:last-of-type) {
-    padding-bottom: 2rem;
-  }
-  #project.grid .project-list .project-content > div p {
-    padding-bottom: 0.6rem;
   }
   #contact.grid .contact-head h1 {
     font-size: 2.6rem;
@@ -1800,10 +1823,10 @@ section,
     font-size: 1.6rem;
     line-height: 2.2rem;
   }
-  #top-button {
-    right: 1rem;
+  .modal {
+    padding: 1rem;
   }
-  #top-button.top-active {
-    bottom: 1rem;
+  .modal#design-modal {
+    padding: 4rem 1rem 1rem;
   }
 }

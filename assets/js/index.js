@@ -256,8 +256,8 @@ topButton.addEventListener('click', () => {
 
 // 모달 open/close
 const inactiveModal = document.getElementById('inactive-modal');
-const activationModal = document.getElementById('activation-modal');
-const activationImg = document.querySelector('#activation-modal .modal-container');
+const activationModal = document.getElementById('design-modal');
+const activationImg = document.querySelector('#design-modal .modal-container');
 const modalCloseBtn = document.querySelectorAll('.modal-close');
 
 function modalOpen(e) {
