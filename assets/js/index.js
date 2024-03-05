@@ -196,6 +196,9 @@ function mainRolling() {
 
 // 메인 이미지 롤링 셋팅
 function mainSetLayout() {
+    let vh = window.innerHeight * 0.01;
+	document.getElementById('main').style.height = `calc(${vh}px * 100)`;
+
     const b = window.innerHeight * Math.cos(55 * Math.PI / 180);
     const a = (window.innerWidth / 2) * Math.cos(35 * Math.PI / 180);
     document.querySelector('.main-imgGrid').style.width = `${a+b}px`;
