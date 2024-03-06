@@ -512,12 +512,9 @@ section,
 
         ul {
             li {
-                padding: 1rem 0;
-
-                &:not(:first-child) {
-                    border-top: $dashed;
-                    border-color: $back-subColor;
-                    border-color: $primery-4;
+                padding: 0.6rem 0;
+                &:first-of-type {
+                    padding-top:1rem;
                 }
             }
 
@@ -1365,7 +1362,10 @@ section,
 
         .career-card {
             ul li {
-                padding: 0.5rem 0;
+                padding: 0.4rem 0;
+                &:first-of-type {
+                    padding-top:0.6rem;
+                }
             }
 
             &:not(:last-of-type) {

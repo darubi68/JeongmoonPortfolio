@@ -241,9 +241,8 @@ function modalClose(e) {
     e.closest('.modal').classList.remove('modal-show');
     setTimeout(() => {
         designModal.classList.add('before-load');
-        designLoading.style.display = 'block';
+        designLoading.style.display = 'flex';
         designModalContainer.replaceChildren();
-
     }, 400);
 }
 

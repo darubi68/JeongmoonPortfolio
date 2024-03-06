@@ -696,12 +696,10 @@ section,
   color: #94baa8;
 }
 #about .career-card ul li {
-  padding: 1rem 0;
+  padding: 0.6rem 0;
 }
-#about .career-card ul li:not(:first-child) {
-  border-top: 1px dashed #747474;
-  border-color: #bebebe;
-  border-color: #cde3d8;
+#about .career-card ul li:first-of-type {
+  padding-top: 1rem;
 }
 #about .career-card ul h5 {
   padding: 0.2rem 0;
@@ -1633,7 +1631,10 @@ section,
     padding-bottom: 4rem;
   }
   #about .career-card ul li {
-    padding: 0.5rem 0;
+    padding: 0.4rem 0;
+  }
+  #about .career-card ul li:first-of-type {
+    padding-top: 0.6rem;
   }
   #about .career-card:not(:last-of-type) {
     padding-bottom: 3rem;
