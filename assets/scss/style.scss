@@ -379,22 +379,22 @@ header {
         .main-imgBox {
             & .main-original {
                 animation: rolling-start 1s ease-out both,
-                    rolling1 60s linear 1.5s infinite;
+                    rolling1 25s linear 1s infinite;
             }
 
             & .main-clone {
                 animation: rolling-start 1s ease-out both,
-                    rolling2 60s linear 1.5s infinite;
+                    rolling2 25s linear 1s infinite;
             }
 
             & .original {
-                animation: rolling-start 1s ease-out 0.5s both,
-                    rolling1 60s linear 2s infinite;
+                animation: rolling-start 1s ease-out both,
+                    rolling1 25s linear 2s infinite;
             }
 
             & .clone {
-                animation: rolling-start 1s ease-out 0.5s both,
-                    rolling2 60s linear 2s infinite;
+                animation: rolling-start 1s ease-out both,
+                    rolling2 25s linear 2s infinite;
             }
 
             img {
@@ -1160,24 +1160,24 @@ section,
             width: 100%;
 
             .main-imgGrid {
-                left: 0;
+                left: -100px;
             }
 
             .main-imgBox {
                 & .main-original {
-                    animation: rolling1 50s linear infinite;
+                    animation: rolling1 25s linear infinite;
                 }
 
                 & .main-clone {
-                    animation: rolling2 50s linear infinite;
+                    animation: rolling2 25s linear infinite;
                 }
 
                 & .original {
-                    animation: rolling1 50s linear 0.5s infinite;
+                    animation: rolling1 25s linear 1s infinite;
                 }
 
                 & .clone {
-                    animation: rolling2 50s linear 0.5s infinite;
+                    animation: rolling2 25s linear 1s infinite;
                 }
             }
         }
@@ -1332,10 +1332,6 @@ section,
                 }
             }
         }
-
-        .main-img {
-            border-radius: 0 0 0 5rem;
-        }
     }
 
     #about {
@@ -1452,7 +1448,7 @@ section,
     }
 
     #main .main-text {
-        padding: 12rem 1rem 6rem;
+        padding: 12rem 1rem 8rem;
 
         >img {
             width: 4rem;

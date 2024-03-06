@@ -129,7 +129,7 @@ function aboutLayoutSet(value) {
 
 
 // 메인 이미지 롤링 애니메이션
-const imgList = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+const imgList = ['1', '2', '3', '4', '5'];
 
 function mainRolling() {
 
@@ -267,7 +267,7 @@ window.addEventListener('load', () => {
     mainSetLayout();
     mainRolling();
 
-    // 992px 이하일때
+    // width 992px 이하일때
     if (matchMedia("screen and (max-width: 992px)").matches) {
         aboutLayoutSet('grid');
     } else {
