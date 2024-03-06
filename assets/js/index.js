@@ -76,7 +76,7 @@ let swiper = new Swiper(".design-list", {
     slidesPerView: '1',
     centeredSlides: true,
     spaceBetween: 10,
-    grabCursor: true,
+    // grabCursor: true,
     // loop: true,
     speed: 300,
     pagination: {
@@ -87,6 +87,7 @@ let swiper = new Swiper(".design-list", {
     autoplay: {
         delay: 2000,
         disableOnInteraction: false,
+        
     },
     breakpoints: {
         768: {
@@ -213,13 +214,14 @@ function modalOpen(e) {
         inactiveModal.classList.add('modal-show');
         inactiveModal.classList.remove('modal-hide');
     } else if (e.closest('.design-list')) {
+        swiper.autoplay.stop();
         const img = document.createElement('img');
         img.src = `./assets/img/design/${e.dataset.img}.jpg`;
         designModalContainer.appendChild(img);
         designModal.classList.remove('modal-hide');
         designModal.classList.add('modal-show');
         img.onload = () => {
-            modalLoading();
+            // modalLoading();
         }
     }
 
@@ -233,6 +235,7 @@ function modalOpen(e) {
 
 function modalClose(e) {
     document.body.classList.remove('not-scroll');
+    swiper.autoplay.start();
     e.closest('.modal').classList.add('modal-hide');
     e.closest('.modal').classList.remove('modal-show');
     setTimeout(() => {
