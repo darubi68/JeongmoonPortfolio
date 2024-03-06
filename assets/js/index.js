@@ -217,7 +217,7 @@ function modalOpen(e) {
         designModal.classList.remove('modal-hide');
         designModal.classList.add('modal-show');
         img.onload = () => {
-            modalLoading();
+            // modalLoading();
         }
     }
 
