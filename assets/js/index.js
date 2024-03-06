@@ -130,9 +130,10 @@ function aboutLayoutSet(value) {
 
 /* -------------------- main -------------------- */
 //메인 높이 값 설정
-function mainVh() {
+function vhSet() {
     let vh = window.innerHeight * 0.01;
     document.getElementById('main').style.height = `calc(${vh}px * 100)`;
+    document.querySelector('.modal').style.height = `calc(${vh}px * 100)`;
 }
 
 // 메인 이미지 롤링 셋팅
@@ -191,7 +192,7 @@ topButton.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
-    mainVh();
+    vhSet();
 })
 
 
@@ -253,7 +254,7 @@ modalCloseBtn.forEach(e => {
 const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
-    mainVh();
+    vhSet();
     mainSetLayout();
 
     function mainImaLoad() {
@@ -289,7 +290,7 @@ window.addEventListener('load', () => {
     window.addEventListener('orientationchange', () => {});
 
     window.addEventListener('resize', () => {
-        mainVh();
+        vhSet();
         mainSetLayout();
 
         if (matchMedia("screen and (max-width: 992px)").matches) {
