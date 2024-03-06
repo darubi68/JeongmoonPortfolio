@@ -128,7 +128,7 @@ img.point-rect {
     right: 0;
     z-index: 100;
     background-color: #fff;
-    @include transition($duration:1s);
+    @include transition();
     opacity: 0;
     @include flex;
     z-index: 950;

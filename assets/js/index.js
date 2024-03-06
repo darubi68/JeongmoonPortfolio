@@ -239,11 +239,12 @@ function modalOpen(e) {
         designModalContainer.appendChild(img);
         designModal.classList.remove('modal-hide');
         designModal.classList.add('modal-show');
-        modalLoading();
+        img.onload = () => {
+            modalLoading();
+        }
     }
 
     function modalLoading() {
-        console.log('??');
         designModal.classList.remove('before-load');
         designLoading.addEventListener('transitionend', (e) => {
             designModal.removeChild(e.target);
