@@ -350,8 +350,7 @@ header > div h5 {
 
 #main {
   width: 100%;
-  min-height: 100svh;
-  max-height: 100vh;
+  height: 100svh;
   -webkit-transition: height 0.3s ease;
   transition: height 0.3s ease;
   display: -webkit-box;

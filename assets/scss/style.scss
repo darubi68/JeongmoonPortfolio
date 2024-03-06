@@ -266,8 +266,7 @@ header {
 
 #main {
     width: 100%;
-    min-height: 100svh;
-    max-height: 100vh;
+    height:100svh;
     @include transition(height);
     @include flex(flex-end, center);
 

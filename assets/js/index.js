@@ -1,3 +1,4 @@
+/* -------------------- project -------------------- */
 // full&grid 변경 이벤트
 const contact = document.getElementById('contact');
 
@@ -59,9 +60,9 @@ function projectChange(check) {
 
 projectSwitch.addEventListener('change', () => projectChange(projectSwitch.checked));
 
-/* ---------- 프로젝트섹션 end ---------- */
 
 
+/* -------------------- design -------------------- */
 const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 
 tabContentLi.forEach(e => {
@@ -103,9 +104,9 @@ let swiper = new Swiper(".design-list", {
     },
 });
 
-/* ---------- 디자인섹션 end ---------- */
 
 
+/* -------------------- about -------------------- */
 const img = document.querySelector('.about-img');
 const text = document.querySelectorAll('.about-text > *');
 
@@ -125,38 +126,13 @@ function aboutLayoutSet(value) {
     }
 }
 
-/* ---------- 어바웃 반응형 레이아웃 end ---------- */
 
 
-// 메인 이미지 롤링 애니메이션
-const imgList = ['1', '2', '3', '4', '5'];
-
-function mainRolling() {
-
-    const lane = document.querySelectorAll('.main-imgBox');
-
-    for (let i = 0; i < lane.length; i++) {
-        const randomArray = imgList.sort(() => 0.5 - Math.random());
-        const roller = document.createElement('div');
-
-        randomArray.forEach(num => {
-            const img = document.createElement('img');
-            img.src = `./assets/img/white/${num}.png`;
-            roller.appendChild(img);
-        })
-
-        const clone = roller.cloneNode(true);
-        lane[i].appendChild(roller);
-        lane[i].appendChild(clone);
-
-        if (i === 1) {
-            roller.classList.add('main-original');
-            clone.classList.add('main-clone');
-        } else {
-            roller.classList.add('original');
-            clone.classList.add('clone');
-        }
-    }
+/* -------------------- main -------------------- */
+//메인 높이 값 설정
+function mainVh() {
+    let vh = window.innerHeight * 0.01;
+    document.getElementById('main').style.height = `calc(${vh}px * 100)`;
 }
 
 // 메인 이미지 롤링 셋팅
@@ -166,9 +142,9 @@ function mainSetLayout() {
     document.querySelector('.main-imgGrid').style.width = `${a+b}px`;
 }
 
-/* ---------- 메인 end ---------- */
 
 
+/* -------------------- nav header -------------------- */
 const nav = document.getElementById("nav");
 const header = document.getElementById("header");
 const navList = document.querySelectorAll("#nav ul li");
@@ -196,9 +172,9 @@ function navOpen() {
     prevScroll = currentScroll;
 }
 
-/* ---------- nav,header end ---------- */
 
 
+/* -------------------- top button -------------------- */
 const topButton = document.getElementById('top-button');
 
 // 탑버튼 이벤트
@@ -215,11 +191,12 @@ topButton.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
+    mainVh();
 })
 
-/* ---------- 탑버튼 end ---------- */
 
 
+/* -------------------- modal -------------------- */
 // 모달 open/close
 const inactiveModal = document.getElementById('inactive-modal');
 const designModal = document.getElementById('design-modal');
@@ -270,18 +247,30 @@ modalCloseBtn.forEach(e => {
     })
 });
 
-/* ---------- 모달 end ---------- */
 
 
-
+/* -------------------- window -------------------- */
 const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
-    let vh = window.innerHeight * 0.01;
-    document.getElementById('main').style.height = `calc(${vh}px * 100)`;
-
+    mainVh();
     mainSetLayout();
-    // mainRolling();
+
+    function mainImaLoad() {
+        const lala = document.querySelectorAll('.main-imgGrid img');
+        let value
+        lala.forEach(el => {
+            value = el.complete && el.naturalWidth !== 0;
+        })
+        return value
+    }
+
+    if (mainImaLoad()) {
+        document.body.classList.remove('before-load');
+        bodyLoading.addEventListener('transitionend', (e) => {
+            document.body.removeChild(e.target);
+        });
+    }
 
     // width 992px 이하일때
     if (matchMedia("screen and (max-width: 992px)").matches) {
@@ -300,6 +289,7 @@ window.addEventListener('load', () => {
     window.addEventListener('orientationchange', () => {});
 
     window.addEventListener('resize', () => {
+        mainVh();
         mainSetLayout();
 
         if (matchMedia("screen and (max-width: 992px)").matches) {
@@ -308,20 +298,4 @@ window.addEventListener('load', () => {
             aboutLayoutSet('full');
         }
     });
-
-    function test() {
-        const lala = document.querySelectorAll('.main-imgGrid img');
-        let value
-        lala.forEach(el => {
-            value = el.complete && el.naturalWidth !== 0;
-        })
-        return value
-    }
-
-    if (test()) {
-        document.body.classList.remove('before-load');
-        bodyLoading.addEventListener('transitionend', (e) => {
-            document.body.removeChild(e.target);
-        });
-    }
 });
