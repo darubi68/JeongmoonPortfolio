@@ -133,7 +133,7 @@ function aboutLayoutSet(value) {
 function vhSet() {
     let vh = window.innerHeight * 0.01;
     document.getElementById('main').style.height = `calc(${vh}px * 100)`;
-    document.querySelector('.modal').style.height = `calc(${vh}px * 100)`;
+    modal.forEach(el => { el.style.height = `calc(${vh}px * 100)` });
 }
 
 // 메인 이미지 롤링 셋팅
@@ -199,6 +199,7 @@ topButton.addEventListener('click', () => {
 
 /* -------------------- modal -------------------- */
 // 모달 open/close
+const modal = document.querySelectorAll('.modal');
 const inactiveModal = document.getElementById('inactive-modal');
 const designModal = document.getElementById('design-modal');
 const designModalContainer = document.querySelector('#design-modal .modal-container');
@@ -218,7 +219,7 @@ function modalOpen(e) {
         designModal.classList.remove('modal-hide');
         designModal.classList.add('modal-show');
         img.onload = () => {
-            // modalLoading();
+            modalLoading();
         }
     }
 
