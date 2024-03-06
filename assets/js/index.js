@@ -67,6 +67,7 @@ const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 
 tabContentLi.forEach(e => {
     e.addEventListener('click', () => {
+        vhSet();
         modalOpen(e);
     })
 });
@@ -221,7 +222,7 @@ function modalOpen(e) {
         designModal.classList.remove('modal-hide');
         designModal.classList.add('modal-show');
         img.onload = () => {
-            // modalLoading();
+            modalLoading();
         }
     }
 
@@ -294,7 +295,6 @@ window.addEventListener('load', () => {
     window.addEventListener('orientationchange', () => {});
 
     window.addEventListener('resize', () => {
-        vhSet();
         mainSetLayout();
 
         if (matchMedia("screen and (max-width: 992px)").matches) {
