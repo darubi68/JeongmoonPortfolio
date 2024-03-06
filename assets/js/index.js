@@ -181,7 +181,7 @@ function mainRolling() {
                 clone.classList.add('clone');
             }
             resolve();
-            console.log(lane)
+            console.log(lane);
         })
     }
 
@@ -377,7 +377,7 @@ window.addEventListener('load', () => {
     document.getElementById('main').style.height = `calc(${vh}px * 100)`;
 
     mainSetLayout();
-    mainRolling();
+    // mainRolling();
 
     // width 992px 이하일때
     if (matchMedia("screen and (max-width: 992px)").matches) {
@@ -403,5 +403,10 @@ window.addEventListener('load', () => {
         } else {
             aboutLayoutSet('full');
         }
+    });
+
+    document.body.classList.remove('before-load');
+    bodyLoading.addEventListener('transitionend', (e) => {
+        document.body.removeChild(e.target);
     });
 });
