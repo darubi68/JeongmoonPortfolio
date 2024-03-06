@@ -86,7 +86,7 @@ let swiper = new Swiper(".design-list", {
     autoplay: {
         delay: 2000,
         disableOnInteraction: false,
-      },
+    },
     breakpoints: {
         768: {
             slidesPerView: '2',
@@ -222,8 +222,9 @@ topButton.addEventListener('click', () => {
 
 // 모달 open/close
 const inactiveModal = document.getElementById('inactive-modal');
-const activationModal = document.getElementById('design-modal');
-const activationImg = document.querySelector('#design-modal .modal-container');
+const designModal = document.getElementById('design-modal');
+const designModalContainer = document.querySelector('#design-modal .modal-container');
+const designLoading = document.getElementById('design-loading');
 const modalCloseBtn = document.querySelectorAll('.modal-close');
 
 function modalOpen(e) {
@@ -232,12 +233,22 @@ function modalOpen(e) {
     if (e.classList.contains('inactive')) {
         inactiveModal.classList.add('modal-show');
         inactiveModal.classList.remove('modal-hide');
-    } else {
+    } else if (e.closest('.design-list')) {
         const img = document.createElement('img');
         img.src = `./assets/img/design/${e.dataset.img}.jpg`;
-        activationImg.appendChild(img);
-        activationModal.classList.add('modal-show');
-        activationModal.classList.remove('modal-hide');
+        designModalContainer.appendChild(img);
+        designModal.classList.remove('modal-hide');
+        designModal.classList.add('modal-show');
+        modalLoading();
+    }
+
+    function modalLoading() {
+        console.log('??');
+        designModal.classList.remove('before-load');
+        designLoading.addEventListener('transitionend', (e) => {
+            designModal.removeChild(e.target);
+            // designLoading.style.display = 'none';
+        });
     }
 }
 
@@ -245,12 +256,13 @@ function modalClose(e) {
     document.body.classList.remove('not-scroll');
     e.closest('.modal').classList.add('modal-hide');
     e.closest('.modal').classList.remove('modal-show');
-    setTimeout(() => activationImg.replaceChildren(), 400);
+    setTimeout(() => designModalContainer.replaceChildren(), 400);
 }
 
 modalCloseBtn.forEach(e => {
     e.addEventListener('click', () => {
-        modalClose(e)
+        modalClose(e);
+        console.log('test');
     })
 });
 
@@ -258,7 +270,7 @@ modalCloseBtn.forEach(e => {
 
 
 
-const loading = document.querySelector('.loading');
+const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
     let vh = window.innerHeight * 0.01;
@@ -295,7 +307,8 @@ window.addEventListener('load', () => {
 
     document.body.classList.remove('before-load');
     // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
-    loading.addEventListener('transitionend', (e) => {
-        document.body.removeChild(e.target);
+    bodyLoading.addEventListener('transitionend', (e) => {
+        // document.body.removeChild(e.target);
+        bodyLoading.style.display = 'none';
     });
 });
