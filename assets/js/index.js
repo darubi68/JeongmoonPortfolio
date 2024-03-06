@@ -135,28 +135,124 @@ function mainRolling() {
 
     const lane = document.querySelectorAll('.main-imgBox');
 
-    for (let i = 0; i < lane.length; i++) {
-        const randomArray = imgList.sort(() => 0.5 - Math.random());
-        const roller = document.createElement('div');
+    // for (let i = 0; i < lane.length; i++) {
+    //     const randomArray = imgList.sort(() => 0.5 - Math.random());
+    //     const roller = document.createElement('div');
 
-        randomArray.forEach(num => {
-            const img = document.createElement('img');
-            img.src = `./assets/img/white/${num}.png`;
-            roller.appendChild(img);
+    //     randomArray.forEach(num => {
+    //         const img = document.createElement('img');
+    //         img.src = `./assets/img/white/${num}.png`;
+    //         roller.appendChild(img);
+    //     })
+
+    //     const clone = roller.cloneNode(true);
+    //     lane[i].appendChild(roller);
+    //     lane[i].appendChild(clone);
+
+    //     if (i === 1) {
+    //         roller.classList.add('main-original');
+    //         clone.classList.add('main-clone');
+    //     } else {
+    //         roller.classList.add('original');
+    //         clone.classList.add('clone');
+    //     }
+    // }
+
+    function delay(lane, idx) {
+        return new Promise(function (resolve, reject) {
+            const randomArray = imgList.sort(() => 0.5 - Math.random());
+            const roller = document.createElement('div');
+
+            randomArray.forEach(num => {
+                const img = document.createElement('img');
+                img.src = `./assets/img/white/${num}.png`;
+                roller.appendChild(img);
+            })
+
+            const clone = roller.cloneNode(true);
+            lane.appendChild(roller);
+            lane.appendChild(clone);
+
+            if (idx === 1) {
+                roller.classList.add('main-original');
+                clone.classList.add('main-clone');
+            } else {
+                roller.classList.add('original');
+                clone.classList.add('clone');
+            }
+            resolve();
+            console.log(lane)
         })
-
-        const clone = roller.cloneNode(true);
-        lane[i].appendChild(roller);
-        lane[i].appendChild(clone);
-
-        if (i === 1) {
-            roller.classList.add('main-original');
-            clone.classList.add('main-clone');
-        } else {
-            roller.classList.add('original');
-            clone.classList.add('clone');
-        }
     }
+
+    async function test() {
+        for (let i = 0; i < lane.length; i++) {
+            await delay(lane[i], i);
+
+        }
+        console.log('Done');
+
+        document.body.classList.remove('before-load');
+        bodyLoading.addEventListener('transitionend', (e) => {
+            document.body.removeChild(e.target);
+        });
+    }
+
+    test();
+
+
+
+    // const delay = () => {
+    //     const randomDelay = Math.floor(Math.random() * 4) * 100
+    //     return new Promise(resolve => setTimeout(resolve, randomDelay))
+    // }
+
+    // const result = async (list) => {
+    //     for (const data of list) {
+    //         await delay()
+    //             .then(() => console.log(data))
+    //     }
+    // }
+
+    // const list = [1, 2, 3, 4, 5, 6, 7]
+    // result(list)
+
+
+
+    // function delay(item) {
+    //     return new Promise(function (resolve, reject) {
+    //         setTimeout(function () {
+    //             console.log(item);
+    //             resolve();
+    //         }, 1000)
+    //     })
+    // }
+
+    // async function test(array) {
+    //     for (let i = 0; i < array.length; i++) {
+    //         await delay(array[i]);
+    //     }
+    //     console.log('Done');
+    // }
+
+    // test([1, 2, 3, 4, 5]);
+
+
+
+    // const delay = () => {
+    //     const randomDelay = Math.floor(Math.random() * 4) * 100
+    //     return new Promise(resolve => setTimeout(resolve, randomDelay))
+    //   }
+
+    // const result = async (list) => {
+    //     for (const data of list) {
+    //       await delay()
+    //         .then(() => console.log(data))
+    //     }
+    //   }
+
+    //   const list = [1, 2, 3, 4, 5, 6, 7]
+    //   result(list)
 }
 
 // 메인 이미지 롤링 셋팅
@@ -247,8 +343,7 @@ function modalOpen(e) {
     function modalLoading() {
         designModal.classList.remove('before-load');
         designLoading.addEventListener('transitionend', (e) => {
-            designModal.removeChild(e.target);
-            // designLoading.style.display = 'none';
+            designLoading.style.display = 'none';
         });
     }
 }
@@ -257,13 +352,17 @@ function modalClose(e) {
     document.body.classList.remove('not-scroll');
     e.closest('.modal').classList.add('modal-hide');
     e.closest('.modal').classList.remove('modal-show');
-    setTimeout(() => designModalContainer.replaceChildren(), 400);
+    setTimeout(() => {
+        designModal.classList.add('before-load');
+        designLoading.style.display = 'block';
+        designModalContainer.replaceChildren();
+
+    }, 400);
 }
 
 modalCloseBtn.forEach(e => {
     e.addEventListener('click', () => {
         modalClose(e);
-        console.log('test');
     })
 });
 
@@ -304,12 +403,5 @@ window.addEventListener('load', () => {
         } else {
             aboutLayoutSet('full');
         }
-    });
-
-    document.body.classList.remove('before-load');
-    // 로딩 트랜지션이 끝난 후 자연스럽게 사라지도록
-    bodyLoading.addEventListener('transitionend', (e) => {
-        // document.body.removeChild(e.target);
-        bodyLoading.style.display = 'none';
     });
 });
