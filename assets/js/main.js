@@ -1,16 +1,10 @@
 /* -------------------- project -------------------- */
-// full&grid 변경 이벤트
 const contact = document.getElementById('contact');
-
-function projectClassSet(value) {
-    project.className = value;
-    contact.className = value;
-    AOS.refresh();
-}
 
 const project = document.getElementById('project');
 const projectBody = document.querySelector('.project-body');
 const projectCard = document.querySelectorAll('.project-card');
+const projectBtn = document.querySelectorAll('.project-card button');
 const projectSwitch = document.getElementById('project-switch');
 const sceneBackground = document.querySelector('.project-background');
 const normalScene = document.querySelectorAll('.normal-scene');
@@ -42,6 +36,39 @@ function projectBackScroll() {
     }
 }
 
+// 프로젝트 서브페이지 연결
+function subPageChange(el) {
+    let link = '';
+    if(el.tagName === 'BUTTON') link = el.closest('.project-card').dataset.page;
+    else link = el.dataset.page;
+
+    location.href=`/page/${link}.html`;
+}
+
+function pageChangeTrigger(value) {
+    projectCard.forEach(el => {
+        if(value === 'grid') {
+            el.addEventListener('click', ()=> subPageChange(el), {
+                once: true
+            })
+        } else {
+            el.removeEventListener('click', ()=>subPageChange(el));
+        }
+    })
+}
+
+projectBtn.forEach(el => {
+    el.addEventListener('click', () => subPageChange(el));
+})
+
+// full&grid 변경 이벤트
+function projectClassSet(value) {
+    project.className = value;
+    contact.className = value;
+    pageChangeTrigger(value);
+    AOS.refresh();
+}
+
 //프로젝트 보기방식 변경 
 function projectChange(check) {
     projectBody.style.opacity = 0;
@@ -66,10 +93,7 @@ projectSwitch.addEventListener('change', () => projectChange(projectSwitch.check
 const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 
 tabContentLi.forEach(e => {
-    e.addEventListener('click', () => {
-        vhSet();
-        modalOpen(e);
-    })
+    e.addEventListener('click', () => modalOpen(e));
 });
 
 let swiper = new Swiper(".design-list", {
@@ -88,7 +112,7 @@ let swiper = new Swiper(".design-list", {
     autoplay: {
         delay: 2000,
         disableOnInteraction: false,
-        
+
     },
     breakpoints: {
         768: {
@@ -118,12 +142,14 @@ function aboutLayoutSet(value) {
         text.forEach(el => {
             el.setAttribute('data-aos', 'fade-up');
         });
+        projectSwitch.checked = true;
         projectClassSet('grid');
     } else {
         img.setAttribute('data-aos', '');
         text.forEach(el => {
             el.setAttribute('data-aos', '');
         });
+        projectSwitch.checked = false;
         projectClassSet('full');
     }
 }
@@ -135,7 +161,9 @@ function aboutLayoutSet(value) {
 function vhSet() {
     let vh = window.innerHeight * 0.01;
     document.getElementById('main').style.height = `calc(${vh}px * 100)`;
-    modal.forEach(el => { el.style.height = `calc(${vh}px * 100)` });
+    modal.forEach(el => {
+        el.style.height = `calc(${vh}px * 100)`
+    });
 }
 
 // 메인 이미지 롤링 셋팅
@@ -194,7 +222,6 @@ topButton.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
-    vhSet();
 })
 
 
@@ -210,12 +237,12 @@ const modalCloseBtn = document.querySelectorAll('.modal-close');
 
 function modalOpen(e) {
     document.body.classList.add('not-scroll');
+    swiper.autoplay.stop();
 
     if (e.classList.contains('inactive')) {
         inactiveModal.classList.add('modal-show');
         inactiveModal.classList.remove('modal-hide');
     } else if (e.closest('.design-list')) {
-        swiper.autoplay.stop();
         const img = document.createElement('img');
         img.src = `./assets/img/design/${e.dataset.img}.jpg`;
         designModalContainer.appendChild(img);
@@ -278,16 +305,13 @@ window.addEventListener('load', () => {
     }
 
     // width 992px 이하일때
-    if (matchMedia("screen and (max-width: 992px)").matches) {
-        aboutLayoutSet('grid');
-    } else {
-        projectBackScroll();
-        aboutLayoutSet('full');
-    }
+    if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
+    else aboutLayoutSet('full');
 
     window.addEventListener('scroll', () => {
         navOpen();
         scrollTop();
+        vhSet();
         if (project.className === 'full') projectBackScroll();
     });
 
@@ -295,11 +319,9 @@ window.addEventListener('load', () => {
 
     window.addEventListener('resize', () => {
         mainSetLayout();
+        vhSet();
 
-        if (matchMedia("screen and (max-width: 992px)").matches) {
-            aboutLayoutSet('grid');
-        } else {
-            aboutLayoutSet('full');
-        }
+        if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
+        else aboutLayoutSet('full');
     });
 });

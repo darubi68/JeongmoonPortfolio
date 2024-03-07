@@ -1,0 +1,86 @@
+@import 'style.scss';
+
+h1 {
+    font-size: 2.8rem;
+    line-height: 3.4rem;
+}
+
+header {
+    top: 0;
+}
+
+main {
+    padding: $padding1200;
+    @include flex;
+
+    .main-grid {
+        max-width: $max-width;
+        @include flex(space-between);
+    }
+
+    .main-img {
+        width: 54%;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    .main-text {
+        width: 44%;
+
+        >* {
+            padding-bottom:2rem;
+            &:last-child {
+                padding-bottom:0;
+            }
+        }
+
+        h6 {
+            padding:1rem 0 0.5rem;
+        }
+
+        >div {
+            .keyword {
+                display: inline-block;
+                padding:0.1rem 1.4rem;
+                border-radius: 2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        >p {
+            line-height: 1.8rem;
+        }
+    }
+
+    @each $color, $sub in $project-color {
+        $i: index(($project-color), ($color $sub)) * 1;
+
+        &.main-#{$i}{
+            background-color: $color;
+
+            .keyword {
+                border:2px solid $sub;
+                color: $sub;
+            }
+        }
+    }
+
+}
+
+.content-detail {
+    padding:$padding1200;
+    @include flex;
+
+    .section-grid {
+        max-width: $max-width;
+        @include flex(space-between, flex-start);
+
+        >div img {
+            margin-bottom:3rem;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        }
+    }
+}

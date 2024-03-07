@@ -433,3 +433,143 @@ footer.grid .contact-head h2 {
     line-height: 2.2rem;
   }
 }
+h1 {
+  font-size: 2.8rem;
+  line-height: 3.4rem;
+}
+
+header {
+  top: 0;
+}
+
+main {
+  padding: 10rem 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+main .main-grid {
+  max-width: 1180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+main .main-img {
+  width: 54%;
+}
+main .main-img img {
+  max-width: 100%;
+  max-height: 100%;
+}
+main .main-text {
+  width: 44%;
+}
+main .main-text > * {
+  padding-bottom: 2rem;
+}
+main .main-text > *:last-child {
+  padding-bottom: 0;
+}
+main .main-text h6 {
+  padding: 1rem 0 0.5rem;
+}
+main .main-text > div .keyword {
+  display: inline-block;
+  padding: 0.1rem 1.4rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+}
+main .main-text > p {
+  line-height: 1.8rem;
+}
+main.main-1 {
+  background-color: #f3f3f3;
+}
+main.main-1 .keyword {
+  border: 2px solid #bebebe;
+  color: #bebebe;
+}
+main.main-2 {
+  background-color: #b4dcfd;
+}
+main.main-2 .keyword {
+  border: 2px solid #9599E2;
+  color: #9599E2;
+}
+main.main-3 {
+  background-color: #d9e6ba;
+}
+main.main-3 .keyword {
+  border: 2px solid #72afd3;
+  color: #72afd3;
+}
+main.main-4 {
+  background-color: #fccfcf;
+}
+main.main-4 .keyword {
+  border: 2px solid #fa709a;
+  color: #fa709a;
+}
+main.main-5 {
+  background-color: #eef1f5;
+}
+main.main-5 .keyword {
+  border: 2px solid #c3cfe2;
+  color: #c3cfe2;
+}
+main.main-6 {
+  background-color: #cde3d8;
+}
+main.main-6 .keyword {
+  border: 2px solid #94baa8;
+  color: #94baa8;
+}
+main.main-7 {
+  background-color: #cdddee;
+}
+main.main-7 .keyword {
+  border: 2px solid #9890e3;
+  color: #9890e3;
+}
+
+.content-detail {
+  padding: 10rem 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.content-detail .section-grid {
+  max-width: 1180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.content-detail .section-grid > div img {
+  margin-bottom: 3rem;
+  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
