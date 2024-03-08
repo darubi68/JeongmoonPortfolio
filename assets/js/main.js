@@ -95,6 +95,7 @@ const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 tabContentLi.forEach(e => {
     e.addEventListener('click', () => {
         vhSet();
+        alert('modal click');
         modalOpen(e);
     });
 });
@@ -192,6 +193,7 @@ navList.forEach(e => {
             behavior: 'smooth'
         });
         if(elName === 'main') vhSet();
+        alert('nav click');
     })
 })
 
@@ -227,6 +229,7 @@ topButton.addEventListener('click', () => {
         behavior: 'smooth'
     });
     vhSet();
+    alert('topbutton click');
 })
 
 
@@ -321,6 +324,8 @@ window.addEventListener('load', () => {
     window.addEventListener('orientationchange', () => {});
 
     window.addEventListener('resize', () => {
+        vhSet();
+        alert('resize');
         mainSetLayout();
 
         if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
