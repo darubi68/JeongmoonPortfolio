@@ -928,9 +928,7 @@ section,
   opacity: 5;
 }
 #design .design-list ul.swiper-wrapper li.swiper-slide:not(.inactive):hover img {
-  -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-          transform: scale(1.2);
+  scale: 1.1;
 }
 #design .design-list ul.swiper-wrapper li.swiper-slide.inactive {
   -webkit-filter: opacity(0.5);
@@ -1627,8 +1625,14 @@ section,
   #project {
     padding: 8rem 4rem;
   }
+  #design .design-list ul.swiper-wrapper li.swiper-slide:not(.inactive):hover img {
+    scale: inherit;
+  }
   .project-viewSwitch {
     display: none;
+  }
+  #project.grid .project-list .project-card:hover .project-thumbnail img {
+    scale: inherit;
   }
   #project.grid .project-list .project-thumbnail {
     height: 16rem;

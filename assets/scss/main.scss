@@ -372,7 +372,7 @@ section,
                 opacity: 5;
 
                 &:not(.inactive):hover img {
-                    transform: scale(1.2);
+                    scale:1.1;
                 }
 
                 &.inactive {
@@ -564,7 +564,7 @@ section,
                 cursor: pointer;
 
                 &:hover .project-thumbnail img {
-                    scale: 1.1;
+                    scale:1.1;
                 }
             }
 
@@ -945,11 +945,18 @@ section,
         padding: $padding992;
     }
 
+    #design .design-list ul.swiper-wrapper li.swiper-slide:not(.inactive):hover img {
+        scale:inherit;
+    }
+
     .project-viewSwitch {
         display: none;
     }
 
     #project.grid .project-list {
+        .project-card:hover .project-thumbnail img {
+            scale:inherit;
+        }
         .project-thumbnail {
             height: 16rem;
         }

@@ -93,7 +93,10 @@ projectSwitch.addEventListener('change', () => projectChange(projectSwitch.check
 const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 
 tabContentLi.forEach(e => {
-    e.addEventListener('click', () => modalOpen(e));
+    e.addEventListener('click', () => {
+        vhSet();
+        modalOpen(e)
+    });
 });
 
 let swiper = new Swiper(".design-list", {
@@ -188,6 +191,7 @@ navList.forEach(e => {
         document.getElementById(elName).scrollIntoView({
             behavior: 'smooth'
         });
+        if(elName === 'main') vhSet();
     })
 })
 
@@ -222,6 +226,7 @@ topButton.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
+    vhSet();
 })
 
 
@@ -288,7 +293,7 @@ window.addEventListener('load', () => {
     vhSet();
     mainSetLayout();
 
-    function mainImaLoad() {
+    function mainImgLoad() {
         const lala = document.querySelectorAll('.main-imgGrid img');
         let value
         lala.forEach(el => {
@@ -297,7 +302,7 @@ window.addEventListener('load', () => {
         return value
     }
 
-    if (mainImaLoad()) {
+    if (mainImgLoad()) {
         document.body.classList.remove('before-load');
         bodyLoading.addEventListener('transitionend', (e) => {
             document.body.removeChild(e.target);
@@ -311,15 +316,14 @@ window.addEventListener('load', () => {
     window.addEventListener('scroll', () => {
         navOpen();
         scrollTop();
-        vhSet();
         if (project.className === 'full') projectBackScroll();
     });
 
     window.addEventListener('orientationchange', () => {});
 
     window.addEventListener('resize', () => {
-        mainSetLayout();
         vhSet();
+        mainSetLayout();
 
         if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
         else aboutLayoutSet('full');
