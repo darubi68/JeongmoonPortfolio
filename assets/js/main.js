@@ -159,17 +159,11 @@ function aboutLayoutSet(value) {
 
 
 /* -------------------- main -------------------- */
-
-
 // 메인 vh 조정
 function vhSet() {
     const main = document.getElementById('main');
     let vh = window.innerHeight * 0.01;
     main.style.height = `calc(${vh}px * 100)`;
-
-    setTimeout(() => {
-        main.style.height = '100svh';
-    },2000);
 }
 
 // 메인 이미지 롤링 셋팅
@@ -212,24 +206,24 @@ function navOpen() {
 
 
 /* -------------------- top button -------------------- */
-const topButton = document.getElementById('top-button');
+// const topButton = document.getElementById('top-button');
 
-// 탑버튼 이벤트
-function scrollTop() {
-    if (window.scrollY > 200) {
-        topButton.classList.add('top-active');
-    } else {
-        topButton.classList.remove('top-active');
-    }
-}
+// // 탑버튼 이벤트
+// function scrollTop() {
+//     if (window.scrollY > 200) {
+//         topButton.classList.add('top-active');
+//     } else {
+//         topButton.classList.remove('top-active');
+//     }
+// }
 
-topButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-    // vhSet();
-})
+// topButton.addEventListener('click', () => {
+//     window.scrollTo({
+//         top: 0,
+//         behavior: 'smooth'
+//     });
+//     // vhSet();
+// })
 
 
 
@@ -292,7 +286,7 @@ modalCloseBtn.forEach(e => {
 const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
-    // vhSet();
+    vhSet();
     mainSetLayout();
 
     function mainImgLoad() {
