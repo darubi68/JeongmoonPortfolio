@@ -329,6 +329,10 @@ window.addEventListener('load', () => {
         if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
         else aboutLayoutSet('full');
 
-        alert('resize');
+        ttet.innerText = `${window.outerHeight}px , ${window.innerHeight}px`;
     });
+
+    const ttet = document.getElementById('testtext');
+
+    ttet.innerText = `${window.outerHeight}px, ${window.innerHeight}px`;
 });
