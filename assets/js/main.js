@@ -135,6 +135,7 @@ let swiper = new Swiper(".design-list", {
 
 
 /* -------------------- about -------------------- */
+const about = document.getElementById('about');
 const img = document.querySelector('.about-img');
 const text = document.querySelectorAll('.about-text > *');
 
@@ -323,16 +324,20 @@ window.addEventListener('load', () => {
 
     window.addEventListener('orientationchange', () => {});
     
+    let width = window.innerWidth ;
+    let height = window.innerHeight ;
+
     window.addEventListener('resize', () => {
-        mainSetLayout();
+        if(width !== window.innerWidth) {
+            mainSetLayout();
+    
+            if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
+            else aboutLayoutSet('full');
 
-        if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
-        else aboutLayoutSet('full');
-
-        ttet.innerText = `${window.outerHeight}px , ${window.innerHeight}px`;
+            width = window.innerWidth;
+        }
+        if(window.pageYOffset < about.offsetTop) {
+            vhSet();
+        }
     });
-
-    const ttet = document.getElementById('testtext');
-
-    ttet.innerText = `${window.outerHeight}px, ${window.innerHeight}px`;
 });
