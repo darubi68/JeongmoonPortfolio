@@ -94,7 +94,6 @@ const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 
 tabContentLi.forEach(e => {
     e.addEventListener('click', () => {
-        // vhSet();
         modalOpen(e);
     });
 });
@@ -160,14 +159,6 @@ function aboutLayoutSet(value) {
 
 
 /* -------------------- main -------------------- */
-//메인 높이 값 설정
-function vhSet() {
-    let vh = window.innerHeight * 0.01;
-    document.getElementById('main').style.height = `calc(${vh}px * 100)`;
-    modal.forEach(el => {
-        el.style.height = `calc(${vh}px * 100)`
-    });
-}
 
 // 메인 이미지 롤링 셋팅
 function mainSetLayout() {
@@ -191,7 +182,6 @@ navList.forEach(e => {
         document.getElementById(elName).scrollIntoView({
             behavior: 'smooth'
         });
-        // if (elName === 'main') vhSet();
     })
 })
 
@@ -226,7 +216,14 @@ topButton.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
-    // vhSet();
+
+    const main = document.getElementById('main');
+    let vh = window.innerHeight * 0.01;
+    main.style.height = `calc(${vh}px * 100)`;
+
+    setTimeout(() => {
+        main.style.height = '100svh';
+    },1000);
 })
 
 
