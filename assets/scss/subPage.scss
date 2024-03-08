@@ -1,18 +1,18 @@
 @import 'style.scss';
 
 h1 {
-    font-size: 2.8rem;
-    line-height: 3.4rem;
+    font-size: max(2.4rem, 2.4vw);
+    line-height: max(3.4rem, 3.4vw);
 }
 
 header {
-    height:100px;
+    height: 100px;
     top: 0;
     @include transition();
 }
 
 main {
-    height:100dvh;
+    height: 100dvh;
     padding: $padding1200;
     @include flex;
 
@@ -34,20 +34,21 @@ main {
         width: 44%;
 
         >* {
-            padding-bottom:2rem;
+            padding-bottom: 2rem;
+
             &:last-child {
-                padding-bottom:0;
+                padding-bottom: 0;
             }
         }
 
         h6 {
-            padding:1rem 0 0.5rem;
+            padding: 1rem 0 0.5rem;
         }
 
         >div {
             .keyword {
                 display: inline-block;
-                padding:0.1rem 1.4rem;
+                padding: 0.1rem 1.4rem;
                 border-radius: 2rem;
                 font-size: 0.9rem;
             }
@@ -58,14 +59,15 @@ main {
         }
     }
 
-    @each $color, $sub in $project-color {
+    @each $color,
+    $sub in $project-color {
         $i: index(($project-color), ($color $sub)) * 1;
 
-        &.main-#{$i}{
+        &.main-#{$i} {
             background-color: $color;
 
             .keyword {
-                border:2px solid $sub;
+                border: 2px solid $sub;
                 color: $sub;
             }
         }
@@ -74,35 +76,74 @@ main {
 }
 
 .content-detail {
-    padding:$padding1200;
+    padding: $padding1200;
     @include flex;
 
     .section-grid {
         max-width: $max-width;
         @include flex(space-between, flex-start);
 
-        >div img {
-            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-            &:not(:last-child) {
-                margin-bottom:3rem;
+        >div {
+            width:30%;
+            img {
+                width:100%;
+                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+
+                &:not(:last-child) {
+                    margin-bottom: 3rem;
+                }
+            }
+            video {
+                width:100%;
+                &:not(:last-child) {
+                    margin-bottom: 3rem;
+                }
             }
         }
     }
 }
 
 .page-navigation {
-    padding:4rem;
+    padding: 4rem;
     @include flex;
     background-color: $primery-2;
 
     .section-grid {
-        width:100%;
+        width: 100%;
         max-width: $max-width;
         @include flex(space-between);
+
         >div {
             span {
-                color:#fff;
+                color: #fff;
                 font-size: 2rem;
+            }
+        }
+    }
+}
+
+#pmsWeb .content-detail .section-grid >div,
+#webCCTV .content-detail .section-grid >div{
+    width:48%;
+}   
+
+#pmsSolution .content-detail .section-grid >:first-child,
+#webRenewal .content-detail .section-grid >:first-child{
+    width:66%;
+} 
+
+
+// 1200px 이하
+@include desktop {
+    h1 {
+        font-size: max(2rem, 3.2vw);
+        line-height: max(3rem, 4.2vw);
+    }
+
+    main {
+        .main-text {
+            h1 {
+                padding-bottom:1rem;
             }
         }
     }

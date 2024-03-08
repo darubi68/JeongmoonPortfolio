@@ -4,6 +4,7 @@
 //     document.getElementsByTagName('main').style.height = `calc(${vh}px * 100)`;
 // }
 
+
 const header = document.getElementsByTagName("header");
 function scrollTop() {
     if (window.pageYOffset > 300) {
@@ -33,10 +34,16 @@ function includeHtml() {
     });
 };
 
+
 /* -------------------- window -------------------- */
 const loading = document.querySelector('.loading');
+const wrapper = document.querySelectorAll('.wrapper');
+const jsonData = JSON.parse(JSON.stringify(ProjectJson));
 
 window.addEventListener('load', () => {
+
+    // console.log(jsonData);
+    // console.log(JSON.stringify(jsonData));
 
     includeHtml();
 

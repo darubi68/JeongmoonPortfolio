@@ -37,28 +37,31 @@ function projectBackScroll() {
 }
 
 // 프로젝트 서브페이지 연결
-function subPageChange(el) {
+function subPageChange(event) {
+    const el = event.target;
     let link = '';
-    if (el.tagName === 'BUTTON') link = el.closest('.project-card').dataset.page;
-    else link = el.dataset.page;
-
-    location.href = `/page/${link}.html`;
+    el.tagName === 'BUTTON' ? link = el.closest('.project-card').dataset.page : link = el.dataset.page;
+    if(event.ctrlKey) {
+        window.open(`/page/${link}.html`, '_blank').focus();
+    } else {
+        location.href = `/page/${link}.html`;
+    }
 }
 
 function pageChangeTrigger(value) {
     projectCard.forEach(el => {
         if (value === 'grid') {
-            el.addEventListener('click', () => subPageChange(el), {
+            el.addEventListener('click', (event) => subPageChange(event), {
                 once: true
             })
         } else {
-            el.removeEventListener('click', () => subPageChange(el));
+            el.removeEventListener('click', (event) => subPageChange(event));
         }
     })
 }
 
 projectBtn.forEach(el => {
-    el.addEventListener('click', () => subPageChange(el));
+    el.addEventListener('click', (event) => subPageChange(event));
 })
 
 // full&grid 변경 이벤트
@@ -335,9 +338,6 @@ window.addEventListener('load', () => {
             else aboutLayoutSet('full');
 
             width = window.innerWidth;
-        }
-        if(window.pageYOffset < about.offsetTop) {
-            vhSet();
         }
     });
 });

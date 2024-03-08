@@ -1146,6 +1146,7 @@ section,
   height: 3rem;
   background: #4d8d6e;
   border-radius: 1.625rem;
+  pointer-events: none;
 }
 #project.full .project-card .project-content button .circle .icon {
   -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
@@ -1199,6 +1200,7 @@ section,
   line-height: 1.6;
   text-align: center;
   text-transform: uppercase;
+  pointer-events: none;
 }
 #project.full .project-card .project-content button:hover .circle {
   width: 100%;

@@ -434,8 +434,8 @@ footer.grid .contact-head h2 {
   }
 }
 h1 {
-  font-size: 2.8rem;
-  line-height: 3.4rem;
+  font-size: max(2.4rem, 2.4vw);
+  line-height: max(3.4rem, 3.4vw);
 }
 
 header {
@@ -572,11 +572,21 @@ main.main-7 .keyword {
       -ms-flex-align: start;
           align-items: flex-start;
 }
+.content-detail .section-grid > div {
+  width: 30%;
+}
 .content-detail .section-grid > div img {
+  width: 100%;
   -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 .content-detail .section-grid > div img:not(:last-child) {
+  margin-bottom: 3rem;
+}
+.content-detail .section-grid > div video {
+  width: 100%;
+}
+.content-detail .section-grid > div video:not(:last-child) {
   margin-bottom: 3rem;
 }
 
@@ -609,4 +619,24 @@ main.main-7 .keyword {
 .page-navigation .section-grid > div span {
   color: #fff;
   font-size: 2rem;
+}
+
+#pmsWeb .content-detail .section-grid > div,
+#webCCTV .content-detail .section-grid > div {
+  width: 48%;
+}
+
+#pmsSolution .content-detail .section-grid > :first-child,
+#webRenewal .content-detail .section-grid > :first-child {
+  width: 66%;
+}
+
+@media (max-width: 1200px) {
+  h1 {
+    font-size: max(2rem, 3.2vw);
+    line-height: max(3rem, 4.2vw);
+  }
+  main .main-text h1 {
+    padding-bottom: 1rem;
+  }
 }

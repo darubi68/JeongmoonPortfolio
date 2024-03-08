@@ -1,0 +1,8 @@
+ProjectJson = [
+    {
+    "name": "Lee",
+    "gender": "male",
+    "age": 20,
+    "alive": true
+},
+]

@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
     <title>Jeongmoon Han</title>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../assets/css/subPage.css">
 </head>
 
@@ -22,16 +22,66 @@
 
     <header data-include-file="./include/header.html" class="include"></header>
 
-    <div class="wrapper">
-        <main>
-            <h1>pms app</h1>
+    <div id="pmsApp" class="wrapper">
+        <main class="main-3">
+            <div class="main-grid">
+                <div class="main-img">
+                    <img src="../assets/img/project/pmsApp.png" alt="PMS앱 목업이미지">
+                </div>
+                <div class="main-text">
+                    <small>2021.10 ~ 2021.11</small>
+                    <h1>PMS 앱 리뉴얼&유지보수</h1>
+                    <div>
+                        <h6>기여도</h6>
+                        <p>· 디자인 100% · 퍼블리싱 100%</p>
+                        <h6>기술스택</h6>
+                        <div class="keyword">HTML5</div>
+                        <div class="keyword">CSS3</div>
+                        <div class="keyword">J-query</div>
+                        <div class="keyword">Javascript</div>
+                    </div>
+                    <p class="b-text">
+                        일용직근로자나 현장근로자들이 QR코드를 이용하여 직접 본인의 정보를 입력하고 제출할 수 있는 웹 사이트 입니다. <br>
+                        대통령의 임기가 만료되는 때에는 임기만료 70일 내지 40일전에 후임자를 선거한다. 국가안전보장회의의 조직·직무범위 기타 필요한 사항은 법률로 정한다.
+                    </p>
+                </div>
+            </div>
         </main>
+
+        <!-- <section class="key-result"></section> -->
+
+        <section class="content-detail">
+            <div class="section-grid">
+                <div>
+                    <img src="../assets/img/project/pmsApp/1.png" alt="" data-aos="fade-up">
+                    <img src="../assets/img/project/pmsApp/4.png" alt="" data-aos="fade-up">
+                </div>
+                <div>
+                    <img src="../assets/img/project/pmsApp/2.png" alt="" data-aos="fade-up">
+                </div>
+                <div>
+                    <img src="../assets/img/project/pmsApp/3.png" alt="" data-aos="fade-up">
+                </div>
+            </div>
+        </section>
+
+        <section class="page-navigation">
+            <div class="section-grid">
+                <div class="prev-page">
+                    <span class="icon icon-arrow-left-circle"></span>
+                    <h6></h6>
+                </div>
+                <div class="next-page">
+                    <span class="icon icon-arrow-right-circle"></span>
+                </div>
+            </div>
+        </section>
     </div>
 
     <footer data-include-file="./include/footer.html" class="include"></footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="../assets/json/project.json"></script>
     <script type="text/javascript" src="../assets/js/subPage.js"></script>
     <script>
         AOS.init();
