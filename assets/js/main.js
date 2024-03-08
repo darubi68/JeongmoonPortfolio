@@ -95,7 +95,7 @@ const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 tabContentLi.forEach(e => {
     e.addEventListener('click', () => {
         vhSet();
-        modalOpen(e)
+        modalOpen(e);
     });
 });
 
@@ -290,7 +290,6 @@ modalCloseBtn.forEach(e => {
 const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
-    vhSet();
     mainSetLayout();
 
     function mainImgLoad() {
@@ -322,7 +321,6 @@ window.addEventListener('load', () => {
     window.addEventListener('orientationchange', () => {});
 
     window.addEventListener('resize', () => {
-        vhSet();
         mainSetLayout();
 
         if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');

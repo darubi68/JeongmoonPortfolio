@@ -439,10 +439,14 @@ h1 {
 }
 
 header {
+  height: 100px;
   top: 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 main {
+  height: 100vh;
   padding: 10rem 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -569,7 +573,40 @@ main.main-7 .keyword {
           align-items: flex-start;
 }
 .content-detail .section-grid > div img {
-  margin-bottom: 3rem;
   -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+.content-detail .section-grid > div img:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.page-navigation {
+  padding: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #94baa8;
+}
+.page-navigation .section-grid {
+  width: 100%;
+  max-width: 1180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.page-navigation .section-grid > div span {
+  color: #fff;
+  font-size: 2rem;
 }

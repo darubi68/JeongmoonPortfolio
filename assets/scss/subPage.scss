@@ -6,10 +6,13 @@ h1 {
 }
 
 header {
+    height:100px;
     top: 0;
+    @include transition();
 }
 
 main {
+    height:100vh;
     padding: $padding1200;
     @include flex;
 
@@ -79,8 +82,28 @@ main {
         @include flex(space-between, flex-start);
 
         >div img {
-            margin-bottom:3rem;
             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            &:not(:last-child) {
+                margin-bottom:3rem;
+            }
+        }
+    }
+}
+
+.page-navigation {
+    padding:4rem;
+    @include flex;
+    background-color: $primery-2;
+
+    .section-grid {
+        width:100%;
+        max-width: $max-width;
+        @include flex(space-between);
+        >div {
+            span {
+                color:#fff;
+                font-size: 2rem;
+            }
         }
     }
 }

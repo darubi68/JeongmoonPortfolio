@@ -4,6 +4,15 @@
 //     document.getElementsByTagName('main').style.height = `calc(${vh}px * 100)`;
 // }
 
+const header = document.getElementsByTagName("header");
+function scrollTop() {
+    if (window.pageYOffset > 300) {
+        header[0].style.height = "50px";
+    } else {
+        header[0].style.height = "100px";
+    }
+}
+
 function includeHtml() {
     const includeTarget = document.querySelectorAll('.include');
     includeTarget.forEach(function(el, idx) {
@@ -31,7 +40,9 @@ window.addEventListener('load', () => {
 
     includeHtml();
 
-    window.addEventListener('scroll', () => {});
+    window.addEventListener('scroll', () => {
+        scrollTop();
+    });
 
     window.addEventListener('orientationchange', () => {});
 
