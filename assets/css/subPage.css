@@ -446,7 +446,7 @@ header {
 }
 
 main {
-  height: 100vh;
+  height: 100dvh;
   padding: 10rem 4rem;
   display: -webkit-box;
   display: -ms-flexbox;

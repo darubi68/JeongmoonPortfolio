@@ -12,7 +12,7 @@ header {
 }
 
 main {
-    height:100vh;
+    height:100dvh;
     padding: $padding1200;
     @include flex;
 

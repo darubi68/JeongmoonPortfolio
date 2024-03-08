@@ -228,7 +228,7 @@ topButton.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
-    vhSet();
+    // vhSet();
 })
 
 
@@ -292,7 +292,7 @@ modalCloseBtn.forEach(e => {
 const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
-    vhSet();
+    // vhSet();
     mainSetLayout();
 
     function mainImgLoad() {
