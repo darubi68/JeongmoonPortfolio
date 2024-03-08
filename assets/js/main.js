@@ -334,9 +334,9 @@ window.addEventListener('load', () => {
 
             alert('width');
         }
-        if (window.innerHeight !== windowHeight) {
-            vhSet();
-            alert('height');
-        }
+        // if (window.innerHeight !== windowHeight) {
+        //     vhSet();
+        //     alert('height');
+        // }
     });
 });
