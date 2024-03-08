@@ -169,7 +169,9 @@ function vhSet() {
 // 메인 이미지 롤링 셋팅
 function mainSetLayout() {
     const b = window.innerHeight * Math.cos(55 * Math.PI / 180);
-    const a = (window.innerWidth / 2) * Math.cos(35 * Math.PI / 180);
+    let a = 0;
+    if (matchMedia("screen and (max-width: 992px)").matches) a = window.innerWidth * Math.cos(35 * Math.PI / 180);
+    else a = (window.innerWidth / 2) * Math.cos(35 * Math.PI / 180);
     document.querySelector('.main-imgGrid').style.width = `${a+b}px`;
 }
 
@@ -288,6 +290,10 @@ const bodyLoading = document.getElementById('body-loading');
 window.addEventListener('load', () => {
     vhSet();
     mainSetLayout();
+    if(window.pageYOffset > project.offsetTop) {
+        window.scrollTo({top:window.pageYOffset-1});
+        projectBackScroll();
+    }
 
     function mainImgLoad() {
         const lala = document.querySelectorAll('.main-imgGrid img');
@@ -311,22 +317,18 @@ window.addEventListener('load', () => {
 
     window.addEventListener('scroll', () => {
         navOpen();
-        scrollTop();
+        // scrollTop();
         if (project.className === 'full') projectBackScroll();
     });
 
     window.addEventListener('orientationchange', () => {});
-
-    let windowWidth = window.innerWidth;
     
     window.addEventListener('resize', () => {
-        if (window.innerWidth !== windowWidth) {
-            mainSetLayout();
+        mainSetLayout();
 
-            if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
-            else aboutLayoutSet('full');
+        if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
+        else aboutLayoutSet('full');
 
-            windowWidth = window.innerWidth;
-        }
+        alert('resize');
     });
 });

@@ -1574,7 +1574,7 @@ section,
     width: 100%;
   }
   #main .main-img .main-imgGrid {
-    left: -100px;
+    left: -180px;
   }
   #main .main-img .main-imgBox .main-original {
     -webkit-animation: rolling1 25s linear -1s infinite;
