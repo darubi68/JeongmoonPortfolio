@@ -39,20 +39,20 @@ function projectBackScroll() {
 // 프로젝트 서브페이지 연결
 function subPageChange(el) {
     let link = '';
-    if(el.tagName === 'BUTTON') link = el.closest('.project-card').dataset.page;
+    if (el.tagName === 'BUTTON') link = el.closest('.project-card').dataset.page;
     else link = el.dataset.page;
 
-    location.href=`/page/${link}.html`;
+    location.href = `/page/${link}.html`;
 }
 
 function pageChangeTrigger(value) {
     projectCard.forEach(el => {
-        if(value === 'grid') {
-            el.addEventListener('click', ()=> subPageChange(el), {
+        if (value === 'grid') {
+            el.addEventListener('click', () => subPageChange(el), {
                 once: true
             })
         } else {
-            el.removeEventListener('click', ()=>subPageChange(el));
+            el.removeEventListener('click', () => subPageChange(el));
         }
     })
 }
@@ -95,7 +95,6 @@ const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 tabContentLi.forEach(e => {
     e.addEventListener('click', () => {
         vhSet();
-        alert('modal click');
         modalOpen(e);
     });
 });
@@ -192,8 +191,7 @@ navList.forEach(e => {
         document.getElementById(elName).scrollIntoView({
             behavior: 'smooth'
         });
-        if(elName === 'main') vhSet();
-        alert('nav click');
+        if (elName === 'main') vhSet();
     })
 })
 
@@ -229,7 +227,6 @@ topButton.addEventListener('click', () => {
         behavior: 'smooth'
     });
     vhSet();
-    alert('topbutton click');
 })
 
 
@@ -323,12 +320,23 @@ window.addEventListener('load', () => {
 
     window.addEventListener('orientationchange', () => {});
 
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
+    
     window.addEventListener('resize', () => {
-        vhSet();
-        alert('resize');
-        mainSetLayout();
+        if (window.innerWidth !== windowWidth) {
+            mainSetLayout();
 
-        if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
-        else aboutLayoutSet('full');
+            if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
+            else aboutLayoutSet('full');
+
+            windowWidth = window.innerWidth;
+
+            alert('width');
+        }
+        if (window.innerHeight !== windowHeight) {
+            vhSet();
+            alert('height');
+        }
     });
 });
