@@ -94,7 +94,7 @@ const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 
 tabContentLi.forEach(e => {
     e.addEventListener('click', () => {
-        vhSet();
+        // vhSet();
         modalOpen(e);
     });
 });
@@ -191,7 +191,7 @@ navList.forEach(e => {
         document.getElementById(elName).scrollIntoView({
             behavior: 'smooth'
         });
-        if (elName === 'main') vhSet();
+        // if (elName === 'main') vhSet();
     })
 })
 
@@ -226,7 +226,7 @@ topButton.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
-    vhSet();
+    // vhSet();
 })
 
 
@@ -321,7 +321,6 @@ window.addEventListener('load', () => {
     window.addEventListener('orientationchange', () => {});
 
     let windowWidth = window.innerWidth;
-    let windowHeight = window.innerHeight;
     
     window.addEventListener('resize', () => {
         if (window.innerWidth !== windowWidth) {
@@ -331,12 +330,6 @@ window.addEventListener('load', () => {
             else aboutLayoutSet('full');
 
             windowWidth = window.innerWidth;
-
-            alert('width');
         }
-        // if (window.innerHeight !== windowHeight) {
-        //     vhSet();
-        //     alert('height');
-        // }
     });
 });
