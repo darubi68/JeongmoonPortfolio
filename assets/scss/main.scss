@@ -32,7 +32,7 @@
 
 #main {
     width: 100%;
-    height:100svh;
+    height: 100dvh;
     // @include transition(height, 0.1s);
     @include flex(flex-end, center);
 
@@ -134,14 +134,15 @@
         position: relative;
 
         .main-filter {
-            position:absolute;
-            right:0;
-            top:0;
-            width:100%;
-            height:100%;
-            background-color: rgba(255,255,255,0.5);
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
             z-index: 1;
         }
+
         .main-imgGrid {
             @include col-grid(repeat(3, 1fr));
             transform: rotate(35deg);
@@ -286,8 +287,9 @@ section,
         ul {
             li {
                 padding: 0.6rem 0;
+
                 &:first-of-type {
-                    padding-top:1rem;
+                    padding-top: 1rem;
                 }
             }
 
@@ -372,7 +374,7 @@ section,
                 opacity: 5;
 
                 &:not(.inactive):hover img {
-                    scale:1.1;
+                    scale: 1.1;
                 }
 
                 &.inactive {
@@ -399,8 +401,10 @@ section,
                 }
             }
         }
+
         .swiper-pagination {
-            bottom:0;
+            bottom: 0;
+
             .swiper-pagination-bullet-active {
                 background-color: $primery-1;
             }
@@ -564,7 +568,7 @@ section,
                 cursor: pointer;
 
                 &:hover .project-thumbnail img {
-                    scale:1.1;
+                    scale: 1.1;
                 }
             }
 
@@ -946,7 +950,7 @@ section,
     }
 
     #design .design-list ul.swiper-wrapper li.swiper-slide:not(.inactive):hover img {
-        scale:inherit;
+        scale: inherit;
     }
 
     .project-viewSwitch {
@@ -955,8 +959,9 @@ section,
 
     #project.grid .project-list {
         .project-card:hover .project-thumbnail img {
-            scale:inherit;
+            scale: inherit;
         }
+
         .project-thumbnail {
             height: 16rem;
         }
@@ -985,7 +990,7 @@ section,
 
     #about .section-grid,
     #design,
-    #project{
+    #project {
         padding: $padding768;
     }
 
@@ -1044,8 +1049,9 @@ section,
         .career-card {
             ul li {
                 padding: 0.4rem 0;
+
                 &:first-of-type {
-                    padding-top:0.6rem;
+                    padding-top: 0.6rem;
                 }
             }
         }
@@ -1098,7 +1104,7 @@ section,
 
     #about .section-grid,
     #design,
-    #project{
+    #project {
         padding: $padding576;
     }
 
