@@ -160,6 +160,18 @@ function aboutLayoutSet(value) {
 
 /* -------------------- main -------------------- */
 
+
+// 메인 vh 조정
+function vhSet() {
+    const main = document.getElementById('main');
+    let vh = window.innerHeight * 0.01;
+    main.style.height = `calc(${vh}px * 100)`;
+
+    setTimeout(() => {
+        main.style.height = '100svh';
+    },2000);
+}
+
 // 메인 이미지 롤링 셋팅
 function mainSetLayout() {
     const b = window.innerHeight * Math.cos(55 * Math.PI / 180);
@@ -216,14 +228,7 @@ topButton.addEventListener('click', () => {
         top: 0,
         behavior: 'smooth'
     });
-
-    const main = document.getElementById('main');
-    let vh = window.innerHeight * 0.01;
-    main.style.height = `calc(${vh}px * 100)`;
-
-    setTimeout(() => {
-        main.style.height = '100svh';
-    },1000);
+    vhSet();
 })
 
 
@@ -287,6 +292,7 @@ modalCloseBtn.forEach(e => {
 const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
+    vhSet();
     mainSetLayout();
 
     function mainImgLoad() {
