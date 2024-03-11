@@ -298,8 +298,6 @@ const bodyLoading = document.getElementById('body-loading');
 // });
 
 window.addEventListener('load', () => {
-    document.body.classList.add('before-load');
-
     vhSet();
     mainSetLayout();
 

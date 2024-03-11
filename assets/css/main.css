@@ -42,397 +42,6 @@
   font-style: normal;
   font-weight: 700;
 }
-* {
-  margin: 0;
-  padding: 0;
-  outline: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: "Montserrat", "Pretendard", sans-serif;
-  -webkit-tap-highlight-color: transparent;
-}
-
-body {
-  font-weight: 300;
-  font-style: normal;
-  font-size: 1rem;
-  background-color: #fff;
-  color: #393939;
-}
-body.before-load, body.open-nav {
-  overflow: hidden;
-}
-
-ul,
-li {
-  list-style: none;
-}
-
-a,
-a:link,
-a:visited,
-a:hover,
-a:active {
-  text-decoration: none;
-  color: #393939;
-  display: inline-block;
-}
-
-select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-select::-ms-expand {
-  display: none;
-}
-
-img {
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-h1,
-h2 {
-  text-transform: capitalize;
-}
-
-h1 {
-  font-size: 3rem;
-  line-height: 4rem;
-}
-
-h2 {
-  font-size: 2rem;
-  line-height: 3rem;
-}
-
-h3 {
-  font-size: 1.8rem;
-  line-height: 2.2rem;
-}
-
-h4 {
-  font-size: 1.6rem;
-  line-height: 2rem;
-}
-
-h5 {
-  font-size: 1.4rem;
-}
-
-h6 {
-  font-size: 1.2rem;
-}
-
-p.b-text {
-  font-size: 1.1rem;
-}
-
-.en {
-  font-family: "Montserrat", sans-serif;
-}
-
-img.point-rect {
-  width: 0.5rem;
-  height: 0.5rem;
-}
-
-.icon {
-  cursor: pointer;
-}
-
-.point-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-.point-title img {
-  width: 0.7rem;
-  height: 0.7rem;
-}
-
-.loading {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: #fff;
-  -webkit-transition: all 3s ease;
-  transition: all 3s ease;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  opacity: 0;
-  z-index: -100;
-}
-
-.before-load .loading {
-  opacity: 1;
-  z-index: 950;
-}
-
-.loading-circle {
-  width: 5rem;
-  height: 5rem;
-  -webkit-animation: loadingSpin 3s infinite;
-          animation: loadingSpin 3s infinite;
-}
-.loading-circle circle {
-  fill: transparent;
-  stroke: #4d8d6e;
-  stroke-width: 4;
-  stroke-dasharray: 157;
-  stroke-dashoffset: 0;
-  -webkit-animation: loadingAnimation 1s infinite;
-          animation: loadingAnimation 1s infinite;
-}
-
-@-webkit-keyframes loadingSpin {
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes loadingSpin {
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes loadingAnimation {
-  0% {
-    stroke-dashoffset: 157;
-  }
-  75% {
-    stroke-dashoffset: -117;
-  }
-  100% {
-    stroke-dashoffset: -157;
-  }
-}
-@keyframes loadingAnimation {
-  0% {
-    stroke-dashoffset: 157;
-  }
-  75% {
-    stroke-dashoffset: -117;
-  }
-  100% {
-    stroke-dashoffset: -157;
-  }
-}
-nav,
-header {
-  width: 100%;
-  height: 50px;
-  padding: 0 4rem;
-  position: fixed;
-  top: -50px;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  -webkit-transition: top 0.3s ease;
-  transition: top 0.3s ease;
-  z-index: 20;
-}
-nav::before,
-header::before {
-  content: " ";
-  position: absolute;
-  inset: 0;
-  -webkit-backdrop-filter: blur(15px);
-          backdrop-filter: blur(15px);
-  z-index: -1;
-}
-
-nav {
-  top: 0px;
-  z-index: 11;
-}
-nav ul {
-  width: 100%;
-  max-width: 1180px;
-  height: 100%;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-nav ul li {
-  text-transform: uppercase;
-  font-weight: 200;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-header > div {
-  width: 100%;
-  max-width: 1180px;
-  height: 100%;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-header > div h5 {
-  letter-spacing: -0.5px;
-}
-
-footer .section-grid {
-  padding: 8rem 4rem;
-  border-radius: 0 10rem 0 0;
-}
-footer .contact-head h1 {
-  font-size: 4rem;
-  line-height: 4.6rem;
-  color: #4d8d6e;
-}
-footer .contact-head img {
-  width: 1rem;
-  height: 1rem;
-}
-footer .contact-head h2 {
-  color: #cde3d8;
-  font-weight: 300;
-  margin-bottom: 2rem;
-}
-footer .contact-card:not(:last-of-type) {
-  margin-bottom: 1rem;
-}
-footer .contact-card dt {
-  color: #747474;
-  padding-bottom: 0.2rem;
-}
-footer.full {
-  background-color: rgba(205, 227, 216, 0.2);
-}
-footer.full .section-grid {
-  background-color: #fff;
-}
-footer.grid {
-  background-color: #fff;
-}
-footer.grid .section-grid {
-  background-color: #cde3d8;
-}
-footer.grid .contact-head h2 {
-  color: #f3f3f3;
-}
-
-@media (max-width: 768px) {
-  body {
-    font-size: 0.9rem;
-  }
-  h1 {
-    font-size: 2.2rem;
-    line-height: 3.2rem;
-  }
-  h2 {
-    font-size: 1.7rem;
-    line-height: 2.7rem;
-  }
-  h3 {
-    font-size: 1.5rem;
-    line-height: 1.9rem;
-  }
-  h4 {
-    font-size: 1.3rem;
-    line-height: 1.7rem;
-  }
-  h5 {
-    font-size: 1.1rem;
-  }
-  h6 {
-    font-size: 1rem;
-  }
-  p.b-text {
-    font-size: 1rem;
-  }
-  .point-title img {
-    width: 0.55rem;
-    height: 0.55rem;
-  }
-  nav,
-  header {
-    padding: 0 2rem;
-  }
-  footer .section-grid {
-    padding: 6rem 2rem;
-    border-radius: 0 8rem 0 0;
-  }
-  footer .contact-head h1 {
-    font-size: 3rem;
-    line-height: 3.6rem;
-  }
-  footer .contact-head h2 {
-    margin-bottom: 1rem;
-  }
-}
-@media (max-width: 576px) {
-  h1 {
-    font-size: 2.2rem;
-    line-height: 3.2rem;
-  }
-  .loading-circle {
-    width: 3rem;
-    height: 3rem;
-  }
-  nav,
-  header {
-    padding: 0 1rem;
-  }
-  footer .section-grid {
-    padding: 6rem 1rem;
-  }
-  footer.grid .contact-head h1 {
-    font-size: 2.6rem;
-    line-height: 3rem;
-  }
-  footer.grid .contact-head img {
-    width: 0.7rem;
-    height: 0.7rem;
-  }
-  footer.grid .contact-head h2 {
-    font-size: 1.6rem;
-    line-height: 2.2rem;
-  }
-}
 #main {
   width: 100%;
   height: 100dvh;
@@ -466,10 +75,10 @@ footer.grid .contact-head h2 {
           flex-direction: column;
 }
 #main .main-text > img {
-  width: 6rem;
+  width: 5rem;
   border: 1px dashed #747474;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 0.8rem;
 }
 #main .main-text > div {
   width: 100%;
@@ -484,7 +93,7 @@ footer.grid .contact-head h2 {
   position: relative;
   -webkit-animation: text 1.5s infinite;
           animation: text 1.5s infinite;
-  font-size: 5rem;
+  font-size: 4.4rem;
   font-weight: bold;
 }
 #main .main-text > div .text-obj span:nth-child(1) {
@@ -526,7 +135,7 @@ footer.grid .contact-head h2 {
           animation: hand 1.5s infinite;
 }
 #main .main-text > div strong {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   line-height: 2rem;
   display: block;
 }
@@ -594,6 +203,7 @@ footer.grid .contact-head h2 {
   width: 50%;
   height: 100%;
   overflow: hidden;
+  border-radius: 0 0 0 10rem;
   background-color: #94baa8;
   position: relative;
 }
@@ -1073,6 +683,9 @@ section,
   width: 48%;
   height: 100%;
 }
+#project.full .project-card .project-content h4 {
+  margin-top: 0.2rem;
+}
 #project.full .project-card .project-content > *:not(button) {
   padding-bottom: 2rem;
 }
@@ -1493,6 +1106,9 @@ section,
 }
 
 @media (max-width: 1200px) {
+  #main .main-text {
+    padding: 10rem 4rem 8rem 0;
+  }
   #main .main-text > div .text-obj span {
     font-size: 6vw;
   }
@@ -1500,8 +1116,8 @@ section,
     width: 6vw;
   }
   #main .main-text > div strong {
-    font-size: 1.4rem;
-    line-height: 1.8rem;
+    font-size: 1.3rem;
+    line-height: 1.9rem;
   }
   #project.full .project-card {
     padding: 4rem 2rem;
@@ -1514,6 +1130,11 @@ section,
   }
 }
 @media (max-width: 992px) {
+  #about .section-grid,
+  #design,
+  #project {
+    padding: 8rem 4rem;
+  }
   #main {
     display: inherit;
     position: relative;
@@ -1524,7 +1145,7 @@ section,
     left: 0;
     width: 100%;
     max-width: inherit;
-    padding: 12rem 4rem 8rem;
+    padding: 12rem 4rem 6rem;
     z-index: 10;
     background: rgba(255, 255, 255, 0.85);
   }
@@ -1539,6 +1160,7 @@ section,
   }
   #main .main-img {
     width: 100%;
+    border-radius: 0;
   }
   #main .main-img .main-imgGrid {
     left: -200px;
@@ -1561,7 +1183,6 @@ section,
   }
   #about .section-grid {
     display: inherit;
-    padding: 8rem 4rem;
   }
   #about .about-img {
     padding: 0;
@@ -1588,10 +1209,6 @@ section,
     max-width: inherit;
     padding: 0;
   }
-  #design,
-  #project {
-    padding: 8rem 4rem;
-  }
   #design .design-list ul.swiper-wrapper li.swiper-slide:not(.inactive):hover img {
     scale: inherit;
   }
@@ -1612,24 +1229,13 @@ section,
   }
 }
 @media (max-width: 768px) {
-  #top-button {
-    width: 2.4rem;
-    height: 2.4rem;
-  }
-  #top-button .icon {
-    font-size: 1.2rem;
-  }
   #about .section-grid,
   #design,
   #project {
     padding: 6rem 2rem;
   }
   #main .main-text {
-    padding: 12rem 2rem 8rem;
-  }
-  #main .main-text > img {
-    width: 5rem;
-    padding: 0.8rem;
+    padding: 12rem 2rem 6rem;
   }
   #main .main-text > div .text-obj span {
     font-size: max(3.2rem, 9vw);
@@ -1641,11 +1247,8 @@ section,
     font-size: 1.2rem;
     line-height: 1.6rem;
   }
-  #main .main-img {
-    border-radius: 0 0 0 8rem;
-  }
   #about .about-img {
-    height: 48vh;
+    height: 50vh;
   }
   #about .about-img .about-imgBackground,
   #about .about-img img {
@@ -1704,7 +1307,7 @@ section,
     padding: 10rem 1rem 6rem;
   }
   #main .main-text > img {
-    width: 4.4rem;
+    width: 4rem;
     padding: 0.6rem;
   }
   #main .main-text > div .text-obj span {

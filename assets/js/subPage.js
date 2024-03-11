@@ -1,21 +1,27 @@
 // 메인 vh 조정
+const main = document.getElementsByTagName('main');
 function vhSet() {
-    const main = document.getElementsByTagName('main');
     let vh = window.innerHeight * 0.01;
     main[0].style.height = `calc(${vh}px * 100)`;
 }
 
 
+// 헤더 높이 효과
 const header = document.getElementsByTagName("header");
-function scrollTop() {
+function headerAnimation() {
+    let w = window.innerWidth;
+    const nw = (w < 577) ? 50
+    : (w < 993) ? 75
+    : 100;
+
     if (window.pageYOffset > 200) {
-        header[0].style.height = "50px";
+        header[0].style.height = '50px';
     } else {
-        header[0].style.height = "100px";
+        header[0].style.height = `${nw}px`;
     }
 }
 
-
+// header, footer 끌어다 쓰기
 function includeHtml() {
     const includeTarget = document.querySelectorAll('.include');
     includeTarget.forEach(function(el, idx) {
@@ -40,6 +46,7 @@ function includeHtml() {
 /* -------------------- window -------------------- */
 const loading = document.querySelector('.loading');
 const wrapper = document.querySelectorAll('.wrapper');
+
 const jsonData = JSON.parse(JSON.stringify(ProjectJson));
 
 window.addEventListener('load', () => {
@@ -48,19 +55,18 @@ window.addEventListener('load', () => {
     // console.log(JSON.stringify(jsonData));
 
     includeHtml();
-    vhSet();
 
-    window.addEventListener('scroll', () => {
-        scrollTop();
-    });
+    if (matchMedia("screen and (min-width: 993px)").matches) vhSet();
+
+    window.addEventListener('scroll', () => { headerAnimation(); });
 
     window.addEventListener('orientationchange', () => {});
 
     window.addEventListener('resize', () => {});
 
     document.body.classList.remove('before-load');
-
     loading.addEventListener('transitionend', (e) => {
-        document.body.removeChild(e.target);
+        // document.body.removeChild(e.target);
     });
+
 });

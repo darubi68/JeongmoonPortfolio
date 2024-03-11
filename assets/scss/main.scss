@@ -1,4 +1,6 @@
-@import 'style.scss';
+@import 'font.scss';
+@import 'mixin.scss';
+@import 'variables.scss';
 
 // #top-button {
 //     position: fixed;
@@ -44,10 +46,10 @@
         flex-direction: column;
 
         >img {
-            width: 6rem;
+            width: 5rem;
             border: $dashed;
             border-radius: 1rem;
-            padding: 1rem;
+            padding: 0.8rem;
         }
 
         >div {
@@ -60,7 +62,7 @@
                 span {
                     position: relative;
                     animation: text 1.5s infinite;
-                    font-size: 5rem;
+                    font-size: 4.4rem;
                     font-weight: bold;
 
                     @for $i from 1 through 7 {
@@ -80,7 +82,7 @@
             }
 
             strong {
-                font-size: 1.6rem;
+                font-size: 1.4rem;
                 line-height: 2rem;
                 display: block;
             }
@@ -128,7 +130,7 @@
         width: 50%;
         height: 100%;
         overflow: hidden;
-        // border-radius: 0 0 0 10rem;
+        border-radius: 0 0 0 10rem;
         background-color: $primery-2;
         position: relative;
 
@@ -529,6 +531,10 @@ section,
                 width: 48%;
                 height: 100%;
 
+                h4 {
+                    margin-top:0.2rem;
+                }
+
                 >*:not(button) {
                     padding-bottom: 2rem;
                 }
@@ -808,21 +814,25 @@ section,
 // 1200px 이하
 @include desktop {
 
-    #main .main-text>div {
-        .text-obj {
-            span {
-                font-size: 6vw;
+    #main .main-text{
+        padding:10rem 4rem 8rem 0;
+        >div {
+            .text-obj {
+                span {
+                    font-size: 6vw;
+                }
+    
+                img {
+                    width: 6vw;
+                }
             }
-
-            img {
-                width: 6vw;
+    
+            strong {
+                font-size: 1.3rem;
+                line-height: 1.9rem;
             }
         }
 
-        strong {
-            font-size: 1.4rem;
-            line-height: 1.8rem;
-        }
     }
 
     #project.full .project-card {
@@ -848,6 +858,12 @@ section,
 // 992px 이하
 @include tablet {
 
+    #about .section-grid,
+    #design,
+    #project {
+        padding: 8rem 4rem;
+    }
+
     #main {
         display: inherit;
         position: relative;
@@ -858,7 +874,7 @@ section,
             left: 0;
             width: 100%;
             max-width: inherit;
-            padding: 12rem 4rem 8rem;
+            padding: 12rem 4rem 6rem;
             z-index: 10;
             background: rgba(255, 255, 255, 0.85);
 
@@ -881,6 +897,7 @@ section,
 
         .main-img {
             width: 100%;
+            border-radius: 0;
 
             .main-imgGrid {
                 left: -200px;
@@ -909,7 +926,6 @@ section,
     #about {
         .section-grid {
             display: inherit;
-            padding: $padding992;
         }
 
         .about-img {
@@ -943,11 +959,6 @@ section,
         }
     }
 
-    #design,
-    #project {
-        padding: $padding992;
-    }
-
     #design .design-list ul.swiper-wrapper li.swiper-slide:not(.inactive):hover img {
         scale: inherit;
     }
@@ -978,29 +989,24 @@ section,
 
 // 768px 이하
 @include mobile {
-    #top-button {
-        width: 2.4rem;
-        height: 2.4rem;
+    // #top-button {
+    //     width: 2.4rem;
+    //     height: 2.4rem;
 
-        .icon {
-            font-size: 1.2rem;
-        }
-    }
+    //     .icon {
+    //         font-size: 1.2rem;
+    //     }
+    // }
 
     #about .section-grid,
     #design,
     #project {
-        padding: $padding768;
+        padding: 6rem 2rem;
     }
 
     #main {
         .main-text {
-            padding: 12rem 2rem 8rem;
-
-            >img {
-                width: 5rem;
-                padding: 0.8rem;
-            }
+            padding: 12rem 2rem 6rem;
 
             >div {
                 .text-obj {
@@ -1019,15 +1025,11 @@ section,
                 }
             }
         }
-
-        .main-img {
-            border-radius: 0 0 0 8rem;
-        }
     }
 
     #about {
         .about-img {
-            height: 48vh;
+            height: 50vh;
 
             .about-imgBackground,
             img {
@@ -1104,14 +1106,14 @@ section,
     #about .section-grid,
     #design,
     #project {
-        padding: $padding576;
+        padding: 6rem 1rem;
     }
 
     #main .main-text {
         padding: 10rem 1rem 6rem;
 
         >img {
-            width: 4.4rem;
+            width: 4rem;
             padding: 0.6rem;
         }
 

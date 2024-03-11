@@ -98,8 +98,8 @@ h2 {
 }
 
 h1 {
-  font-size: 3rem;
-  line-height: 4rem;
+  font-size: 2.8rem;
+  line-height: 3.8rem;
 }
 
 h2 {
@@ -167,8 +167,8 @@ img.point-rect {
   bottom: 0;
   right: 0;
   background-color: #fff;
-  -webkit-transition: all 3s ease;
-  transition: all 3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -285,6 +285,16 @@ nav ul li {
   font-weight: 200;
   font-size: 0.8rem;
   cursor: pointer;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header {
@@ -319,13 +329,9 @@ footer .section-grid {
   border-radius: 0 10rem 0 0;
 }
 footer .contact-head h1 {
-  font-size: 4rem;
-  line-height: 4.6rem;
+  font-size: 3.2rem;
+  line-height: 3.8rem;
   color: #4d8d6e;
-}
-footer .contact-head img {
-  width: 1rem;
-  height: 1rem;
 }
 footer .contact-head h2 {
   color: #cde3d8;
@@ -355,13 +361,19 @@ footer.grid .contact-head h2 {
   color: #f3f3f3;
 }
 
+@media (max-width: 992px) {
+  footer .contact-head h1 {
+    font-size: 3rem;
+    line-height: 3.6rem;
+  }
+}
 @media (max-width: 768px) {
   body {
     font-size: 0.9rem;
   }
   h1 {
-    font-size: 2.2rem;
-    line-height: 3.2rem;
+    font-size: 2rem;
+    line-height: 3rem;
   }
   h2 {
     font-size: 1.7rem;
@@ -397,18 +409,18 @@ footer.grid .contact-head h2 {
     border-radius: 0 8rem 0 0;
   }
   footer .contact-head h1 {
-    font-size: 3rem;
-    line-height: 3.6rem;
+    font-size: 2.8rem;
+    line-height: 3.4rem;
+  }
+  footer .contact-head img {
+    width: 0.55rem;
+    height: 0.55rem;
   }
   footer .contact-head h2 {
     margin-bottom: 1rem;
   }
 }
 @media (max-width: 576px) {
-  h1 {
-    font-size: 2.2rem;
-    line-height: 3.2rem;
-  }
   .loading-circle {
     width: 3rem;
     height: 3rem;
@@ -420,16 +432,12 @@ footer.grid .contact-head h2 {
   footer .section-grid {
     padding: 6rem 1rem;
   }
-  footer.grid .contact-head h1 {
-    font-size: 2.6rem;
+  footer .contact-head h1 {
+    font-size: 2.4rem;
     line-height: 3rem;
   }
-  footer.grid .contact-head img {
-    width: 0.7rem;
-    height: 0.7rem;
-  }
-  footer.grid .contact-head h2 {
-    font-size: 1.6rem;
-    line-height: 2.2rem;
+  footer .contact-head h2 {
+    font-size: 1.5rem;
+    line-height: 2.1rem;
   }
 }

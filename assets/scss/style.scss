@@ -57,8 +57,8 @@ h2 {
 }
 
 h1 {
-    font-size: 3rem;
-    line-height: 4rem;
+    font-size: 2.8rem;
+    line-height: 3.8rem;
 }
 
 h2 {
@@ -122,7 +122,7 @@ img.point-rect {
     bottom: 0;
     right: 0;
     background-color: #fff;
-    @include transition($duration:3s);
+    @include transition();
     @include flex;
     opacity: 0;
     z-index: -100;
@@ -212,6 +212,8 @@ nav {
             font-weight: 200;
             font-size: 0.8rem;
             cursor: pointer;
+            height:100%;
+            @include flex;
         }
     }
 }
@@ -242,14 +244,9 @@ footer {
 
     .contact-head {
         h1 {
-            font-size: 4rem;
-            line-height: 4.6rem;
+            font-size: 3.2rem;
+            line-height: 3.8rem;
             color: $primery-1;
-        }
-
-        img {
-            width: 1rem;
-            height: 1rem;
         }
 
         h2 {
@@ -292,6 +289,19 @@ footer {
 }
 
 
+// 992px 이하
+@include tablet {
+    footer {
+        .contact-head {
+            h1 {
+                font-size: 3rem;
+                line-height: 3.6rem;
+            }
+        }
+    }
+}
+
+
 // 768px 이하
 @include mobile {
     body {
@@ -299,8 +309,8 @@ footer {
     }
 
     h1 {
-        font-size: 2.2rem;
-        line-height: 3.2rem;
+        font-size: 2rem;
+        line-height: 3rem;
     }
 
     h2 {
@@ -342,14 +352,19 @@ footer {
 
     footer {
         .section-grid {
-            padding: $padding768;
+            padding: 6rem 2rem;
             border-radius: 0 8rem 0 0;
         }
         .contact-head {
 
             h1 {
-                font-size: 3rem;
-                line-height: 3.6rem;
+                font-size: 2.8rem;
+                line-height: 3.4rem;
+            }
+
+            img {
+                width:0.55rem;
+                height:0.55rem;
             }
     
             h2 {
@@ -363,11 +378,6 @@ footer {
 
 // 576px 이하
 @include mini {
-    h1 {
-        font-size: 2.2rem;
-        line-height: 3.2rem;
-    }
-
     .loading-circle {
         width: 3rem;
         height: 3rem;
@@ -379,23 +389,18 @@ footer {
     }
 
     footer .section-grid {
-        padding: $padding576;
+        padding: 6rem 1rem;
     }
 
-    footer.grid .contact-head {
+    footer .contact-head {
         h1 {
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             line-height: 3rem;
         }
 
-        img {
-            width: 0.7rem;
-            height: 0.7rem;
-        }
-
         h2 {
-            font-size: 1.6rem;
-            line-height: 2.2rem;
+            font-size: 1.5rem;
+            line-height: 2.1rem;
         }
     }
 }

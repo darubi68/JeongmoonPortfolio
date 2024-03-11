@@ -1,8 +1,12 @@
-@import 'style.scss';
+@import 'font.scss';
+@import 'mixin.scss';
+@import 'variables.scss';
 
-h1 {
-    font-size: max(2.4rem, 2.4vw);
-    line-height: max(3.4rem, 3.4vw);
+@media (min-width: 769px) {
+    h1 {
+        font-size: max(2.4rem, 2.4vw);
+        line-height: max(3.4rem, 3.4vw);
+    }
 }
 
 header {
@@ -13,7 +17,7 @@ header {
 
 main {
     height: 100dvh;
-    padding: $padding1200;
+    padding:10rem 4rem;
     @include flex;
 
     .main-grid {
@@ -23,6 +27,7 @@ main {
 
     .main-img {
         width: 54%;
+        @include flex;
 
         img {
             max-width: 100%;
@@ -51,6 +56,7 @@ main {
                 padding: 0.1rem 1.4rem;
                 border-radius: 2rem;
                 font-size: 0.9rem;
+                margin-bottom:0.2rem;
             }
         }
 
@@ -76,7 +82,7 @@ main {
 }
 
 .content-detail {
-    padding: $padding1200;
+    padding:10rem 4rem;
     @include flex;
 
     .section-grid {
@@ -84,17 +90,20 @@ main {
         @include flex(space-between, flex-start);
 
         >div {
-            width:30%;
+            width: 30%;
+
             img {
-                width:100%;
+                width: 100%;
                 box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 
                 &:not(:last-child) {
                     margin-bottom: 3rem;
                 }
             }
+
             video {
-                width:100%;
+                width: 100%;
+
                 &:not(:last-child) {
                     margin-bottom: 3rem;
                 }
@@ -122,29 +131,128 @@ main {
     }
 }
 
-#pmsWeb .content-detail .section-grid >div,
-#webCCTV .content-detail .section-grid >div{
-    width:48%;
-}   
+#pmsWeb .content-detail .section-grid>div,
+#webCCTV .content-detail .section-grid>div {
+    width: 48%;
+}
 
-#pmsSolution .content-detail .section-grid >:first-child,
-#webRenewal .content-detail .section-grid >:first-child{
-    width:66%;
-} 
+#pmsSolution .content-detail .section-grid>:first-child,
+#webRenewal .content-detail .section-grid>:first-child {
+    width: 66%;
+}
 
 
 // 1200px 이하
 @include desktop {
-    h1 {
-        font-size: max(2rem, 3.2vw);
-        line-height: max(3rem, 4.2vw);
-    }
+    // h1 {
+    //     font-size: max(2rem, 3.2vw);
+    //     line-height: max(3rem, 4.2vw);
+    // }
 
     main {
         .main-text {
             h1 {
-                padding-bottom:1rem;
+                padding-bottom: 1rem;
             }
+        }
+    }
+}
+
+
+// 992px 이하
+@include tablet {
+    header {
+        height: 75px;
+    }
+
+    main {
+        padding:6rem 4rem 8rem;
+        display: block;
+        height: auto !important;
+
+        .main-grid {
+            display: block;
+        }
+
+        .main-img,
+        .main-text {
+            width: 100%;
+        }
+
+        .main-img {
+            height:50vh;
+            margin-bottom:2rem;
+        }
+    }
+
+    .content-detail {
+        padding: 8rem 4rem;
+    }
+
+    .page-navigation {
+        padding:3rem 4rem;
+    }
+
+}
+
+
+// 768px 이하
+@include mobile {
+    main {
+        padding: 4rem 2rem 6rem;
+        .main-text {
+            > * {
+                padding-bottom:1.4rem;
+            }
+            h1 {
+                padding-bottom:0.4rem;
+            }
+            > p {
+                line-height: 1.6rem;
+            }
+        }
+    }
+
+    .content-detail {
+        padding: 6rem 2rem;
+    }
+
+    .page-navigation {
+        padding:2rem;
+        .section-grid >div span{
+            font-size: 1.8rem;
+        }
+    }
+}
+
+
+// 576px 이하
+@include mini {
+    h1 {
+        font-size: max(1.6rem, 5vw);
+        line-height: max(2.6rem, 7vw);
+    }
+
+    header {
+        height: 50px;
+    }
+
+    main {
+        padding:4rem 1rem 6rem;
+        .main-img {
+            height:44vh;
+            margin-bottom:1rem;
+        }
+    }
+
+    .content-detail {
+        padding: 6rem 1rem;
+    }
+
+    .page-navigation {
+        padding:1.8rem 1rem;
+        .section-grid >div span{
+            font-size: 1.6rem;
         }
     }
 }
