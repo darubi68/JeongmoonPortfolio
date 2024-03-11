@@ -433,40 +433,6 @@ footer.grid .contact-head h2 {
     line-height: 2.2rem;
   }
 }
-#top-button {
-  position: fixed;
-  width: 3rem;
-  height: 3rem;
-  bottom: -3rem;
-  right: 2rem;
-  background-color: #8bc0a7;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  z-index: 800;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-#top-button .icon {
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.6rem;
-}
-#top-button.top-active {
-  bottom: 2rem;
-}
-#top-button:hover {
-  background-color: #4d8d6e;
-}
-
 #main {
   width: 100%;
   height: 100dvh;
@@ -628,7 +594,6 @@ footer.grid .contact-head h2 {
   width: 50%;
   height: 100%;
   overflow: hidden;
-  border-radius: 0 0 0 10rem;
   background-color: #94baa8;
   position: relative;
 }
