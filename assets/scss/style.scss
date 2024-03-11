@@ -111,11 +111,6 @@ img.point-rect {
 }
 
 
-.before-load {
-    .loading {
-        opacity: 1;
-    }
-}
 
 // 로딩
 .loading {
@@ -126,12 +121,18 @@ img.point-rect {
     left: 0;
     bottom: 0;
     right: 0;
-    z-index: 100;
     background-color: #fff;
     @include transition;
-    opacity: 0;
     @include flex;
-    z-index: 950;
+    opacity: 0;
+    z-index: -100;
+}
+
+.before-load {
+    .loading {
+        opacity: 1;
+        z-index: 950;
+    }
 }
 
 .loading-circle {

@@ -41,7 +41,7 @@ function subPageChange(event) {
     const el = event.target;
     let link = '';
     el.tagName === 'BUTTON' ? link = el.closest('.project-card').dataset.page : link = el.dataset.page;
-    if(event.ctrlKey) {
+    if (event.ctrlKey) {
         window.open(`/page/${link}.html`, '_blank').focus();
     } else {
         location.href = `/page/${link}.html`;
@@ -298,18 +298,26 @@ const bodyLoading = document.getElementById('body-loading');
 // });
 
 window.addEventListener('load', () => {
-    
+    document.body.classList.add('before-load');
+
     vhSet();
     mainSetLayout();
-    if(window.pageYOffset > project.offsetTop) {
-        window.scrollTo({top:window.pageYOffset-1});
+
+    if (window.pageYOffset > project.offsetTop) {
+        window.scrollTo({
+            top: window.pageYOffset - 1
+        });
         projectBackScroll();
     }
 
+    // width 992px 이하일때
+    if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
+    else aboutLayoutSet('full');
+
     function mainImgLoad() {
-        const lala = document.querySelectorAll('.main-imgGrid img');
+        const mainImg = document.querySelectorAll('.main-imgGrid img');
         let value
-        lala.forEach(el => {
+        mainImg.forEach(el => {
             value = el.complete && el.naturalWidth !== 0;
         })
         return value
@@ -318,13 +326,9 @@ window.addEventListener('load', () => {
     if (mainImgLoad()) {
         document.body.classList.remove('before-load');
         bodyLoading.addEventListener('transitionend', (e) => {
-            document.body.removeChild(e.target);
+            // document.body.removeChild(e.target);
         });
     }
-
-    // width 992px 이하일때
-    if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
-    else aboutLayoutSet('full');
 
     window.addEventListener('scroll', () => {
         navOpen();
@@ -333,20 +337,16 @@ window.addEventListener('load', () => {
     });
 
     window.addEventListener('orientationchange', () => {});
-    
-    let width = window.innerWidth ;
-    let height = window.innerHeight ;
 
+    let width = window.innerWidth;
     window.addEventListener('resize', () => {
-        if(width !== window.innerWidth) {
+        if (width !== window.innerWidth) {
             mainSetLayout();
-    
+
             if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
             else aboutLayoutSet('full');
 
             width = window.innerWidth;
         }
     });
-
-    alert('road');
 });
