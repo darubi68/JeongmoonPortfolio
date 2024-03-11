@@ -289,13 +289,13 @@ modalCloseBtn.forEach(e => {
 /* -------------------- window -------------------- */
 const bodyLoading = document.getElementById('body-loading');
 
-window.addEventListener('pageshow', (event) => {
-    if(event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-        alert('뒤로가기');
-    } else {
-        alert('정상로드');
-    }
-});
+// window.addEventListener('pageshow', (event) => {
+//     if(event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+//         alert('뒤로가기');
+//     } else {
+//         alert('정상로드');
+//     }
+// });
 
 window.addEventListener('load', () => {
     vhSet();
