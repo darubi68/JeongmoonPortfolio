@@ -167,8 +167,8 @@ img.point-rect {
   bottom: 0;
   right: 0;
   background-color: #fff;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 3s ease;
+  transition: all 3s ease;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
