@@ -172,8 +172,8 @@ img.point-rect {
   right: 0;
   z-index: 100;
   background-color: #fff;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 5s ease;
+  transition: all 5s ease;
   opacity: 0;
   display: -webkit-box;
   display: -ms-flexbox;
