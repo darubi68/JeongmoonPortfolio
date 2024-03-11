@@ -289,7 +289,16 @@ modalCloseBtn.forEach(e => {
 /* -------------------- window -------------------- */
 const bodyLoading = document.getElementById('body-loading');
 
+// window.addEventListener('pageshow', (event) => {
+//     if(event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+//         // alert('뒤로가기');
+//     } else {
+//         // alert('정상로드');
+//     }
+// });
+
 window.addEventListener('load', () => {
+    
     vhSet();
     mainSetLayout();
     if(window.pageYOffset > project.offsetTop) {
@@ -338,4 +347,6 @@ window.addEventListener('load', () => {
             width = window.innerWidth;
         }
     });
+
+    alert('road');
 });
