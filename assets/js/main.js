@@ -51,9 +51,7 @@ function subPageChange(event) {
 function pageChangeTrigger(value) {
     projectCard.forEach(el => {
         if (value === 'grid') {
-            el.addEventListener('click', (event) => subPageChange(event), {
-                once: true
-            })
+            el.addEventListener('click', (event) => subPageChange(event));
         } else {
             el.removeEventListener('click', (event) => subPageChange(event));
         }

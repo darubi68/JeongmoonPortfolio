@@ -1,18 +1,20 @@
-//메인 높이 값 설정
-// function vhSet() {
-//     let vh = window.innerHeight * 0.01;
-//     document.getElementsByTagName('main').style.height = `calc(${vh}px * 100)`;
-// }
+// 메인 vh 조정
+function vhSet() {
+    const main = document.getElementsByTagName('main');
+    let vh = window.innerHeight * 0.01;
+    main[0].style.height = `calc(${vh}px * 100)`;
+}
 
 
 const header = document.getElementsByTagName("header");
 function scrollTop() {
-    if (window.pageYOffset > 300) {
+    if (window.pageYOffset > 200) {
         header[0].style.height = "50px";
     } else {
         header[0].style.height = "100px";
     }
 }
+
 
 function includeHtml() {
     const includeTarget = document.querySelectorAll('.include');
@@ -46,6 +48,7 @@ window.addEventListener('load', () => {
     // console.log(JSON.stringify(jsonData));
 
     includeHtml();
+    vhSet();
 
     window.addEventListener('scroll', () => {
         scrollTop();
