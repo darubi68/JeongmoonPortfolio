@@ -41,11 +41,12 @@ function subPageChange(event) {
     const el = event.target;
     let link = '';
     el.tagName === 'BUTTON' ? link = el.closest('.project-card').dataset.page : link = el.dataset.page;
-    if (event.ctrlKey) {
-        window.open(`/page/${link}.html`, '_blank').focus();
-    } else {
-        location.href = `/page/${link}.html`;
-    }
+    // if (event.ctrlKey) {
+    //     window.open(`/page/${link}.html`, '_blank').focus();
+    // } else {
+    //     location.href = `/page/${link}.html`;
+    // }
+    location.href = `/page/${link}.html`;
 }
 
 function pageChangeTrigger(value) {
@@ -105,7 +106,8 @@ let swiper = new Swiper(".design-list", {
     centeredSlides: true,
     spaceBetween: 10,
     // grabCursor: true,
-    // loop: true,
+    loop: true,
+    loopAdditionalSlides:2,
     speed: 300,
     pagination: {
         el: ".design-list .swiper-pagination",
@@ -288,14 +290,6 @@ modalCloseBtn.forEach(e => {
 
 /* -------------------- window -------------------- */
 const bodyLoading = document.getElementById('body-loading');
-
-// window.addEventListener('pageshow', (event) => {
-//     if(event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-//         // alert('뒤로가기');
-//     } else {
-//         // alert('정상로드');
-//     }
-// });
 
 window.addEventListener('load', () => {
     vhSet();

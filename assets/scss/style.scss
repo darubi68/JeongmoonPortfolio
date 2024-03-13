@@ -57,27 +57,23 @@ h2 {
 }
 
 h1 {
-    font-size: 2.8rem;
-    line-height: 3.8rem;
+    font-size: 3.2rem;
 }
 
 h2 {
-    font-size: 2rem;
-    line-height: 3rem;
+    font-size: 2.6rem;
 }
 
 h3 {
     font-size: 1.8rem;
-    line-height: 2.2rem;
 }
 
 h4 {
     font-size: 1.6rem;
-    line-height: 2rem;
 }
 
 h5 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 h6 {    
@@ -92,11 +88,6 @@ p.b-text {
     font-family: $en, sans-serif;
 }
 
-img.point-rect {
-    width: 0.5rem;
-    height: 0.5rem;
-}
-
 .icon {
     cursor: pointer;
 }
@@ -105,8 +96,8 @@ img.point-rect {
     @include flex(flex-start, flex-start);
 
     img {
-        width: 0.7rem;
-        height: 0.7rem;
+        width: 0.5rem;
+        height: 0.5rem;
     }
 }
 
@@ -125,13 +116,13 @@ img.point-rect {
     @include transition();
     @include flex;
     opacity: 0;
-    z-index: -100;
+    z-index: -999;
 }
 
 .before-load {
     .loading {
         opacity: 1;
-        z-index: 950;
+        z-index: 999;
     }
 }
 
@@ -198,7 +189,6 @@ header {
 
 nav {
     top: 0px;
-    z-index: 11;
 
     ul {
         width: 100%;
@@ -229,7 +219,8 @@ header {
         display: flex;
         align-items: center;
 
-        h5 {
+        strong {
+            font-size: 1.3rem;
             letter-spacing: -0.5px;
         }
     }
@@ -243,16 +234,24 @@ footer {
     }
 
     .contact-head {
-        h1 {
-            font-size: 3.2rem;
-            line-height: 3.8rem;
-            color: $primery-1;
+        margin-bottom: 2rem;
+
+        .point-title {
+            h1 {
+                color: $primery-1;
+            }
+            @media (min-width: 769px) {
+                img {
+                    width:0.7rem;
+                    height:0.7rem;
+                }
+            }
         }
 
-        h2 {
-            color: $primery-4;
+        strong {
+            font-size: 1.8rem;
             font-weight: 300;
-            margin-bottom: 2rem;
+            color: $primery-4;
         }
     }
 
@@ -263,7 +262,7 @@ footer {
 
         dt {
             color: $text-subColor;
-            padding-bottom: 0.2rem;
+            padding-bottom: 0.4rem;
         }
     }
 
@@ -282,10 +281,63 @@ footer {
             background-color: $primery-4;
         }
 
-        .contact-head h2 {
+        .contact-head strong {
             color: $back-color;
         }
     }
+}
+
+.modal {
+    position: fixed;
+    padding: 4rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 900;
+    pointer-events: none;
+    @include transition;
+    @include flex;
+
+    .modal-container {
+        width: 100%;
+        max-width: $max-width;
+        transform: translateY(2rem);
+        @include transition;
+    }
+
+    &.modal-hide {
+        opacity: 0;
+
+        .modal-container {
+            transform: translateY(2rem);
+            opacity: 0;
+        }
+    }
+
+    &.modal-show {
+        opacity: 1;
+        pointer-events: auto;
+
+        .modal-container {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .icon {
+        font-size: 2rem;
+        color: #fff;
+    }
+
+    .modal-close {
+        position:absolute;
+    }
+}
+
+.not-scroll {
+    overflow: hidden;
 }
 
 
@@ -293,10 +345,7 @@ footer {
 @include tablet {
     footer {
         .contact-head {
-            h1 {
-                font-size: 3rem;
-                line-height: 3.6rem;
-            }
+
         }
     }
 }
@@ -309,40 +358,31 @@ footer {
     }
 
     h1 {
-        font-size: 2rem;
-        line-height: 3rem;
+        font-size: 2.8rem;
     }
 
     h2 {
-        font-size: 1.7rem;
-        line-height: 2.7rem;
+        font-size: 2.2rem;
     }
 
     h3 {
-        font-size: 1.5rem;
-        line-height: 1.9rem;
+        font-size: 1.6rem;
     }
 
     h4 {
-        font-size: 1.3rem;
-        line-height: 1.7rem;
+        font-size: 1.4rem;
     }
 
     h5 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     h6 {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     p.b-text {
         font-size: 1rem;
-    }
-
-    .point-title img {
-        width: 0.55rem;
-        height: 0.55rem;
     }
 
     nav,
@@ -350,28 +390,26 @@ footer {
         padding: 0 2rem;
     }
 
+    header > div strong {
+        font-size: 1.2rem;
+    }
+
     footer {
         .section-grid {
-            padding: 6rem 2rem;
+            padding: 5rem 2rem;
             border-radius: 0 8rem 0 0;
         }
+
         .contact-head {
-
-            h1 {
-                font-size: 2.8rem;
-                line-height: 3.4rem;
-            }
-
-            img {
-                width:0.55rem;
-                height:0.55rem;
-            }
-    
-            h2 {
-                margin-bottom: 1rem;
+            strong {
+                font-size: 1.6rem;
             }
         }
     } 
+
+    .modal {
+        padding: 2rem;
+    }
 
 }
 
@@ -389,18 +427,20 @@ footer {
     }
 
     footer .section-grid {
-        padding: 6rem 1rem;
+        padding: 5rem 1rem;
     }
 
     footer .contact-head {
         h1 {
             font-size: 2.4rem;
-            line-height: 3rem;
         }
 
-        h2 {
-            font-size: 1.5rem;
-            line-height: 2.1rem;
+        strong {
+            font-size: 1.4rem;
         }
+    }
+
+    .modal {
+        padding: 1rem;
     }
 }

@@ -98,27 +98,23 @@ h2 {
 }
 
 h1 {
-  font-size: 2.8rem;
-  line-height: 3.8rem;
+  font-size: 3.2rem;
 }
 
 h2 {
-  font-size: 2rem;
-  line-height: 3rem;
+  font-size: 2.6rem;
 }
 
 h3 {
   font-size: 1.8rem;
-  line-height: 2.2rem;
 }
 
 h4 {
   font-size: 1.6rem;
-  line-height: 2rem;
 }
 
 h5 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
 h6 {
@@ -131,11 +127,6 @@ p.b-text {
 
 .en {
   font-family: "Montserrat", sans-serif;
-}
-
-img.point-rect {
-  width: 0.5rem;
-  height: 0.5rem;
 }
 
 .icon {
@@ -154,8 +145,8 @@ img.point-rect {
           align-items: flex-start;
 }
 .point-title img {
-  width: 0.7rem;
-  height: 0.7rem;
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 .loading {
@@ -179,12 +170,12 @@ img.point-rect {
       -ms-flex-align: center;
           align-items: center;
   opacity: 0;
-  z-index: -100;
+  z-index: -999;
 }
 
 .before-load .loading {
   opacity: 1;
-  z-index: 950;
+  z-index: 999;
 }
 
 .loading-circle {
@@ -263,7 +254,6 @@ header::before {
 
 nav {
   top: 0px;
-  z-index: 11;
 }
 nav ul {
   width: 100%;
@@ -320,7 +310,8 @@ header > div {
       -ms-flex-align: center;
           align-items: center;
 }
-header > div h5 {
+header > div strong {
+  font-size: 1.3rem;
   letter-spacing: -0.5px;
 }
 
@@ -328,22 +319,29 @@ footer .section-grid {
   padding: 8rem 4rem;
   border-radius: 0 10rem 0 0;
 }
-footer .contact-head h1 {
-  font-size: 3.2rem;
-  line-height: 3.8rem;
+footer .contact-head {
+  margin-bottom: 2rem;
+}
+footer .contact-head .point-title h1 {
   color: #4d8d6e;
 }
-footer .contact-head h2 {
-  color: #cde3d8;
+@media (min-width: 769px) {
+  footer .contact-head .point-title img {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+}
+footer .contact-head strong {
+  font-size: 1.8rem;
   font-weight: 300;
-  margin-bottom: 2rem;
+  color: #cde3d8;
 }
 footer .contact-card:not(:last-of-type) {
   margin-bottom: 1rem;
 }
 footer .contact-card dt {
   color: #747474;
-  padding-bottom: 0.2rem;
+  padding-bottom: 0.4rem;
 }
 footer.full {
   background-color: rgba(205, 227, 216, 0.2);
@@ -357,67 +355,113 @@ footer.grid {
 footer.grid .section-grid {
   background-color: #cde3d8;
 }
-footer.grid .contact-head h2 {
+footer.grid .contact-head strong {
   color: #f3f3f3;
 }
 
-@media (max-width: 992px) {
-  footer .contact-head h1 {
-    font-size: 3rem;
-    line-height: 3.6rem;
-  }
+.modal {
+  position: fixed;
+  padding: 4rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 900;
+  pointer-events: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+.modal .modal-container {
+  width: 100%;
+  max-width: 1180px;
+  -webkit-transform: translateY(2rem);
+      -ms-transform: translateY(2rem);
+          transform: translateY(2rem);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.modal.modal-hide {
+  opacity: 0;
+}
+.modal.modal-hide .modal-container {
+  -webkit-transform: translateY(2rem);
+      -ms-transform: translateY(2rem);
+          transform: translateY(2rem);
+  opacity: 0;
+}
+.modal.modal-show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal.modal-show .modal-container {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+.modal .icon {
+  font-size: 2rem;
+  color: #fff;
+}
+.modal .modal-close {
+  position: absolute;
+}
+
+.not-scroll {
+  overflow: hidden;
+}
+
 @media (max-width: 768px) {
   body {
     font-size: 0.9rem;
   }
   h1 {
-    font-size: 2rem;
-    line-height: 3rem;
+    font-size: 2.8rem;
   }
   h2 {
-    font-size: 1.7rem;
-    line-height: 2.7rem;
+    font-size: 2.2rem;
   }
   h3 {
-    font-size: 1.5rem;
-    line-height: 1.9rem;
+    font-size: 1.6rem;
   }
   h4 {
-    font-size: 1.3rem;
-    line-height: 1.7rem;
+    font-size: 1.4rem;
   }
   h5 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   h6 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   p.b-text {
     font-size: 1rem;
-  }
-  .point-title img {
-    width: 0.55rem;
-    height: 0.55rem;
   }
   nav,
   header {
     padding: 0 2rem;
   }
+  header > div strong {
+    font-size: 1.2rem;
+  }
   footer .section-grid {
-    padding: 6rem 2rem;
+    padding: 5rem 2rem;
     border-radius: 0 8rem 0 0;
   }
-  footer .contact-head h1 {
-    font-size: 2.8rem;
-    line-height: 3.4rem;
+  footer .contact-head strong {
+    font-size: 1.6rem;
   }
-  footer .contact-head img {
-    width: 0.55rem;
-    height: 0.55rem;
-  }
-  footer .contact-head h2 {
-    margin-bottom: 1rem;
+  .modal {
+    padding: 2rem;
   }
 }
 @media (max-width: 576px) {
@@ -430,14 +474,15 @@ footer.grid .contact-head h2 {
     padding: 0 1rem;
   }
   footer .section-grid {
-    padding: 6rem 1rem;
+    padding: 5rem 1rem;
   }
   footer .contact-head h1 {
     font-size: 2.4rem;
-    line-height: 3rem;
   }
-  footer .contact-head h2 {
-    font-size: 1.5rem;
-    line-height: 2.1rem;
+  footer .contact-head strong {
+    font-size: 1.4rem;
+  }
+  .modal {
+    padding: 1rem;
   }
 }

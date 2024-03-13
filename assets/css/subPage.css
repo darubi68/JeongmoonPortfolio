@@ -42,12 +42,10 @@
   font-style: normal;
   font-weight: 700;
 }
-@media (min-width: 769px) {
-  h1 {
-    font-size: max(2.4rem, 2.4vw);
-    line-height: max(3.4rem, 3.4vw);
-  }
+h2 {
+  font-size: 2.5rem;
 }
+
 header {
   height: 100px;
   top: 0;
@@ -56,7 +54,7 @@ header {
 }
 
 main {
-  height: 100dvh;
+  height: 100svh;
   padding: 10rem 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -105,8 +103,14 @@ main .main-text > * {
 main .main-text > *:last-child {
   padding-bottom: 0;
 }
-main .main-text h6 {
-  padding: 1rem 0 0.5rem;
+main .main-text > h2 {
+  padding-top: 0.5rem;
+}
+main .main-text > div h6 {
+  padding-bottom: 0.5rem;
+}
+main .main-text > div p {
+  padding-bottom: 1rem;
 }
 main .main-text > div .keyword {
   display: inline-block;
@@ -116,7 +120,7 @@ main .main-text > div .keyword {
   margin-bottom: 0.2rem;
 }
 main .main-text > p {
-  line-height: 1.8rem;
+  line-height: 2rem;
 }
 main.main-1 {
   background-color: #f3f3f3;
@@ -199,6 +203,7 @@ main.main-7 .keyword {
   width: 100%;
   -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
 }
 .content-detail .section-grid > div img:not(:last-child) {
   margin-bottom: 3rem;
@@ -236,11 +241,63 @@ main.main-7 .keyword {
       -ms-flex-align: center;
           align-items: center;
 }
+.page-navigation .section-grid > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+}
+.page-navigation .section-grid > div.prev-page:hover {
+  -webkit-transform: translateX(-0.4rem);
+      -ms-transform: translateX(-0.4rem);
+          transform: translateX(-0.4rem);
+}
+.page-navigation .section-grid > div.next-page:hover {
+  -webkit-transform: translateX(0.4rem);
+      -ms-transform: translateX(0.4rem);
+          transform: translateX(0.4rem);
+}
+.page-navigation .section-grid > div > * {
+  pointer-events: none;
+}
+.page-navigation .section-grid > div p {
+  color: #fff;
+  padding: 0 0.4rem;
+}
 .page-navigation .section-grid > div span {
   color: #fff;
   font-size: 2rem;
 }
-
+.page-navigation .section-grid > div:not([data-url]) {
+  visibility: hidden;
+}
+.page-navigation .section-grid > span {
+  width: 2.4rem;
+  height: 2.4rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #f3f3f3;
+  font-size: 1.3rem;
+}
 #pmsWeb .content-detail .section-grid > div,
 #webCCTV .content-detail .section-grid > div {
   width: 48%;
@@ -252,8 +309,8 @@ main.main-7 .keyword {
 }
 
 @media (max-width: 1200px) {
-  main .main-text h1 {
-    padding-bottom: 1rem;
+  h2 {
+    font-size: max(2rem, 3.2vw);
   }
 }
 @media (max-width: 992px) {
@@ -287,17 +344,14 @@ main.main-7 .keyword {
   main {
     padding: 4rem 2rem 6rem;
   }
-  main .main-text > * {
-    padding-bottom: 1.4rem;
-  }
-  main .main-text h1 {
-    padding-bottom: 0.4rem;
-  }
   main .main-text > p {
-    line-height: 1.6rem;
+    line-height: 1.8rem;
   }
   .content-detail {
     padding: 6rem 2rem;
+  }
+  .content-detail .section-grid > div img:not(:last-child) {
+    margin-bottom: 2rem;
   }
   .page-navigation {
     padding: 2rem;
@@ -307,9 +361,8 @@ main.main-7 .keyword {
   }
 }
 @media (max-width: 576px) {
-  h1 {
-    font-size: max(1.6rem, 5vw);
-    line-height: max(2.6rem, 7vw);
+  h2 {
+    font-size: 1.5rem;
   }
   header {
     height: 50px;
@@ -324,8 +377,11 @@ main.main-7 .keyword {
   .content-detail {
     padding: 6rem 1rem;
   }
+  .content-detail .section-grid > div img:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
   .page-navigation {
-    padding: 1.8rem 1rem;
+    padding: 2rem 1rem;
   }
   .page-navigation .section-grid > div span {
     font-size: 1.6rem;

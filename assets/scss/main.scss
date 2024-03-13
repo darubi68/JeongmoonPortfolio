@@ -2,39 +2,9 @@
 @import 'mixin.scss';
 @import 'variables.scss';
 
-// #top-button {
-//     position: fixed;
-//     width: 3rem;
-//     height: 3rem;
-//     bottom: -3rem;
-//     right: 2rem;
-//     background-color: $primery-3;
-//     border-radius: 50%;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     z-index: 800;
-//     @include transition;
-//     cursor: pointer;
-
-//     .icon {
-//         color: #fff;
-//         font-weight: bold;
-//         font-size: 1.6rem;
-//     }
-
-//     &.top-active {
-//         bottom: 2rem;
-//     }
-
-//     &:hover {
-//         background-color: $primery-1;
-//     }
-// }
-
 #main {
     width: 100%;
-    height: 100dvh;
+    height: 100svh;
     @include flex(flex-end, center);
 
     .main-text {
@@ -134,15 +104,15 @@
         background-color: $primery-2;
         position: relative;
 
-        .main-filter {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.5);
-            z-index: 1;
-        }
+        // .main-filter {
+        //     position: absolute;
+        //     right: 0;
+        //     top: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     background-color: rgba(255, 255, 255, 0.5);
+        //     z-index: 1;
+        // }
 
         .main-imgGrid {
             @include col-grid(repeat(3, 1fr));
@@ -180,39 +150,39 @@
 
         @keyframes rolling-start {
             0% {
-                transform: translateY(20%);
+                transform: translate3d(0, 20%, 0);
             }
 
             100% {
-                transform: translateY(0%);
+                transform: translate3d(0, 0%, 0);
             }
         }
 
         @keyframes rolling1 {
             0% {
-                transform: translateY(0%);
+                transform: translate3d(0, 0%, 0);
             }
 
             50% {
-                transform: translateY(-100%);
+                transform: translate3d(0, -100%, 0);
             }
 
             50.01% {
-                transform: translateY(100%);
+                transform: translate3d(0, 100%, 0);
             }
 
             100% {
-                transform: translateY(0%);
+                transform: translate3d(0, 0%, 0);
             }
         }
 
         @keyframes rolling2 {
             0% {
-                transform: translateY(0%);
+                transform: translate3d(0, 0%, 0);
             }
 
             100% {
-                transform: translateY(-200%);
+                transform: translate3d(0, -200%, 0);
             }
         }
     }
@@ -267,7 +237,7 @@ section,
 
         .text-card>p {
             line-height: 2rem;
-            padding-bottom: 1.4rem;
+            padding-bottom: 1.5rem;
 
             &:last-of-type {
                 padding-bottom: 5rem;
@@ -280,8 +250,7 @@ section,
             margin-bottom: 3rem;
         }
 
-        .career-listTitle {
-            @include flex(flex-start, flex-start);
+        .point-title {
             color: $primery-2;
         }
 
@@ -289,17 +258,13 @@ section,
             li {
                 padding: 0.6rem 0;
 
-                &:first-of-type {
-                    padding-top: 1rem;
+                h6 {
+                    padding: 0.3rem 0;
                 }
-            }
 
-            h5 {
-                padding: 0.2rem 0;
-            }
-
-            p {
-                color: $text-subColor;
+                p {
+                    color: $text-subColor;
+                }
             }
         }
     }
@@ -320,51 +285,6 @@ section,
     .design-head {
         @include flex(space-between, center);
         margin-bottom: 3rem;
-    }
-
-    .design-tab {
-        @include flex;
-
-        li {
-            height: 4rem;
-            padding: 0 1rem;
-            text-transform: uppercase;
-            @include flex;
-            position: relative;
-            cursor: pointer;
-            overflow: hidden;
-            @include transition;
-
-            p {
-                color: $text-subColor;
-                @include transition;
-            }
-
-            &::after {
-                width: 100%;
-                height: 4px;
-                background-color: $primery-1;
-                content: '';
-                position: absolute;
-                left: -100%;
-                bottom: 0;
-                @include transition;
-            }
-
-            &.active {
-                padding: 0 3rem;
-
-                p {
-                    font-size: 1.5rem;
-                    font-weight: bold;
-                    color: inherit;
-                }
-
-                &::after {
-                    left: 0;
-                }
-            }
-        }
     }
 
     .design-list {
@@ -398,7 +318,7 @@ section,
                 }
 
                 h5 {
-                    padding: 1.2rem 0 0.3rem 0;
+                    padding: 1.5rem 0 0.4rem 0;
                 }
             }
         }
@@ -514,7 +434,7 @@ section,
         overflow: hidden;
 
         .project-card {
-            padding: 4rem;
+            padding: 5rem;
             @include flex(space-between, center);
 
             &:not(:last-child) {
@@ -532,7 +452,8 @@ section,
                 height: 100%;
 
                 h4 {
-                    margin-top:0.2rem;
+                    margin-top: 0.2rem;
+                    font-size: 1.8rem;
                 }
 
                 >*:not(button) {
@@ -546,7 +467,7 @@ section,
                 dl {
                     dt {
                         font-weight: bold;
-                        padding-bottom: 0.2rem;
+                        padding-bottom: 0.4rem;
                     }
 
                     & dd:not(:last-child) {
@@ -555,7 +476,7 @@ section,
                 }
 
                 p {
-                    line-height: 1.8rem;
+                    line-height: 2rem;
                 }
 
                 button {
@@ -583,7 +504,7 @@ section,
                 @include flex(center, center);
                 border-radius: 2rem;
                 overflow: hidden;
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
                 box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
                 pointer-events: none;
 
@@ -605,7 +526,7 @@ section,
                 pointer-events: none;
 
                 h4 {
-                    padding: 0.2rem 0;
+                    padding: 0.3rem 0;
                 }
 
                 >div {
@@ -678,178 +599,116 @@ section,
             @include transition();
         }
     }
-
-
 }
 
 
-.modal {
-    position: fixed;
-    padding: 4rem;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 900;
-    pointer-events: none;
-    @include transition;
-    @include flex;
 
+#inactive-modal {
     .modal-container {
-        width: 100%;
-        max-width: $max-width;
-        transform: translateY(2rem);
-        @include transition;
-    }
+        position: relative;
+        max-width: 22rem;
+        background-color: $back-color;
+        border-radius: 50%;
 
-    &.modal-hide {
-        opacity: 0;
-
-        .modal-container {
-            transform: translateY(2rem);
-            opacity: 0;
-        }
-    }
-
-    &.modal-show {
-        opacity: 1;
-        pointer-events: auto;
-
-        .modal-container {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-
-    .icon {
-        font-weight: bold;
-        font-size: 2rem;
-        color: #fff;
-    }
-
-    &#inactive-modal {
-        .modal-container {
-            position: relative;
-            max-width: 22rem;
-            background-color: $back-color;
-            border-radius: 50%;
-
-            &::after {
-                content: "";
-                display: block;
-                padding-bottom: 100%;
-            }
-
-            .modal-content {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                @include flex;
-                flex-direction: column;
-
-                .modal-body {
-                    max-width: 100%;
-                    @include flex;
-
-                    >div {
-                        text-align: center;
-
-                        strong {
-                            font-weight: 400;
-                            padding-bottom: 1rem;
-                            color: $primery-1;
-                            font-size: 1.6rem;
-                            display: block;
-
-                            span {
-                                font-weight: 700;
-                            }
-                        }
-
-                        p {
-                            line-height: 1.6rem;
-                        }
-                    }
-                }
-            }
-
-            .modal-close {
-                position: absolute;
-                right: 0;
-                top: 0;
-            }
-        }
-    }
-
-    &#design-modal {
-        .loading {
-            background-color: rgba(0, 0, 0, 0.7);
+        &::after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
         }
 
-        .modal-container {
+        .modal-content {
+            position: absolute;
             width: 100%;
             height: 100%;
-            overflow-y: auto;
+            @include flex;
+            flex-direction: column;
 
-            img {
-                width: 100%;
-                display: block;
+            .modal-body {
+                max-width: 100%;
+                @include flex;
+
+                >div {
+                    text-align: center;
+
+                    strong {
+                        font-weight: 400;
+                        padding-bottom: 1rem;
+                        color: $primery-1;
+                        font-size: 1.6rem;
+                        display: block;
+
+                        span {
+                            font-weight: 700;
+                        }
+                    }
+
+                    p {
+                        line-height: 1.6rem;
+                    }
+                }
             }
         }
 
         .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
+            right: 0;
+            top: 0;
         }
     }
 }
 
-.not-scroll {
-    overflow: hidden;
+#design-modal {
+    .loading {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-container {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+
+    .modal-close {
+        top: 1rem;
+        right: 1rem;
+    }
 }
+
 
 
 // 1200px 이하
 @include desktop {
 
-    #main .main-text{
-        padding:10rem 4rem 8rem 0;
+    #main .main-text {
+        padding: 10rem 4rem 6rem 0;
+
         >div {
             .text-obj {
                 span {
-                    font-size: 6vw;
+                    font-size: 3.8rem;
                 }
-    
+
                 img {
                     width: 6vw;
                 }
-            }
-    
-            strong {
-                font-size: 1.3rem;
-                line-height: 1.9rem;
             }
         }
 
     }
 
     #project.full .project-card {
-        padding: 4rem 2rem;
+        padding: 5rem 1rem;
     }
 
     #project.grid .project-list {
         gap: 4rem 2rem;
 
         .project-thumbnail {
-            height: 18rem;
-        }
-
-        .project-content {
-            // h3 {
-            //     font-size: 1.6rem;
-            // }
+            height: 20rem;
         }
     }
 }
@@ -863,6 +722,7 @@ section,
     #project {
         padding: 8rem 4rem;
     }
+
 
     #main {
         display: inherit;
@@ -880,12 +740,8 @@ section,
 
             >div {
                 .text-obj {
-                    span {
-                        font-size: 4.2rem;
-                    }
-
                     img {
-                        width: 4.2rem;
+                        width: 4rem;
                     }
                 }
 
@@ -923,6 +779,7 @@ section,
         }
     }
 
+
     #about {
         .section-grid {
             display: inherit;
@@ -933,19 +790,19 @@ section,
             width: 100%;
             max-width: inherit;
             min-height: inherit;
-            height: 55vh;
+            height: 56vh;
             position: relative;
             margin-bottom: 3rem;
 
             .about-imgBackground {
                 height: calc(100% - 2rem);
-                width: calc(55vh * 0.7);
+                width: calc(56vh * 0.7);
                 left: 0;
             }
 
             img {
                 height: calc(100% - 2rem);
-                width: calc(55vh * 0.7);
+                width: calc(56vh * 0.7);
                 left: 2rem;
                 max-width: inherit;
             }
@@ -973,12 +830,12 @@ section,
         }
 
         .project-thumbnail {
-            height: 16rem;
+            height: 18rem;
         }
     }
 
-    .modal#design-modal {
-        padding: 4rem 2rem 2rem;
+    #design-modal {
+        padding: 4rem;
 
         .modal-content {
             max-width: inherit;
@@ -989,14 +846,6 @@ section,
 
 // 768px 이하
 @include mobile {
-    // #top-button {
-    //     width: 2.4rem;
-    //     height: 2.4rem;
-
-    //     .icon {
-    //         font-size: 1.2rem;
-    //     }
-    // }
 
     #about .section-grid,
     #design,
@@ -1008,14 +857,19 @@ section,
         .main-text {
             padding: 12rem 2rem 6rem;
 
+            >img {
+                width: 4.5rem;
+                padding: 0.7rem;
+            }
+
             >div {
                 .text-obj {
                     span {
-                        font-size: max(3.2rem, 9vw);
+                        font-size: 3.2rem;
                     }
 
                     img {
-                        width: max(3rem, 9vw);
+                        width: 3.4rem;
                     }
                 }
 
@@ -1033,13 +887,13 @@ section,
 
             .about-imgBackground,
             img {
-                width: calc(48vh * 0.77);
+                width: calc(50vh * 0.77);
             }
         }
 
         .about-text {
             .text-card>p {
-                line-height: 1.6rem;
+                line-height: 1.8rem;
 
                 &:last-of-type {
                     padding-bottom: 4rem;
@@ -1048,11 +902,17 @@ section,
         }
 
         .career-card {
-            ul li {
-                padding: 0.4rem 0;
+            ul {
+                li {
+                    padding: 0.4rem 0;
 
-                &:first-of-type {
-                    padding-top: 0.6rem;
+                    &:first-of-type {
+                        padding-top: 0.6rem;
+                    }
+                }
+
+                h6 {
+                    padding: 0.2rem 0;
                 }
             }
         }
@@ -1072,21 +932,21 @@ section,
         @include col-grid(inherit, 3rem 0);
     }
 
-    .modal {
-        padding: 2rem;
+    #project.grid .project-list .project-content h4 {
+        padding: 0.2rem 0;
+    }
 
-        &#inactive-modal .modal-container {
-            max-width: 20rem;
+    #inactive-modal .modal-container {
+        max-width: 20rem;
 
-            .modal-content .modal-body>div {
-                strong {
-                    font-size: 1.4rem;
-                    padding-bottom: 0.5rem;
-                }
+        .modal-content .modal-body>div {
+            strong {
+                font-size: 1.4rem;
+                padding-bottom: 0.5rem;
+            }
 
-                p {
-                    line-height: 1.4rem;
-                }
+            p {
+                line-height: 1.4rem;
             }
         }
     }
@@ -1095,12 +955,17 @@ section,
 
 // 576px 이하
 @include mini {
-    #top-button {
-        right: 1rem;
 
-        &.top-active {
-            bottom: 1rem;
-        }
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.3rem;
     }
 
     #about .section-grid,
@@ -1115,24 +980,24 @@ section,
         >img {
             width: 4rem;
             padding: 0.6rem;
+            border-radius: 0.8rem;
         }
 
         >div {
             .text-obj {
                 span {
-                    font-size: max(2.8rem, 9vw);
+                    font-size: 2.8rem;
+                }
+
+                img {
+                    width: 3rem;
                 }
             }
 
             strong {
                 width: 100%;
                 max-width: 26rem;
-                font-size: max(1.1rem, 3.2vw);
-                line-height: max(1.5rem, 4.2vw);
-            }
-
-            img {
-                width: max(3rem, 9vw);
+                font-size: 1.1rem;
             }
         }
 
@@ -1142,7 +1007,7 @@ section,
         .about-img {
             margin-bottom: 2rem;
             min-height: 25rem;
-            height: 45vh;
+            height: 44vh;
 
             .about-imgBackground,
             img {
@@ -1181,15 +1046,17 @@ section,
         }
     }
 
-    #project .project-head {
-        margin-bottom: 2rem;
+    #project {
+        .project-head {
+            margin-bottom: 2rem;
+        }
+
+        &.grid .project-list .project-thumbnail {
+            height: 16rem;
+        }
     }
 
-    .modal {
-        padding: 1rem;
-
-        &#design-modal {
-            padding: 4rem 1rem 1rem;
-        }
+    #design-modal {
+        padding: 4rem 1rem 1rem;
     }
 }

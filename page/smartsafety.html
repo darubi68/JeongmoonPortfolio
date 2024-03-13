@@ -9,19 +9,16 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/subPage.css">
 </head>
 
 <body class="before-load">
 
-    <div class="loading">
-        <svg class="loading-circle" viewBox="0 0 56 56">
-            <circle cx="50%" cy="50%" r="25"></circle>
-        </svg>
-    </div>
+    <div id="loading" class="loading include"></div>
 
-    <header data-include-file="./include/header.html" class="include"></header>
+    <header id="header" class="include"></header>
 
     <div id="smartsafety" class="wrapper">
         <main class="main-1">
@@ -31,10 +28,10 @@
                 </div>
                 <div class="main-text">
                     <small>2021.01 ~ 2021.03</small>
-                    <h1>근로자간편등록 웹 퍼블리싱</h1>
+                    <h2>근로자간편등록 웹 퍼블리싱</h2>
                     <div>
                         <h6>기여도</h6>
-                        <p>· 디자인 100% · 퍼블리싱 90%</p>
+                        <p>디자인 100% · 퍼블리싱 90%</p>
                         <h6>기술 스택</h6>
                         <div class="keyword">HTML5</div>
                         <div class="keyword">CSS3</div>
@@ -70,19 +67,59 @@
             <div class="section-grid">
                 <div class="prev-page">
                     <span class="icon icon-arrow-left-circle"></span>
-                    <h6></h6>
+                    <p>PREV</p>
                 </div>
-                <div class="next-page">
+                <span class="icon icon-home"></span>
+                <div class="next-page" data-url="pmsWeb">
+                    <p>NEXT</p>
                     <span class="icon icon-arrow-right-circle"></span>
                 </div>
             </div>
         </section>
     </div>
 
-    <footer data-include-file="./include/footer.html" class="include"></footer>
+    <!-- <div id="image-editor" class="modal modal-hide">
+        <span class="icon icon-close modal-close"></span>
+        <div class="modal-container">
+            <div class="swiper">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide">
+                        <div class="img-box">
+                            <img src="../assets/img/project/smartsafety/1.png" />
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <div class="img-box">
+                            <img src="../assets/img/project/smartsafety/2.png" />
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <div class="img-box">
+                            <img src="../assets/img/project/smartsafety/3.png" />
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <div class="img-box">
+                            <img src="../assets/img/project/smartsafety/4.png" />
+                        </div>
+                    </li>
+                    <li class="swiper-slide">
+                        <div class="img-box">
+                            <img src="../assets/img/project/smartsafety/5.png" />
+                        </div>
+                    </li>
+                </ul>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div> -->
 
+    <footer id="footer" class="include"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script type="text/javascript" src="../assets/json/project.json"></script>
     <script type="text/javascript" src="../assets/js/subPage.js"></script>
     <script>
         AOS.init();
