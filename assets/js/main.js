@@ -107,7 +107,7 @@ let swiper = new Swiper(".design-list", {
     spaceBetween: 10,
     // grabCursor: true,
     loop: true,
-    loopAdditionalSlides:2,
+    loopAdditionalSlides: 2,
     speed: 300,
     pagination: {
         el: ".design-list .swiper-pagination",
@@ -139,20 +139,20 @@ let swiper = new Swiper(".design-list", {
 
 /* -------------------- about -------------------- */
 const about = document.getElementById('about');
-const img = document.querySelector('.about-img');
-const text = document.querySelectorAll('.about-text > *');
+const aboutImg = document.querySelector('.about-img');
+const aboutText = document.querySelectorAll('.about-text > *');
 
 function aboutLayoutSet(value) {
     if (value === 'grid') {
-        img.setAttribute('data-aos', 'fade-up');
-        text.forEach(el => {
+        aboutImg.setAttribute('data-aos', 'fade-up');
+        aboutText.forEach(el => {
             el.setAttribute('data-aos', 'fade-up');
         });
         projectSwitch.checked = true;
         projectClassSet('grid');
     } else {
-        img.setAttribute('data-aos', '');
-        text.forEach(el => {
+        aboutImg.setAttribute('data-aos', '');
+        aboutText.forEach(el => {
             el.setAttribute('data-aos', '');
         });
         projectSwitch.checked = false;
@@ -163,11 +163,16 @@ function aboutLayoutSet(value) {
 
 
 /* -------------------- main -------------------- */
+const main = document.getElementById('main');
+const mainImgGrid = document.querySelector('.main-imgGrid');
+const imgBox = document.querySelectorAll('.main-imgBox');
+const original = document.querySelectorAll('.original');
+
 // 메인 vh 조정
 function vhSet() {
-    const main = document.getElementById('main');
     let vh = window.innerHeight * 0.01;
-    main.style.height = `calc(${vh}px * 100)`;
+    // main.style.height = `calc(${vh}px * 100)`;
+    main.style.height = `${window.innerHeight}px`;
 }
 
 // 메인 이미지 롤링 셋팅
@@ -176,7 +181,15 @@ function mainSetLayout() {
     let a = 0;
     if (matchMedia("screen and (max-width: 992px)").matches) a = window.innerWidth * Math.cos(35 * Math.PI / 180);
     else a = (window.innerWidth / 2) * Math.cos(35 * Math.PI / 180);
-    document.querySelector('.main-imgGrid').style.width = `${a+b}px`;
+    mainImgGrid.style.width = `${a+b}px`;
+}
+
+function mainSetImg() {
+    for (let i = 0; i < original.length; i++) {
+        const clone = original[i].cloneNode(true);
+        clone.className = 'clone';
+        imgBox[i].appendChild(clone);
+    }
 }
 
 
@@ -197,7 +210,7 @@ navList.forEach(e => {
     })
 })
 
-function navOpen() {
+function navHeaderAnimation() {
     const currentScroll = window.pageYOffset;
     if (prevScroll > currentScroll) {
         nav.style.top = "0px";
@@ -288,12 +301,23 @@ modalCloseBtn.forEach(e => {
 
 
 
+function checkOS() {
+    const type = navigator.userAgent.toLowerCase();
+    if (type.indexOf('iphone') > -1 || type.indexOf('ipad') > -1 || type.indexOf('ipod') > -1) {
+        return true;
+    }
+};
+
+
+
 /* -------------------- window -------------------- */
 const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
+
     vhSet();
     mainSetLayout();
+    checkOS() ? original.forEach(el => el.className = 'ios-type') : mainSetImg();
 
     if (window.pageYOffset > project.offsetTop) {
         window.scrollTo({
@@ -302,29 +326,26 @@ window.addEventListener('load', () => {
         projectBackScroll();
     }
 
-    // width 992px 이하일때
-    if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
-    else aboutLayoutSet('full');
+    matchMedia("screen and (max-width: 992px)").matches ? aboutLayoutSet('grid') : aboutLayoutSet('full');
 
     function mainImgLoad() {
         const mainImg = document.querySelectorAll('.main-imgGrid img');
-        let value
+        let value;
         mainImg.forEach(el => {
             value = el.complete && el.naturalWidth !== 0;
         })
-        return value
+        return value;
     }
 
     if (mainImgLoad()) {
         document.body.classList.remove('before-load');
-        bodyLoading.addEventListener('transitionend', (e) => {
-            // document.body.removeChild(e.target);
-        });
+        // bodyLoading.addEventListener('transitionend', (e) => {
+        //     document.body.removeChild(e.target);
+        // });
     }
 
     window.addEventListener('scroll', () => {
-        navOpen();
-        // scrollTop();
+        navHeaderAnimation();
         if (project.className === 'full') projectBackScroll();
     });
 
@@ -334,10 +355,7 @@ window.addEventListener('load', () => {
     window.addEventListener('resize', () => {
         if (width !== window.innerWidth) {
             mainSetLayout();
-
-            if (matchMedia("screen and (max-width: 992px)").matches) aboutLayoutSet('grid');
-            else aboutLayoutSet('full');
-
+            matchMedia("screen and (max-width: 992px)").matches ? aboutLayoutSet('grid') : aboutLayoutSet('full');
             width = window.innerWidth;
         }
     });
