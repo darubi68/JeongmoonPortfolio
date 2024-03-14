@@ -258,10 +258,10 @@ function modalOpen(e) {
     } else if (e.closest('.design-list')) {
         const img = document.createElement('img');
         img.src = `./assets/img/design/${e.dataset.img}.jpg`;
-        designModalContainer.appendChild(img);
         designModal.classList.remove('modal-hide');
         designModal.classList.add('modal-show');
         img.onload = () => {
+            designModalContainer.appendChild(img);
             modalLoading();
         }
     }
@@ -327,6 +327,7 @@ window.addEventListener('load', () => {
         mainImg.forEach(el => {
             value = el.complete && el.naturalWidth !== 0;
         })
+        console.log(value);
         return value;
     }
 
