@@ -168,14 +168,6 @@ const mainImgGrid = document.querySelector('.main-imgGrid');
 const imgBox = document.querySelectorAll('.main-imgBox');
 const original = document.querySelectorAll('.original');
 
-// 메인 vh 조정
-function vhSet() {
-    let vh = window.innerHeight * 0.01;
-    // main.style.height = `calc(${vh}px * 100)`;
-    main.style.height = `${window.innerHeight}px`;
-    document.getElementById('test').innerText = `vh실행 - ${window.innerHeight}px`;
-}
-
 // 메인 이미지 롤링 셋팅
 function mainSetLayout() {
     const b = window.innerHeight * Math.cos(55 * Math.PI / 180);
@@ -316,9 +308,9 @@ const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
 
-    vhSet();
+    main.style.height = `${window.innerHeight}px`;
     mainSetLayout();
-    checkOS() ? original.forEach(el => el.className = 'ios-type') : mainSetImg();
+    checkOS() ? original.forEach(el => el.className = 'ios-type') : '';
 
     if (window.pageYOffset > project.offsetTop) {
         window.scrollTo({
