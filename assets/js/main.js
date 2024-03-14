@@ -173,6 +173,7 @@ function vhSet() {
     let vh = window.innerHeight * 0.01;
     // main.style.height = `calc(${vh}px * 100)`;
     main.style.height = `${window.innerHeight}px`;
+    document.getElementById('test').innerText = `vh실행 - ${window.innerHeight}px`;
 }
 
 // 메인 이미지 롤링 셋팅
