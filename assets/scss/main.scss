@@ -755,22 +755,25 @@ section,
         .main-img {
             width: 100%;
             border-radius: 0;
-
-            .main-imgBox {
-                & .main-original {
-                    animation: rolling1 25s linear -1s infinite;
+            .main-imgGrid {
+                .main-imgBox {
+                    & .original {
+                        animation: rolling1 25s linear 1s infinite;
+                    }
+    
+                    & .clone {
+                        animation: rolling2 25s linear 1s infinite;
+                    }
                 }
-
-                & .main-clone {
-                    animation: rolling2 25s linear -1s infinite;
-                }
-
-                & .original {
-                    animation: rolling1 25s linear infinite;
-                }
-
-                & .clone {
-                    animation: rolling2 25s linear infinite;
+    
+                &>:nth-child(2) {
+                    & .original {
+                        animation: rolling1 25s linear infinite;
+                    }
+    
+                    & .clone {
+                        animation: rolling2 25s linear infinite;
+                    }
                 }
             }
         }

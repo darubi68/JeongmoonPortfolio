@@ -165,24 +165,16 @@ function aboutLayoutSet(value) {
 /* -------------------- main -------------------- */
 const main = document.getElementById('main');
 const mainImgGrid = document.querySelector('.main-imgGrid');
-const imgBox = document.querySelectorAll('.main-imgBox');
-const original = document.querySelectorAll('.original');
+const imgBox = document.querySelectorAll('.main-imgBox >div');
 
-// 메인 이미지 롤링 셋팅
+
+// 메인 레이아웃 셋팅
 function mainSetLayout() {
     const b = window.innerHeight * Math.cos(55 * Math.PI / 180);
     let a = 0;
     if (matchMedia("screen and (max-width: 992px)").matches) a = window.innerWidth * Math.cos(35 * Math.PI / 180);
     else a = (window.innerWidth / 2) * Math.cos(35 * Math.PI / 180);
     mainImgGrid.style.width = `${a+b}px`;
-}
-
-function mainSetImg() {
-    for (let i = 0; i < original.length; i++) {
-        const clone = original[i].cloneNode(true);
-        clone.className = 'clone';
-        imgBox[i].appendChild(clone);
-    }
 }
 
 
@@ -310,7 +302,7 @@ window.addEventListener('load', () => {
 
     main.style.height = `${window.innerHeight}px`;
     mainSetLayout();
-    checkOS() ? original.forEach(el => el.className = 'ios-type') : '';
+    checkOS() ? imgBox.forEach(el => el.className = 'ios-type') : '';
 
     if (window.pageYOffset > project.offsetTop) {
         window.scrollTo({

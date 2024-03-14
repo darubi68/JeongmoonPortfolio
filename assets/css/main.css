@@ -1027,19 +1027,19 @@ section,
     width: 100%;
     border-radius: 0;
   }
-  #main .main-img .main-imgBox .main-original {
-    -webkit-animation: rolling1 25s linear -1s infinite;
-            animation: rolling1 25s linear -1s infinite;
+  #main .main-img .main-imgGrid .main-imgBox .original {
+    -webkit-animation: rolling1 25s linear 1s infinite;
+            animation: rolling1 25s linear 1s infinite;
   }
-  #main .main-img .main-imgBox .main-clone {
-    -webkit-animation: rolling2 25s linear -1s infinite;
-            animation: rolling2 25s linear -1s infinite;
+  #main .main-img .main-imgGrid .main-imgBox .clone {
+    -webkit-animation: rolling2 25s linear 1s infinite;
+            animation: rolling2 25s linear 1s infinite;
   }
-  #main .main-img .main-imgBox .original {
+  #main .main-img .main-imgGrid > :nth-child(2) .original {
     -webkit-animation: rolling1 25s linear infinite;
             animation: rolling1 25s linear infinite;
   }
-  #main .main-img .main-imgBox .clone {
+  #main .main-img .main-imgGrid > :nth-child(2) .clone {
     -webkit-animation: rolling2 25s linear infinite;
             animation: rolling2 25s linear infinite;
   }

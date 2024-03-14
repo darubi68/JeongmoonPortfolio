@@ -184,35 +184,11 @@ main.main-7 .keyword {
       -ms-flex-align: center;
           align-items: center;
 }
-.content-detail .section-grid {
+.content-detail .photo-gallery {
   max-width: 1180px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-}
-.content-detail .section-grid > div {
-  width: 30%;
-}
-.content-detail .section-grid > div img {
-  width: 100%;
-  -webkit-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 1rem;
-}
-.content-detail .section-grid > div img:not(:last-child) {
-  margin-bottom: 3rem;
-}
-.content-detail .section-grid > div video {
-  width: 100%;
-}
-.content-detail .section-grid > div video:not(:last-child) {
-  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
 }
 
 .page-navigation {
@@ -298,16 +274,6 @@ main.main-7 .keyword {
   color: #f3f3f3;
   font-size: 1.3rem;
 }
-#pmsWeb .content-detail .section-grid > div,
-#webCCTV .content-detail .section-grid > div {
-  width: 48%;
-}
-
-#pmsSolution .content-detail .section-grid > :first-child,
-#webRenewal .content-detail .section-grid > :first-child {
-  width: 66%;
-}
-
 @media (max-width: 1200px) {
   h2 {
     font-size: max(2rem, 3.2vw);
