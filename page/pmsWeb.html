@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
     <title>Jeongmoon Han</title>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/subPage.css">
 </head>
@@ -25,10 +23,10 @@
     <div id="pmsWeb" class="wrapper">
         <main class="main-2">
             <div class="main-grid">
-                <div class="main-img">
+                <div class="main-img" data-aos="fade-right">
                     <img src="../assets/img/project/pmsWeb.png" alt="PMS웹 목업이미지">
                 </div>
-                <div class="main-text">
+                <div class="main-text" data-aos="fade-left">
                     <small>2021.04 ~ 2021.09</small>
                     <h2>PMS 웹 리뉴얼&유지보수</h2>
                     <div>
@@ -51,18 +49,40 @@
         <!-- <section class="key-result"></section> -->
 
         <section class="content-detail">
-            <div class="section-grid">
-                <div>
-                    <img src="../assets/img/project/pmsWeb/1.jpg" alt="" data-aos="fade-up">
-                    <img src="../assets/img/project/pmsWeb/3.jpg" alt="" data-aos="fade-up">
-                    <img src="../assets/img/project/pmsWeb/5.jpg" alt="" data-aos="fade-up">
-
-                </div>
-                <div>
-                    <img src="../assets/img/project/pmsWeb/2.jpg" alt="" data-aos="fade-up">
-                    <img src="../assets/img/project/pmsWeb/4.jpg" alt="" data-aos="fade-up">
-                </div>
+            <div class="photo-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-aos="fade-up">
+                    <a href="../assets/img/project/pmsWeb/1.jpg" itemprop="contentUrl" data-size="1920x923">
+                        <img src="../assets/img/project/pmsWeb/1.jpg" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">pmsWeb.1</figcaption>
+                </figure>
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-aos="fade-up">
+                    <a href="../assets/img/project/pmsWeb/2.jpg" itemprop="contentUrl" data-size="1920x1549">
+                        <img src="../assets/img/project/pmsWeb/2.jpg" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">pmsWeb.2</figcaption>
+                </figure>
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-aos="fade-up">
+                    <a href="../assets/img/project/pmsWeb/3.jpg" itemprop="contentUrl" data-size="1920x923">
+                        <img src="../assets/img/project/pmsWeb/3.jpg" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">pmsWeb.3</figcaption>
+                </figure>
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-aos="fade-up">
+                    <a href="../assets/img/project/pmsWeb/4.jpg" itemprop="contentUrl" data-size="1920x1018">
+                        <img src="../assets/img/project/pmsWeb/4.jpg" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">pmsApp.4</figcaption>
+                </figure>
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-aos="fade-up">
+                    <a href="../assets/img/project/pmsWeb/5.jpg" itemprop="contentUrl" data-size="1920x923">
+                        <img src="../assets/img/project/pmsWeb/5.jpg" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">pmsApp.5</figcaption>
+                </figure>
             </div>
+
+            <div id="pswp" class="include"></div>
         </section>
 
         <section class="page-navigation">

@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
     <title>Jeongmoon Han</title>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/subPage.css">
 </head>
@@ -25,10 +23,10 @@
     <div id="smartsafety" class="wrapper">
         <main class="main-1">
             <div class="main-grid">
-                <div class="main-img">
+                <div class="main-img" data-aos="fade-right">
                     <img src="../assets/img/project/smartsafety.png" alt="근로자간편등록 목업이미지">
                 </div>
-                <div class="main-text">
+                <div class="main-text" data-aos="fade-left">
                     <small>2021.01 ~ 2021.03</small>
                     <h2>근로자간편등록 웹 퍼블리싱</h2>
                     <div>
@@ -50,19 +48,40 @@
         <!-- <section class="key-result"></section> -->
 
         <section class="content-detail">
-            <div class="section-grid">
-                <div>
-                    <img src="../assets/img/project/smartsafety/1.png" alt="" data-aos="fade-up">
-                    <img src="../assets/img/project/smartsafety/4.png" alt="" data-aos="fade-up">
-                </div>
-                <div>
-                    <img src="../assets/img/project/smartsafety/2.png" alt="" data-aos="fade-up">
-                    <img src="../assets/img/project/smartsafety/5.png" alt="" data-aos="fade-up">
-                </div>
-                <div>
-                    <img src="../assets/img/project/smartsafety/3.png" alt="" data-aos="fade-up">
-                </div>
+            <div class="photo-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-aos="fade-up">
+                    <a href="../assets/img/project/smartsafety/1.png" itemprop="contentUrl" data-size="360x740">
+                        <img src="../assets/img/project/smartsafety/1.png" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">smartsafety.1</figcaption>
+                </figure>
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-aos="fade-up">
+                    <a href="../assets/img/project/smartsafety/2.png" itemprop="contentUrl" data-size="360x740">
+                        <img src="../assets/img/project/smartsafety/2.png" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">smartsafety.2</figcaption>
+                </figure>
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-aos="fade-up">
+                    <a href="../assets/img/project/smartsafety/3.png" itemprop="contentUrl" data-size="360x740">
+                        <img src="../assets/img/project/smartsafety/3.png" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">smartsafety.3</figcaption>
+                </figure>
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-aos="fade-up">
+                    <a href="../assets/img/project/smartsafety/4.png" itemprop="contentUrl" data-size="360x740">
+                        <img src="../assets/img/project/smartsafety/4.png" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">smartsafety.4</figcaption>
+                </figure>
+                <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" data-aos="fade-up">
+                    <a href="../assets/img/project/smartsafety/5.png" itemprop="contentUrl" data-size="360x740">
+                        <img src="../assets/img/project/smartsafety/5.png" itemprop="thumbnail" alt="Image description" />
+                    </a>
+                    <figcaption itemprop="caption description">smartsafety.5</figcaption>
+                </figure>
             </div>
+
+            <div id="pswp" class="include"></div>
         </section>
 
         <section class="page-navigation">
@@ -79,44 +98,6 @@
             </div>
         </section>
     </div>
-
-    <!-- <div id="image-editor" class="modal modal-hide">
-        <span class="icon icon-close modal-close"></span>
-        <div class="modal-container">
-            <div class="swiper">
-                <ul class="swiper-wrapper">
-                    <li class="swiper-slide">
-                        <div class="img-box">
-                            <img src="../assets/img/project/smartsafety/1.png" />
-                        </div>
-                    </li>
-                    <li class="swiper-slide">
-                        <div class="img-box">
-                            <img src="../assets/img/project/smartsafety/2.png" />
-                        </div>
-                    </li>
-                    <li class="swiper-slide">
-                        <div class="img-box">
-                            <img src="../assets/img/project/smartsafety/3.png" />
-                        </div>
-                    </li>
-                    <li class="swiper-slide">
-                        <div class="img-box">
-                            <img src="../assets/img/project/smartsafety/4.png" />
-                        </div>
-                    </li>
-                    <li class="swiper-slide">
-                        <div class="img-box">
-                            <img src="../assets/img/project/smartsafety/5.png" />
-                        </div>
-                    </li>
-                </ul>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </div> -->
 
     <footer id="footer" class="include"></footer>
 

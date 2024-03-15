@@ -56,6 +56,7 @@ header {
 main {
   height: 100svh;
   padding: 10rem 4rem;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -180,15 +181,46 @@ main.main-7 .keyword {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 .content-detail .photo-gallery {
   max-width: 1180px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 4rem;
+}
+.content-detail .photo-gallery a {
+  width: 100%;
+}
+.content-detail .photo-gallery a img {
+  width: 100%;
+  display: block;
+  border-radius: 1rem;
+  -webkit-box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+          box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+}
+.content-detail .photo-gallery figcaption {
+  display: none;
+}
+.content-detail .pswp__caption__center {
+  text-align: center;
+}
+
+#pmsSolution .content-detail .photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  width: 75%;
+}
+#pmsSolution .content-detail .pmsSolution-video {
+  width: 25%;
+  padding-left: 4rem;
+}
+#pmsSolution .content-detail .pmsSolution-video video {
+  width: 100%;
+  margin-bottom: 4rem;
 }
 
 .page-navigation {
@@ -278,6 +310,23 @@ main.main-7 .keyword {
   h2 {
     font-size: max(2rem, 3.2vw);
   }
+  .content-detail .photo-gallery {
+    gap: 3rem 2rem;
+  }
+  .content-detail .photo-gallery a img {
+    border-radius: 0.5rem;
+  }
+  #pmsSolution .content-detail .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 2rem;
+  }
+  #pmsSolution .content-detail .pmsSolution-video {
+    padding-left: 2rem;
+  }
+  #pmsSolution .content-detail .pmsSolution-video video {
+    margin-bottom: 3rem;
+  }
 }
 @media (max-width: 992px) {
   header {
@@ -316,8 +365,16 @@ main.main-7 .keyword {
   .content-detail {
     padding: 6rem 2rem;
   }
-  .content-detail .section-grid > div img:not(:last-child) {
-    margin-bottom: 2rem;
+  #pmsWeb .content-detail .photo-gallery,
+  #webCCTV .content-detail .photo-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #pmsSolution .content-detail .photo-gallery {
+    width: 65%;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  #pmsSolution .content-detail .pmsSolution-video {
+    width: 35%;
   }
   .page-navigation {
     padding: 2rem;
@@ -337,14 +394,23 @@ main.main-7 .keyword {
     padding: 4rem 1rem 6rem;
   }
   main .main-img {
-    height: 44vh;
+    height: 42vh;
     margin-bottom: 1rem;
   }
   .content-detail {
     padding: 6rem 1rem;
   }
-  .content-detail .section-grid > div img:not(:last-child) {
-    margin-bottom: 1.5rem;
+  .content-detail .photo-gallery {
+    gap: 2rem 1rem;
+  }
+  .content-detail .photo-gallery a img {
+    border-radius: 0.3rem;
+  }
+  #pmsSolution .content-detail .photo-gallery {
+    gap: 2rem 1rem;
+  }
+  #pmsSolution .content-detail .pmsSolution-video {
+    padding-left: 1rem;
   }
   .page-navigation {
     padding: 2rem 1rem;
