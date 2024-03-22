@@ -76,7 +76,7 @@ h5 {
     font-size: 1.3rem;
 }
 
-h6 {    
+h6 {
     font-size: 1.2rem;
 }
 
@@ -88,6 +88,7 @@ p.b-text {
     font-family: $en, sans-serif;
 }
 
+i,
 .icon {
     cursor: pointer;
 }
@@ -202,7 +203,7 @@ nav {
             font-weight: 200;
             font-size: 0.8rem;
             cursor: pointer;
-            height:100%;
+            height: 100%;
             @include flex;
         }
     }
@@ -218,6 +219,7 @@ header {
         margin: 0 auto;
         display: flex;
         align-items: center;
+        justify-content: flex-end;
 
         strong {
             font-size: 1.3rem;
@@ -240,10 +242,11 @@ footer {
             h1 {
                 color: $primery-1;
             }
+
             @media (min-width: 769px) {
                 img {
-                    width:0.7rem;
-                    height:0.7rem;
+                    width: 0.7rem;
+                    height: 0.7rem;
                 }
             }
         }
@@ -302,9 +305,20 @@ footer {
 
     .modal-container {
         width: 100%;
-        max-width: $max-width;
         transform: translateY(2rem);
         @include transition;
+        
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $text-subColor;
+            border-radius: 1rem;
+            &:hover {
+                background-color: $back-subColor;  
+            }
+        }
     }
 
     &.modal-hide {
@@ -332,7 +346,7 @@ footer {
     }
 
     .modal-close {
-        position:absolute;
+        position: absolute;
     }
 }
 
@@ -344,9 +358,7 @@ footer {
 // 992px 이하
 @include tablet {
     footer {
-        .contact-head {
-
-        }
+        .contact-head {}
     }
 }
 
@@ -390,7 +402,7 @@ footer {
         padding: 0 2rem;
     }
 
-    header > div strong {
+    header >div strong {
         font-size: 1.2rem;
     }
 
@@ -405,7 +417,7 @@ footer {
                 font-size: 1.6rem;
             }
         }
-    } 
+    }
 
     .modal {
         padding: 2rem;

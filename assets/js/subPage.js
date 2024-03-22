@@ -1,66 +1,8 @@
-// modal
-// const modal = document.getElementById('image-editor');
-// const modalCloseBtn = document.querySelectorAll('.modal-close');
-// const contentImg = document.querySelectorAll('.content-detail img');
-// const slide = document.querySelectorAll(".swiper-slide");
-// const slideImgBox = document.querySelectorAll(".img-box");
-// const slideImg = document.querySelectorAll(".img-box img");
 
-// function zoomRemove() {
-//     slide.forEach(el => {
-//         el.classList.remove('zoom');
-//         el.classList.remove('overflowY');
-//     })
-// }
-
-// function modalClose(e) {
-//     document.body.classList.remove('not-scroll');
-//     modal.classList.add('modal-hide');
-//     modal.classList.remove('modal-show');
-//     zoomRemove();
-// }
-
-// function modalOpen(e) {
-//     document.body.classList.add('not-scroll');
-//     modal.classList.add('modal-show');
-//     modal.classList.remove('modal-hide');
-// }
-
-// modalCloseBtn.forEach(el => {
-//     el.addEventListener('click', () => {
-//         modalClose(el);
-//     })
-// });
-
-// function imgEditorModalOpen(el) {
-//     let resetView = Number(el.target.dataset.num);
-//     swiper.slideTo(resetView, 0);
-//     modalOpen(el);
-// }
-
-// let swiperSetting = {
-//     slidesPerView: '1',
-//     centeredSlides: true,
-//     // loop: true,
-//     speed: 300,
-//     allowTouchMove: false,
-//     navigation: {
-//         nextEl: ".swiper-button-next",
-//         prevEl: ".swiper-button-prev",
-//     },
-//     pagination: {
-//         el: ".swiper-pagination",
-//         type: "fraction",
-//     },
-//     on: {
-//         activeIndexChange: function (swipe) {
-//             zoomRemove();
-//         },
-//     },
-// }
-
-// let swiper = new Swiper('.swiper', swiperSetting);
-
+// 홈으로 
+function homeMove() {
+    location.href = `../../index.html`;
+}
 
 // 메인 vh 조정
 const main = document.getElementsByTagName('main');
@@ -104,11 +46,13 @@ function includeHtml() {
 };
 
 
+
 /* -------------------- window -------------------- */
 const loading = document.querySelector('.loading');
 const wrapper = document.querySelectorAll('.wrapper');
 const pageMove = document.querySelectorAll('.page-navigation .section-grid > div');
-const homeMove = document.querySelectorAll('.icon-home');
+const projectListMove = document.querySelectorAll('.page-navigation .section-grid > span');
+
 
 window.addEventListener('load', () => {
 
@@ -122,41 +66,9 @@ window.addEventListener('load', () => {
         })
     })
 
-    homeMove.forEach(el => {
-        el.addEventListener('click', function(el){
-            location.href = `../../index.html`;
-        })
+    projectListMove.forEach(el => {
+        console.log(el.closest('.wrapper').id);
     })
-
-
-    // if (window.innerWidth < window.innerHeight) {
-    //     slideImgBox.forEach(el => {
-    //         window.innerWidth < window.innerHeight ? el.classList.add('portrait') : '';
-    //     })
-    // }
-
-    // slideImg.forEach(el => {
-    //     el.naturalWidth < el.naturalHeight ? el.classList.add('portrait') : '';
-    // })
-
-    // slideImgBox.forEach(el => {
-    //     el.addEventListener('click', (e) => {
-    //         const el = e.target;
-    //         const parent = el.closest('.swiper-slide');
-
-    //         parent.classList.toggle('zoom');
-
-    //         if (parent.classList.contains('zoom')) {
-    //             parent.clientHeight > el.scrollHeight ? parent.classList.add('overflowY') : '';
-    //         } else {
-    //             parent.classList.remove('overflowY');
-    //         }
-    //     })
-    // })
-
-    // contentImg.forEach(el => {
-    //     el.addEventListener('click', (event) => imgEditorModalOpen(event));
-    // })
 
     window.addEventListener('scroll', () => {
         headerAnimation();

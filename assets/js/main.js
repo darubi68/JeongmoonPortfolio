@@ -105,9 +105,9 @@ let swiper = new Swiper(".design-list", {
     slidesPerView: '1',
     centeredSlides: true,
     spaceBetween: 10,
-    // grabCursor: true,
+    grabCursor: true,
     loop: true,
-    loopAdditionalSlides: 2,
+    // loopAdditionalSlides: 2,
     speed: 300,
     pagination: {
         el: ".design-list .swiper-pagination",
@@ -117,7 +117,6 @@ let swiper = new Swiper(".design-list", {
     autoplay: {
         delay: 2000,
         disableOnInteraction: false,
-
     },
     breakpoints: {
         768: {
@@ -249,11 +248,11 @@ function modalOpen(e) {
         inactiveModal.classList.remove('modal-hide');
     } else if (e.closest('.design-list')) {
         const img = document.createElement('img');
-        img.src = `./assets/img/design/${e.dataset.img}.jpg`;
+        img.src = `./assets/img/design/${e.dataset.img}.png`;
         designModal.classList.remove('modal-hide');
         designModal.classList.add('modal-show');
+        designModalContainer.appendChild(img);
         img.onload = () => {
-            designModalContainer.appendChild(img);
             modalLoading();
         }
     }
@@ -300,6 +299,9 @@ const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
 
+    var preUrl = document.referrer; 
+    console.log("이전 Url: " + preUrl);
+
     main.style.height = `${window.innerHeight}px`;
     mainSetLayout();
     checkOS() ? imgBox.forEach(el => el.className = 'ios-type') : '';
@@ -319,7 +321,6 @@ window.addEventListener('load', () => {
         mainImg.forEach(el => {
             value = el.complete && el.naturalWidth !== 0;
         })
-        console.log(value);
         return value;
     }
 

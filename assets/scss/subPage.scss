@@ -10,6 +10,14 @@ header {
     height: 100px;
     top: 0;
     @include transition();
+
+    >div {
+        justify-content: space-between;
+        span {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
 }
 
 main {
@@ -24,7 +32,7 @@ main {
     }
 
     .main-img {
-        width: 54%;
+        width: 50%;
         @include flex;
 
         img {
@@ -34,7 +42,7 @@ main {
     }
 
     .main-text {
-        width: 44%;
+        width: 45%;
 
         >* {
             padding-bottom: 2rem;
@@ -179,17 +187,18 @@ main {
         }
 
         >span {
-            width: 2.4rem;
-            height: 2.4rem;
-            background: rgba(255, 255, 255, 0.3);
+            width: 2.5rem;
+            height: 2.5rem;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: $back-color;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
+            @include transition;
             &:hover {
-                
+                background-color: $primery-1;
             }
         }
     }
@@ -245,7 +254,7 @@ main {
         }
 
         .main-img {
-            height: 50vh;
+            height: 46vh;
             margin-bottom: 2rem;
         }
     }
@@ -296,8 +305,15 @@ main {
     .page-navigation {
         padding: 2rem;
 
-        .section-grid>div span {
-            font-size: 1.8rem;
+        .section-grid {
+            >div span {
+                font-size: 1.8rem;
+            }
+            >span {
+                font-size: 1rem;
+                width: 2.2rem;
+                height: 2.2rem;
+            }
         }
     }
 }

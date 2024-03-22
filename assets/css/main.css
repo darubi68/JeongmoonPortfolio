@@ -428,25 +428,25 @@ section,
           align-items: center;
   margin-bottom: 3rem;
 }
-#design .design-list ul.swiper-wrapper li.swiper-slide {
+#design .design-list .swiper-wrapper .swiper-slide {
   cursor: pointer;
   margin-bottom: 3rem;
   opacity: 5;
 }
-#design .design-list ul.swiper-wrapper li.swiper-slide:not(.inactive):hover img {
+#design .design-list .swiper-wrapper .swiper-slide:not(.inactive):hover img {
   scale: 1.1;
 }
-#design .design-list ul.swiper-wrapper li.swiper-slide.inactive {
+#design .design-list .swiper-wrapper .swiper-slide.inactive {
   -webkit-filter: opacity(0.5);
           filter: opacity(0.5);
   cursor: inherit;
 }
-#design .design-list ul.swiper-wrapper li.swiper-slide .design-thumbnail {
+#design .design-list .swiper-wrapper .swiper-slide .design-thumbnail {
   height: 16rem;
   border-radius: 1rem;
   overflow: hidden;
 }
-#design .design-list ul.swiper-wrapper li.swiper-slide .design-thumbnail img {
+#design .design-list .swiper-wrapper .swiper-slide .design-thumbnail img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -456,7 +456,7 @@ section,
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-#design .design-list ul.swiper-wrapper li.swiper-slide h5 {
+#design .design-list .swiper-wrapper .swiper-slide h5 {
   padding: 1.5rem 0 0.4rem 0;
 }
 #design .design-list .swiper-pagination {
@@ -583,7 +583,7 @@ section,
   overflow: hidden;
 }
 #project.full .project-card {
-  padding: 5rem;
+  padding: 5rem 5rem 5rem 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -611,7 +611,7 @@ section,
           align-items: center;
 }
 #project.full .project-card .project-content {
-  width: 48%;
+  width: 45%;
   height: 100%;
 }
 #project.full .project-card .project-content h4 {
@@ -967,6 +967,7 @@ section,
   width: 100%;
   height: 100%;
   overflow-y: auto;
+  padding-right: 8px;
 }
 #design-modal .modal-container img {
   width: 100%;
@@ -988,7 +989,7 @@ section,
     width: 6vw;
   }
   #project.full .project-card {
-    padding: 5rem 1rem;
+    padding: 5rem 2rem 5rem 0;
   }
   #project.grid .project-list {
     gap: 4rem 2rem;
