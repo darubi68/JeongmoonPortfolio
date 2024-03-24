@@ -299,9 +299,6 @@ const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
 
-    var preUrl = document.referrer; 
-    console.log("이전 Url: " + preUrl);
-
     main.style.height = `${window.innerHeight}px`;
     mainSetLayout();
     checkOS() ? imgBox.forEach(el => el.className = 'ios-type') : '';
@@ -314,6 +311,11 @@ window.addEventListener('load', () => {
     }
 
     matchMedia("screen and (max-width: 992px)").matches ? aboutLayoutSet('grid') : aboutLayoutSet('full');
+
+    if(sessionStorage.getItem('url')) {
+        document.querySelector(`.project-card[data-page="${sessionStorage.getItem('url')}"]`).scrollIntoView({ block: "center" });
+        sessionStorage.clear();
+    }
 
     function mainImgLoad() {
         const mainImg = document.querySelectorAll('.main-imgGrid img');

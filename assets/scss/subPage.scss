@@ -14,7 +14,7 @@ header {
     >div {
         justify-content: space-between;
         span {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
         }
     }
@@ -272,6 +272,10 @@ main {
 
 // 768px 이하
 @include mobile {
+    header > div span {
+        font-size: 1.2rem;
+    }
+
     main {
         padding: 4rem 2rem 6rem;
 

@@ -1,6 +1,6 @@
 
 // 홈으로 
-function homeMove() {
+function moveHome() {
     location.href = `../../index.html`;
 }
 
@@ -50,8 +50,8 @@ function includeHtml() {
 /* -------------------- window -------------------- */
 const loading = document.querySelector('.loading');
 const wrapper = document.querySelectorAll('.wrapper');
-const pageMove = document.querySelectorAll('.page-navigation .section-grid > div');
-const projectListMove = document.querySelectorAll('.page-navigation .section-grid > span');
+const moveSubPage = document.querySelectorAll('.page-navigation .section-grid > div');
+const moveProjectList = document.querySelectorAll('.page-navigation .section-grid > span');
 
 
 window.addEventListener('load', () => {
@@ -60,14 +60,18 @@ window.addEventListener('load', () => {
 
     if (matchMedia("screen and (min-width: 993px)").matches) vhSet();
 
-    pageMove.forEach(el => {
+    moveSubPage.forEach(el => {
         el.addEventListener('click', function(el){
             location.href = `../../page/${el.target.dataset.url}.html`;
         })
     })
 
-    projectListMove.forEach(el => {
-        console.log(el.closest('.wrapper').id);
+    moveProjectList.forEach(el => {
+        el.addEventListener('click', function(el) {
+            const address = el.target.closest('.wrapper').id;
+            sessionStorage.setItem('url',`${address}`);
+            location.href = `../../index.html`;
+        })
     })
 
     window.addEventListener('scroll', () => {
