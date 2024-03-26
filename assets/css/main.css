@@ -583,7 +583,7 @@ section,
   overflow: hidden;
 }
 #project.full .project-card {
-  padding: 5rem 5rem 5rem 2rem;
+  padding: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -598,7 +598,7 @@ section,
   border-bottom: 1px dashed #747474;
 }
 #project.full .project-card .project-thumbnail {
-  width: 50%;
+  width: 48%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -611,7 +611,7 @@ section,
           align-items: center;
 }
 #project.full .project-card .project-content {
-  width: 45%;
+  width: 42%;
   height: 100%;
 }
 #project.full .project-card .project-content h4 {

@@ -22,7 +22,8 @@ header {
 
 main {
     height: 100svh;
-    padding: 10rem 4rem;
+    // padding: 10rem 4rem;
+    padding:50px 0 0 0;
     overflow: hidden;
     @include flex;
 
@@ -32,7 +33,7 @@ main {
     }
 
     .main-img {
-        width: 50%;
+        width: 47.5%;
         @include flex;
 
         img {
@@ -42,21 +43,14 @@ main {
     }
 
     .main-text {
-        width: 45%;
-
-        >* {
-            padding-bottom: 2rem;
-
-            &:last-child {
-                padding-bottom: 0;
-            }
-        }
+        width: 47.5%;
 
         >h2 {
-            padding-top: 0.5rem;
+            padding: 0.5rem 0 2rem;
         }
 
         >div {
+            padding-bottom:2rem;
             h6 {
                 padding-bottom: 0.5rem;
             }
@@ -75,7 +69,11 @@ main {
         }
 
         >p {
+            padding-bottom: 1.2rem;
             line-height: 2rem;
+            &:last-child {
+                padding-bottom: 0;
+            }
         }
     }
 

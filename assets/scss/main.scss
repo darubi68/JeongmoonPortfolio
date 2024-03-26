@@ -435,7 +435,7 @@ section,
         overflow: hidden;
 
         .project-card {
-            padding: 5rem 5rem 5rem 2rem;
+            padding: 5rem;
             @include flex(space-between, center);
 
             &:not(:last-child) {
@@ -443,13 +443,13 @@ section,
             }
 
             .project-thumbnail {
-                width: 50%;
+                width: 48%;
                 height: 100%;
                 @include flex(center, center);
             }
 
             .project-content {
-                width: 45%;
+                width: 42%;
                 height: 100%;
 
                 h4 {

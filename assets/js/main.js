@@ -328,9 +328,9 @@ window.addEventListener('load', () => {
 
     if (mainImgLoad()) {
         document.body.classList.remove('before-load');
-        // bodyLoading.addEventListener('transitionend', (e) => {
-        //     document.body.removeChild(e.target);
-        // });
+        bodyLoading.addEventListener('transitionend', (e) => {
+            document.body.removeChild(e.target);
+        });
     }
 
     window.addEventListener('scroll', () => {

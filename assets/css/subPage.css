@@ -64,7 +64,7 @@ header > div span {
 
 main {
   height: 100svh;
-  padding: 10rem 4rem;
+  padding: 50px 0 0 0;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -89,7 +89,7 @@ main .main-grid {
           align-items: center;
 }
 main .main-img {
-  width: 50%;
+  width: 47.5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -105,16 +105,13 @@ main .main-img img {
   max-height: 100%;
 }
 main .main-text {
-  width: 45%;
-}
-main .main-text > * {
-  padding-bottom: 2rem;
-}
-main .main-text > *:last-child {
-  padding-bottom: 0;
+  width: 47.5%;
 }
 main .main-text > h2 {
-  padding-top: 0.5rem;
+  padding: 0.5rem 0 2rem;
+}
+main .main-text > div {
+  padding-bottom: 2rem;
 }
 main .main-text > div h6 {
   padding-bottom: 0.5rem;
@@ -130,7 +127,11 @@ main .main-text > div .keyword {
   margin-bottom: 0.2rem;
 }
 main .main-text > p {
+  padding-bottom: 1.2rem;
   line-height: 2rem;
+}
+main .main-text > p:last-child {
+  padding-bottom: 0;
 }
 main.main-1 {
   background-color: #f3f3f3;
