@@ -374,26 +374,26 @@ section,
   max-width: 590px;
   padding: 10rem 0;
 }
-#about .about-text .text-card > p {
+#about .about-text .text-list > p {
   line-height: 2rem;
   padding-bottom: 1.5rem;
 }
-#about .about-text .text-card > p:last-of-type {
+#about .about-text .text-list > p:last-of-type {
   padding-bottom: 5rem;
 }
-#about .career-card:not(:last-of-type) {
+#about .career-list:not(:last-of-type) {
   margin-bottom: 3rem;
 }
-#about .career-card .point-title {
+#about .career-list .point-title {
   color: #94baa8;
 }
-#about .career-card ul li {
+#about .career-list ul li {
   padding: 0.6rem 0;
 }
-#about .career-card ul li h6 {
+#about .career-list ul li h6 {
   padding: 0.3rem 0;
 }
-#about .career-card ul li p {
+#about .career-list ul li p {
   color: #747474;
 }
 
@@ -582,7 +582,7 @@ section,
 #project.full {
   overflow: hidden;
 }
-#project.full .project-card {
+#project.full .project-item {
   padding: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -594,10 +594,10 @@ section,
       -ms-flex-align: center;
           align-items: center;
 }
-#project.full .project-card:not(:last-child) {
+#project.full .project-item:not(:last-child) {
   border-bottom: 1px dashed #747474;
 }
-#project.full .project-card .project-thumbnail {
+#project.full .project-item .project-thumbnail {
   width: 48%;
   height: 100%;
   display: -webkit-box;
@@ -610,31 +610,31 @@ section,
       -ms-flex-align: center;
           align-items: center;
 }
-#project.full .project-card .project-content {
+#project.full .project-item .project-content {
   width: 42%;
   height: 100%;
 }
-#project.full .project-card .project-content h4 {
+#project.full .project-item .project-content h4 {
   margin-top: 0.2rem;
   font-size: 1.8rem;
 }
-#project.full .project-card .project-content > *:not(button) {
+#project.full .project-item .project-content > *:not(button) {
   padding-bottom: 2rem;
 }
-#project.full .project-card .project-content > div {
+#project.full .project-item .project-content > div {
   display: none;
 }
-#project.full .project-card .project-content dl dt {
+#project.full .project-item .project-content dl dt {
   font-weight: bold;
   padding-bottom: 0.4rem;
 }
-#project.full .project-card .project-content dl dd:not(:last-child) {
+#project.full .project-item .project-content dl dd:not(:last-child) {
   padding-bottom: 1rem;
 }
-#project.full .project-card .project-content p {
+#project.full .project-item .project-content p {
   line-height: 2rem;
 }
-#project.full .project-card .project-content button {
+#project.full .project-item .project-content button {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -646,7 +646,7 @@ section,
   width: 12rem;
   height: auto;
 }
-#project.full .project-card .project-content button .circle {
+#project.full .project-item .project-content button .circle {
   -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: relative;
@@ -658,7 +658,7 @@ section,
   border-radius: 1.625rem;
   pointer-events: none;
 }
-#project.full .project-card .project-content button .circle .icon {
+#project.full .project-item .project-content button .circle .icon {
   -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
@@ -667,7 +667,7 @@ section,
   margin: auto;
   background: #fff;
 }
-#project.full .project-card .project-content button .circle .icon.arrow {
+#project.full .project-item .project-content button .circle .icon.arrow {
   -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   left: 0.625rem;
@@ -675,7 +675,7 @@ section,
   height: 0.125rem;
   background: none;
 }
-#project.full .project-card .project-content button .circle .icon.arrow::before {
+#project.full .project-item .project-content button .circle .icon.arrow::before {
   position: absolute;
   content: "";
   top: -0.3rem;
@@ -688,7 +688,7 @@ section,
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-#project.full .project-card .project-content button .button-text {
+#project.full .project-item .project-content button .button-text {
   -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   display: -webkit-box;
@@ -712,16 +712,16 @@ section,
   text-transform: uppercase;
   pointer-events: none;
 }
-#project.full .project-card .project-content button:hover .circle {
+#project.full .project-item .project-content button:hover .circle {
   width: 100%;
 }
-#project.full .project-card .project-content button:hover .circle .icon.arrow {
+#project.full .project-item .project-content button:hover .circle .icon.arrow {
   background: #fff;
   -webkit-transform: translate(1rem, 0);
       -ms-transform: translate(1rem, 0);
           transform: translate(1rem, 0);
 }
-#project.full .project-card .project-content button:hover .button-text {
+#project.full .project-item .project-content button:hover .button-text {
   color: #fff;
 }
 #project.grid .project-list {
@@ -729,10 +729,10 @@ section,
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
 }
-#project.grid .project-list .project-card {
+#project.grid .project-list .project-item {
   cursor: pointer;
 }
-#project.grid .project-list .project-card:hover .project-thumbnail img {
+#project.grid .project-list .project-item:hover .project-thumbnail img {
   scale: 1.1;
 }
 #project.grid .project-list .project-thumbnail {
@@ -988,7 +988,7 @@ section,
   #main .main-text > div .text-obj img {
     width: 6vw;
   }
-  #project.full .project-card {
+  #project.full .project-item {
     padding: 5rem 2rem 5rem 0;
   }
   #project.grid .project-list {
@@ -1078,7 +1078,7 @@ section,
   .project-viewSwitch {
     display: none;
   }
-  #project.grid .project-list .project-card:hover .project-thumbnail img {
+  #project.grid .project-list .project-item:hover .project-thumbnail img {
     scale: inherit;
   }
   #project.grid .project-list .project-thumbnail {
@@ -1121,19 +1121,19 @@ section,
   #about .about-img img {
     width: 38.5vh;
   }
-  #about .about-text .text-card > p {
+  #about .about-text .text-list > p {
     line-height: 1.8rem;
   }
-  #about .about-text .text-card > p:last-of-type {
+  #about .about-text .text-list > p:last-of-type {
     padding-bottom: 4rem;
   }
-  #about .career-card ul li {
+  #about .career-list ul li {
     padding: 0.4rem 0;
   }
-  #about .career-card ul li:first-of-type {
+  #about .career-list ul li:first-of-type {
     padding-top: 0.6rem;
   }
-  #about .career-card ul h6 {
+  #about .career-list ul h6 {
     padding: 0.2rem 0;
   }
   #design .design-tab {
@@ -1220,7 +1220,7 @@ section,
   #about .about-text > p:last-of-type {
     padding-bottom: 3rem;
   }
-  #about .career-card:not(:last-of-type) {
+  #about .career-list:not(:last-of-type) {
     margin-bottom: 2.4rem;
   }
   #design .design-head {

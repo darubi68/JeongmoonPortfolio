@@ -236,7 +236,7 @@ section,
         max-width: $max-width/2;
         padding: 10rem 0;
 
-        .text-card>p {
+        .text-list>p {
             line-height: 2rem;
             padding-bottom: 1.5rem;
 
@@ -246,7 +246,7 @@ section,
         }
     }
 
-    .career-card {
+    .career-list {
         &:not(:last-of-type) {
             margin-bottom: 3rem;
         }
@@ -434,7 +434,7 @@ section,
     &.full {
         overflow: hidden;
 
-        .project-card {
+        .project-item {
             padding: 5rem;
             @include flex(space-between, center);
 
@@ -491,7 +491,7 @@ section,
         .project-list {
             @include col-grid(repeat(2, 1fr), 4rem);
 
-            .project-card {
+            .project-item {
                 cursor: pointer;
 
                 &:hover .project-thumbnail img {
@@ -702,7 +702,7 @@ section,
 
     }
 
-    #project.full .project-card {
+    #project.full .project-item {
         padding: 5rem 2rem 5rem 0;
     }
 
@@ -826,7 +826,7 @@ section,
     }
 
     #project.grid .project-list {
-        .project-card:hover .project-thumbnail img {
+        .project-item:hover .project-thumbnail img {
             scale: inherit;
         }
 
@@ -893,7 +893,7 @@ section,
         }
 
         .about-text {
-            .text-card>p {
+            .text-list>p {
                 line-height: 1.8rem;
 
                 &:last-of-type {
@@ -902,7 +902,7 @@ section,
             }
         }
 
-        .career-card {
+        .career-list {
             ul {
                 li {
                     padding: 0.4rem 0;
@@ -1034,7 +1034,7 @@ section,
             }
         }
 
-        .career-card {
+        .career-list {
             &:not(:last-of-type) {
                 margin-bottom: 2.4rem;
             }

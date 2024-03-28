@@ -57,6 +57,7 @@ const moveProjectList = document.querySelectorAll('.page-navigation .section-gri
 window.addEventListener('load', () => {
 
     includeHtml();
+    console.log(sessionStorage);
 
     if (matchMedia("screen and (min-width: 993px)").matches) vhSet();
 
