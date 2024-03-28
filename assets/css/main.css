@@ -1022,7 +1022,7 @@ section,
     width: 4rem;
   }
   #main .main-text > div strong {
-    width: 80%;
+    max-width: 38rem;
   }
   #main .main-img {
     width: 100%;
@@ -1112,7 +1112,7 @@ section,
   }
   #main .main-text > div strong {
     font-size: 1.2rem;
-    line-height: 1.6rem;
+    line-height: 1.8rem;
   }
   #about .about-img {
     height: 50vh;

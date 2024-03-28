@@ -47,20 +47,28 @@ function projectSetClass(value) {
     project.className = value;
     contact.className = value;
     AOS.refresh();
-    sessionStorage.setItem('mode',`${value}`);
+
     if(value === 'grid') {
+        matchMedia("screen and (max-width: 992px)").matches ? '' : localStorage.setItem('mode',`${value}`);
+
         const projectItem = document.querySelectorAll('#project.grid .project-item');
         projectItem.forEach((el, idx) => {
             el.addEventListener('click', ()=> {
                 projectBtn[idx].click();
             });
         })
+    } else {
+        localStorage.clear('mode');
     }
 }
 
 //프로젝트 보기방식 변경 
 function projectChangeView(check) {
     projectBody.style.opacity = 0;
+
+    // if(!matchMedia("screen and (max-width: 992px)").matches && check) {
+        
+    // }
 
     projectBody.addEventListener('transitionend', () => {
         if (check === false) {
@@ -71,7 +79,7 @@ function projectChangeView(check) {
         projectBody.style.opacity = 1;
     }, {
         once: true
-    })
+    });
 }
 
 projectBtn.forEach(el => {
@@ -144,6 +152,7 @@ function aboutSetLayout(value) {
             el.setAttribute('data-aos', '');
         });
     }
+    AOS.refresh();
 }
 
 
@@ -282,6 +291,8 @@ function checkOS() {
 const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
+
+    console.log(localStorage);
     
     main.style.height = `${window.innerHeight}px`;
     mainSetLayout();
@@ -303,42 +314,20 @@ window.addEventListener('load', () => {
     //     });
     // }
 
-    window.onpageshow = function(e){
-        console.log(e)
-        if(e.persisted){
-            console.log(e);
-            console.log(e.persisted);
-            // sessionStorage.setItem('isMainBack',JSON.stringify(true));
-          }
-     }
-
-    console.log(sessionStorage);
-
     if(matchMedia("screen and (max-width: 992px)").matches) {
         projectSwitch.checked = true;
         projectSetClass('grid');
         aboutSetLayout('grid');
+        localStorage.clear('mode');
     } else {
-        if(sessionStorage.getItem('mode') === 'grid'){
-            sessionStorage.setItem('mode','grid');
+        if(localStorage.getItem('mode') === 'grid') {
             projectSwitch.checked = true;
             projectSetClass('grid');
-        } else {
-            sessionStorage.setItem('mode','full');
-            projectSwitch.checked = false;
-            projectSetClass('full');
         }
         aboutSetLayout('full');
     }
 
     if (sessionStorage.getItem('url')) {
-        if(sessionStorage.getItem('mode') === 'grid') {
-            projectSwitch.checked = true;
-            projectSetClass('grid');
-        } else {
-            projectSwitch.checked = false;
-            projectSetClass('full');
-        }
         document.querySelector(`.project-item[data-page="${sessionStorage.getItem('url')}"]`).scrollIntoView({
             block: "center"
         });
@@ -346,7 +335,7 @@ window.addEventListener('load', () => {
         sessionStorage.clear('url');
     }
 
-    if (window.pageYOffset > project.offsetTop) {
+    if (window.pageYOffset > project.offsetTop-window.innerHeight) {
         window.scrollTo({
             top: window.pageYOffset - 1
         });
@@ -367,15 +356,22 @@ window.addEventListener('load', () => {
 
     let width = window.innerWidth;
     window.addEventListener('resize', () => {
-        console.log('resize');
         if (width !== window.innerWidth) {
             main.style.height = `${window.innerHeight}px`;
             mainSetLayout();
+
             if(matchMedia("screen and (max-width: 992px)").matches) {
                 projectSwitch.checked = true;
                 projectSetClass('grid');
                 aboutSetLayout('grid');
-            } 
+                localStorage.clear('mode');
+            } else {
+                if(localStorage.getItem('mode') === null) {
+                    projectSwitch.checked = false;
+                    projectSetClass('full');
+                }
+                aboutSetLayout('full');
+            }
             width = window.innerWidth;
         }
     });

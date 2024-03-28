@@ -57,9 +57,8 @@ const moveProjectList = document.querySelectorAll('.page-navigation .section-gri
 window.addEventListener('load', () => {
 
     includeHtml();
-    console.log(sessionStorage);
 
-    if (matchMedia("screen and (min-width: 993px)").matches) vhSet();
+    if (matchMedia("screen and (min-width: 1367px)").matches) vhSet();
 
     moveSubPage.forEach(el => {
         el.addEventListener('click', function(el){
@@ -81,7 +80,9 @@ window.addEventListener('load', () => {
 
     window.addEventListener('orientationchange', () => {});
 
-    window.addEventListener('resize', () => {});
+    window.addEventListener('resize', () => {
+        matchMedia("screen and (min-width: 1367px)").matches ? vhSet() : main[0].style.height = 'auto';
+    });
 
     document.body.classList.remove('before-load');
     loading.addEventListener('transitionend', (e) => {
