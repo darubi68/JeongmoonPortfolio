@@ -12,9 +12,9 @@
 }
 
 body {
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
-    font-size: 1rem;
+    font-size: 1.1rem;
     background-color: #fff;
     color: $text-color;
 
@@ -81,7 +81,7 @@ h6 {
 }
 
 p.b-text {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
 }
 
 .en {
@@ -91,6 +91,15 @@ p.b-text {
 i,
 .icon {
     cursor: pointer;
+}
+
+button {
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+strong {
+    font-weight: 600;
 }
 
 .point-title {
@@ -201,7 +210,7 @@ nav {
         li {
             text-transform: uppercase;
             font-weight: 200;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             cursor: pointer;
             height: 100%;
             @include flex;
@@ -307,7 +316,7 @@ footer {
         width: 100%;
         transform: translateY(2rem);
         @include transition;
-        
+
         &::-webkit-scrollbar {
             width: 8px;
         }
@@ -315,8 +324,9 @@ footer {
         &::-webkit-scrollbar-thumb {
             background-color: $text-subColor;
             border-radius: 1rem;
+
             &:hover {
-                background-color: $back-subColor;  
+                background-color: $back-subColor;
             }
         }
     }
@@ -366,7 +376,7 @@ footer {
 // 768px 이하
 @include mobile {
     body {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     h1 {
@@ -394,7 +404,7 @@ footer {
     }
 
     p.b-text {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     nav,
@@ -402,7 +412,7 @@ footer {
         padding: 0 2rem;
     }
 
-    header >div strong {
+    header>div strong {
         font-size: 1.2rem;
     }
 

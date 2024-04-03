@@ -239,9 +239,17 @@ section,
         .text-list>p {
             line-height: 2rem;
             padding-bottom: 1.5rem;
+            // &:last-of-type {
+            //     padding-bottom: 5rem;
+            // }
+        }
 
-            &:last-of-type {
-                padding-bottom: 5rem;
+
+        button {
+            margin-bottom: 5rem;
+
+            @media (min-width:993px) {
+                @include arrowButton(#fff, $primery-1);
             }
         }
     }
@@ -443,13 +451,13 @@ section,
             }
 
             .project-thumbnail {
-                width: 48%;
+                width: 45%;
                 height: 100%;
                 @include flex(center, center);
             }
 
             .project-content {
-                width: 42%;
+                width: 50%;
                 height: 100%;
 
                 h4 {
@@ -665,10 +673,10 @@ section,
 
     .modal-container {
         width: 100%;
-        max-width:1366px;
+        max-width: 1366px;
         height: 100%;
         overflow-y: auto;
-        padding-right:8px;
+        padding-right: 8px;
 
         img {
             width: 100%;
@@ -750,7 +758,7 @@ section,
                 }
 
                 strong {
-                    max-width:38rem;
+                    max-width: 38rem;
                 }
             }
         }
@@ -758,22 +766,23 @@ section,
         .main-img {
             width: 100%;
             border-radius: 0;
+
             .main-imgGrid {
                 .main-imgBox {
                     & .original {
                         animation: rolling1 25s linear 1s infinite;
                     }
-    
+
                     & .clone {
                         animation: rolling2 25s linear 1s infinite;
                     }
                 }
-    
+
                 &>:nth-child(2) {
                     & .original {
                         animation: rolling1 25s linear infinite;
                     }
-    
+
                     & .clone {
                         animation: rolling2 25s linear infinite;
                     }
@@ -816,6 +825,18 @@ section,
             width: 100%;
             max-width: inherit;
             padding: 0;
+
+            button {
+                padding: 0.8rem 5rem;
+                border-radius: 1.6rem;
+                border: 1px solid $primery-1;
+                background-color: transparent;
+                color:$primery-1;
+
+                &>:first-child {
+                    display: none;
+                }
+            }
         }
     }
 
@@ -897,10 +918,10 @@ section,
         .about-text {
             .text-list>p {
                 line-height: 1.8rem;
+            }
 
-                &:last-of-type {
-                    padding-bottom: 4rem;
-                }
+            button {
+                margin-bottom: 4rem;
             }
         }
 
@@ -1029,10 +1050,10 @@ section,
         .about-text {
             >p {
                 padding-bottom: 1rem;
+            }
 
-                &:last-of-type {
-                    padding-bottom: 3rem;
-                }
+            button {
+                margin-bottom: 3rem;
             }
         }
 

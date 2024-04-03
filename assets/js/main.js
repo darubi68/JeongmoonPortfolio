@@ -113,10 +113,10 @@ let swiper = new Swiper(".design-list", {
         clickable: true,
         dynamicBullets: true,
     },
-    // autoplay: {
-    //     delay: 2000,
-    //     disableOnInteraction: false,
-    // },
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+    },
     breakpoints: {
         768: {
             slidesPerView: '2',
@@ -139,6 +139,7 @@ let swiper = new Swiper(".design-list", {
 const about = document.getElementById('about');
 const aboutImg = document.querySelector('.about-img');
 const aboutText = document.querySelectorAll('.about-text > *');
+const aboutBtn = document.querySelector('.about-text button');
 
 function aboutSetLayout(value) {
     if (value === 'grid') {
@@ -154,6 +155,10 @@ function aboutSetLayout(value) {
     }
     AOS.refresh();
 }
+
+aboutBtn.addEventListener('click', function() {
+    location.href = 'https://smiling-cesium-689.notion.site/259c32eafc6840cfa9082670ccdd404f?pvs=4';
+})
 
 
 
