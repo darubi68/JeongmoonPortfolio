@@ -113,10 +113,10 @@ let swiper = new Swiper(".design-list", {
         clickable: true,
         dynamicBullets: true,
     },
-    autoplay: {
-        delay: 2000,
-        disableOnInteraction: false,
-    },
+    // autoplay: {
+    //     delay: 2000,
+    //     disableOnInteraction: false,
+    // },
     breakpoints: {
         768: {
             slidesPerView: '2',
@@ -291,9 +291,6 @@ function checkOS() {
 const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
-
-    console.log(localStorage);
-    
     main.style.height = `${window.innerHeight}px`;
     mainSetLayout();
     checkOS() ? imgBox.forEach(el => el.className = 'ios-type') : '';
