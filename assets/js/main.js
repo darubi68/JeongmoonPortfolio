@@ -84,7 +84,7 @@ projectBtn.forEach(el => {
     el.addEventListener('click', (event) => subPageChange(event));
 })
 
-projectSwitch.addEventListener('change', () => projectChangeView(projectSwitch.checked));
+// projectSwitch.addEventListener('change', () => projectChangeView(projectSwitch.checked));
 
 
 
@@ -295,14 +295,16 @@ function checkOS() {
 window.addEventListener('load', () => {
     main.style.height = `${window.innerHeight}px`;
     mainSetLayout();
-    // checkOS() ? imgBox.forEach(el => el.className = 'ios-type') : '';
+    checkOS() ? imgBox.forEach(el => el.className = 'ios-type') : '';
 
     if(matchMedia("screen and (max-width: 992px)").matches) {
-        projectSetClass('grid');
+        // projectSetClass('grid');
+        project.className = 'grid';
         aboutSetLayout('grid');
-        localStorage.clear('mode');
+        // localStorage.clear('mode');
     } else {
-        if(localStorage.getItem('mode') === 'grid') projectSetClass('grid');
+        // if(localStorage.getItem('mode') === 'grid') projectSetClass('grid');
+        project.className = 'full';
         aboutSetLayout('full');
     }
 
@@ -325,6 +327,8 @@ window.addEventListener('load', () => {
         e.target.remove();
     });
 
+
+
     window.addEventListener('scroll', () => {
         navHeaderAnimation();
         if (project.className === 'full') projectBackScroll();
@@ -339,11 +343,13 @@ window.addEventListener('load', () => {
             mainSetLayout();
 
             if(matchMedia("screen and (max-width: 992px)").matches) {
-                projectSetClass('grid');
+                // projectSetClass('grid');
+                project.className = 'grid';
                 aboutSetLayout('grid');
-                localStorage.clear('mode');
+                // localStorage.clear('mode');
             } else {
-                if(localStorage.getItem('mode') === null) projectSetClass('full');
+                // if(localStorage.getItem('mode') === null) projectSetClass('full');
+                project.className = 'full';
                 aboutSetLayout('full');
             }
             width = window.innerWidth;
