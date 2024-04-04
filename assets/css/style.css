@@ -54,7 +54,7 @@
 }
 
 body {
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
   font-size: 1.1rem;
   background-color: #fff;
@@ -128,7 +128,7 @@ h6 {
 }
 
 p.b-text {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
 }
 
 .en {
@@ -446,7 +446,7 @@ footer.grid .contact-head strong {
 
 @media (max-width: 768px) {
   body {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   h1 {
     font-size: 2.8rem;
@@ -467,11 +467,17 @@ footer.grid .contact-head strong {
     font-size: 1.1rem;
   }
   p.b-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  button {
+    font-size: 0.8rem;
   }
   nav,
   header {
     padding: 0 2rem;
+  }
+  nav ul li {
+    font-size: 0.8rem;
   }
   header > div strong {
     font-size: 1.2rem;
