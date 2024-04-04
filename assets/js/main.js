@@ -84,7 +84,7 @@ projectBtn.forEach(el => {
     el.addEventListener('click', (event) => subPageChange(event));
 })
 
-// projectSwitch.addEventListener('change', () => projectChangeView(projectSwitch.checked));
+projectSwitch.addEventListener('change', () => projectChangeView(projectSwitch.checked));
 
 
 
@@ -298,13 +298,11 @@ window.addEventListener('load', () => {
     checkOS() ? imgBox.forEach(el => el.className = 'ios-type') : '';
 
     if(matchMedia("screen and (max-width: 992px)").matches) {
-        // projectSetClass('grid');
-        project.className = 'grid';
+        projectSetClass('grid');
         aboutSetLayout('grid');
-        // localStorage.clear('mode');
+        localStorage.clear('mode');
     } else {
-        // if(localStorage.getItem('mode') === 'grid') projectSetClass('grid');
-        project.className = 'full';
+        if(localStorage.getItem('mode') === 'grid') projectSetClass('grid');
         aboutSetLayout('full');
     }
 
@@ -343,13 +341,11 @@ window.addEventListener('load', () => {
             mainSetLayout();
 
             if(matchMedia("screen and (max-width: 992px)").matches) {
-                // projectSetClass('grid');
-                project.className = 'grid';
+                projectSetClass('grid');
                 aboutSetLayout('grid');
-                // localStorage.clear('mode');
+                localStorage.clear('mode');
             } else {
-                // if(localStorage.getItem('mode') === null) projectSetClass('full');
-                project.className = 'full';
+                if(localStorage.getItem('mode') === null) projectSetClass('full');
                 aboutSetLayout('full');
             }
             width = window.innerWidth;
