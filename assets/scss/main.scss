@@ -113,12 +113,11 @@
 
             .main-imgBox {
                 & .original {
-                    animation: rolling1 30s linear infinite;
+                    animation: rolling1 15s linear infinite;
                 }
 
                 & .clone {
-                    top: 100%;
-                    animation: rolling2 30s linear infinite;
+                    animation: rolling2 15s linear infinite;
                 }
 
                 & .ios-type {
@@ -132,11 +131,11 @@
 
             &>:nth-child(2) {
                 & .original {
-                    animation: rolling1 30s linear -2s infinite;
+                    animation: rolling1 15s linear -4s infinite;
                 }
 
                 & .clone {
-                    animation: rolling2 30s linear -2s infinite;
+                    animation: rolling2 15s linear -4s infinite;
                 }
 
                 & .ios-type {
@@ -756,21 +755,21 @@ section,
             .main-imgGrid {
                 .main-imgBox {
                     & .original {
-                        animation: rolling1 25s linear 1s infinite;
+                        animation: rolling1 15s linear infinite;
                     }
 
                     & .clone {
-                        animation: rolling2 25s linear 1s infinite;
+                        animation: rolling2 15s linear infinite;
                     }
                 }
 
                 &>:nth-child(2) {
                     & .original {
-                        animation: rolling1 25s linear infinite;
+                        animation: rolling1 15s linear -4s infinite;
                     }
 
                     & .clone {
-                        animation: rolling2 25s linear infinite;
+                        animation: rolling2 15s linear -4s infinite;
                     }
                 }
             }
