@@ -47,8 +47,9 @@ function projectSetClass(value) {
     project.className = value;
     contact.className = value;
     AOS.refresh();
-
+    
     if(value === 'grid') {
+        projectSwitch.checked = true;
         matchMedia("screen and (max-width: 992px)").matches ? '' : localStorage.setItem('mode',`${value}`);
 
         const projectItem = document.querySelectorAll('#project.grid .project-item');
@@ -58,6 +59,7 @@ function projectSetClass(value) {
             });
         })
     } else {
+        projectSwitch.checked = false;
         localStorage.clear('mode');
     }
 }
@@ -65,10 +67,6 @@ function projectSetClass(value) {
 //프로젝트 보기방식 변경 
 function projectChangeView(check) {
     projectBody.style.opacity = 0;
-
-    // if(!matchMedia("screen and (max-width: 992px)").matches && check) {
-        
-    // }
 
     projectBody.addEventListener('transitionend', () => {
         if (check === false) {
@@ -111,12 +109,12 @@ let swiper = new Swiper(".design-list", {
     pagination: {
         el: ".design-list .swiper-pagination",
         clickable: true,
-        dynamicBullets: true,
+        // dynamicBullets: true,
     },
-    autoplay: {
-        delay: 2000,
-        disableOnInteraction: false,
-    },
+    // autoplay: {
+    //     delay: 2000,
+    //     disableOnInteraction: false,
+    // },
     breakpoints: {
         768: {
             slidesPerView: '2',
@@ -239,7 +237,7 @@ const modalCloseBtn = document.querySelectorAll('.modal-close');
 
 function modalOpen(e) {
     document.body.classList.add('not-scroll');
-    swiper.autoplay.stop();
+    // swiper.autoplay.stop();
     if (e.classList.contains('inactive')) {
         inactiveModal.classList.add('modal-show');
         inactiveModal.classList.remove('modal-hide');
@@ -264,7 +262,7 @@ function modalOpen(e) {
 
 function modalClose(e) {
     document.body.classList.remove('not-scroll');
-    swiper.autoplay.start();
+    // swiper.autoplay.start();
     e.closest('.modal').classList.add('modal-hide');
     e.closest('.modal').classList.remove('modal-show');
     setTimeout(() => {
@@ -293,39 +291,18 @@ function checkOS() {
 
 
 /* -------------------- window -------------------- */
-const bodyLoading = document.getElementById('body-loading');
 
 window.addEventListener('load', () => {
     main.style.height = `${window.innerHeight}px`;
     mainSetLayout();
-    checkOS() ? imgBox.forEach(el => el.className = 'ios-type') : '';
-
-    // function mainImgLoad() {
-    //     const mainImg = document.querySelectorAll('.main-imgGrid img');
-    //     let value;
-    //     mainImg.forEach(el => {
-    //         value = el.complete && el.naturalWidth !== 0;
-    //     })
-    //     return value;
-    // }
-
-    // if (mainImgLoad()) {
-    //     document.body.classList.remove('before-load');
-    //     bodyLoading.addEventListener('transitionend', (e) => {
-    //         // document.body.removeChild(e.target);
-    //     });
-    // }
+    // checkOS() ? imgBox.forEach(el => el.className = 'ios-type') : '';
 
     if(matchMedia("screen and (max-width: 992px)").matches) {
-        projectSwitch.checked = true;
         projectSetClass('grid');
         aboutSetLayout('grid');
         localStorage.clear('mode');
     } else {
-        if(localStorage.getItem('mode') === 'grid') {
-            projectSwitch.checked = true;
-            projectSetClass('grid');
-        }
+        if(localStorage.getItem('mode') === 'grid') projectSetClass('grid');
         aboutSetLayout('full');
     }
 
@@ -333,7 +310,6 @@ window.addEventListener('load', () => {
         document.querySelector(`.project-item[data-page="${sessionStorage.getItem('url')}"]`).scrollIntoView({
             block: "center"
         });
-
         sessionStorage.clear('url');
     }
 
@@ -345,8 +321,8 @@ window.addEventListener('load', () => {
     }
 
     document.body.classList.remove('before-load');
-    bodyLoading.addEventListener('transitionend', (e) => {
-        // document.body.removeChild(e.target);
+    document.getElementById('main-loading').addEventListener('transitionend', (e) => {
+        e.target.remove();
     });
 
     window.addEventListener('scroll', () => {
@@ -363,15 +339,11 @@ window.addEventListener('load', () => {
             mainSetLayout();
 
             if(matchMedia("screen and (max-width: 992px)").matches) {
-                projectSwitch.checked = true;
                 projectSetClass('grid');
                 aboutSetLayout('grid');
                 localStorage.clear('mode');
             } else {
-                if(localStorage.getItem('mode') === null) {
-                    projectSwitch.checked = false;
-                    projectSetClass('full');
-                }
+                if(localStorage.getItem('mode') === null) projectSetClass('full');
                 aboutSetLayout('full');
             }
             width = window.innerWidth;

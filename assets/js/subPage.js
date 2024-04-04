@@ -48,7 +48,6 @@ function includeHtml() {
 
 
 /* -------------------- window -------------------- */
-const loading = document.querySelector('.loading');
 const wrapper = document.querySelectorAll('.wrapper');
 const moveSubPage = document.querySelectorAll('.page-navigation .section-grid > div');
 const moveProjectList = document.querySelectorAll('.page-navigation .section-grid > span');
@@ -85,8 +84,8 @@ window.addEventListener('load', () => {
     });
 
     document.body.classList.remove('before-load');
-    loading.addEventListener('transitionend', (e) => {
-        // document.body.removeChild(e.target);
+    document.getElementById('sub-loading').addEventListener('transitionend', (e) => {
+        e.target.remove();
     });
 
 });

@@ -2,10 +2,46 @@
 @import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @font-face {
-  font-family: "NanumSquareRound";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff") format("woff");
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff") format("woff");
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff") format("woff");
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
 }
 #main {
   width: 100%;
@@ -23,7 +59,7 @@
 #main .main-text {
   width: calc(50% - 4rem);
   height: 100%;
-  max-width: 590px;
+  max-width: 600px;
   padding: 10rem 4rem 10rem 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -184,13 +220,13 @@
   left: -190px;
 }
 #main .main-img .main-imgGrid .main-imgBox .original {
-  -webkit-animation: rolling-start 1s ease-out both, rolling1 25s linear 2s infinite;
-          animation: rolling-start 1s ease-out both, rolling1 25s linear 2s infinite;
+  -webkit-animation: rolling1 30s linear infinite;
+          animation: rolling1 30s linear infinite;
 }
 #main .main-img .main-imgGrid .main-imgBox .clone {
   top: 100%;
-  -webkit-animation: rolling-start 1s ease-out both, rolling2 25s linear 2s infinite;
-          animation: rolling-start 1s ease-out both, rolling2 25s linear 2s infinite;
+  -webkit-animation: rolling2 30s linear infinite;
+          animation: rolling2 30s linear infinite;
 }
 #main .main-img .main-imgGrid .main-imgBox .ios-type {
   -webkit-transform: translate3d(0, -16%, 0);
@@ -200,36 +236,16 @@
   width: 100%;
 }
 #main .main-img .main-imgGrid > :nth-child(2) .original {
-  -webkit-animation: rolling-start 1s ease-out both, rolling1 25s linear 1s infinite;
-          animation: rolling-start 1s ease-out both, rolling1 25s linear 1s infinite;
+  -webkit-animation: rolling1 30s linear -2s infinite;
+          animation: rolling1 30s linear -2s infinite;
 }
 #main .main-img .main-imgGrid > :nth-child(2) .clone {
-  -webkit-animation: rolling-start 1s ease-out both, rolling2 25s linear 1s infinite;
-          animation: rolling-start 1s ease-out both, rolling2 25s linear 1s infinite;
+  -webkit-animation: rolling2 30s linear -2s infinite;
+          animation: rolling2 30s linear -2s infinite;
 }
 #main .main-img .main-imgGrid > :nth-child(2) .ios-type {
   -webkit-transform: translate3d(0, -8%, 0);
           transform: translate3d(0, -8%, 0);
-}
-@-webkit-keyframes rolling-start {
-  0% {
-    -webkit-transform: translate3d(0, 20%, 0);
-            transform: translate3d(0, 20%, 0);
-  }
-  100% {
-    -webkit-transform: translate3d(0, 0%, 0);
-            transform: translate3d(0, 0%, 0);
-  }
-}
-@keyframes rolling-start {
-  0% {
-    -webkit-transform: translate3d(0, 20%, 0);
-            transform: translate3d(0, 20%, 0);
-  }
-  100% {
-    -webkit-transform: translate3d(0, 0%, 0);
-            transform: translate3d(0, 0%, 0);
-  }
 }
 @-webkit-keyframes rolling1 {
   0% {
@@ -309,7 +325,7 @@ section,
   top: 0;
   width: 50%;
   min-height: 100svh;
-  max-width: 590px;
+  max-width: 600px;
   padding: 10rem 4rem 10rem 0;
   position: sticky;
 }
@@ -336,7 +352,7 @@ section,
 }
 #about .about-text {
   width: 50%;
-  max-width: 590px;
+  max-width: 600px;
   padding: 10rem 0;
 }
 #about .about-text .text-list > p {
@@ -471,7 +487,7 @@ section,
 }
 #design .section-grid {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1200px;
 }
 #design .design-head {
   display: -webkit-box;
@@ -537,7 +553,7 @@ section,
           align-items: center;
 }
 #project .section-grid {
-  max-width: 1180px;
+  max-width: 1200px;
 }
 #project .project-head {
   display: -webkit-box;

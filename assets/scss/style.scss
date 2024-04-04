@@ -24,6 +24,13 @@ body {
     }
 }
 
+.before-load {
+    .loading {
+        opacity: 1;
+        z-index: 999;
+    }
+}
+
 ul,
 li {
     list-style: none;
@@ -112,7 +119,6 @@ strong {
 }
 
 
-
 // 로딩
 .loading {
     width: 100%;
@@ -129,12 +135,6 @@ strong {
     z-index: -999;
 }
 
-.before-load {
-    .loading {
-        opacity: 1;
-        z-index: 999;
-    }
-}
 
 .loading-circle {
     width: 5rem;

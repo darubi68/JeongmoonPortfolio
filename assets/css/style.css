@@ -2,10 +2,46 @@
 @import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @font-face {
-  font-family: "NanumSquareRound";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff") format("woff");
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff") format("woff");
   font-style: normal;
-  font-weight: normal;
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff") format("woff");
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff") format("woff");
+  font-style: normal;
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
 }
 * {
   margin: 0;
@@ -26,6 +62,11 @@ body {
 }
 body.before-load, body.open-nav {
   overflow: hidden;
+}
+
+.before-load .loading {
+  opacity: 1;
+  z-index: 999;
 }
 
 ul,
@@ -148,11 +189,6 @@ strong {
   z-index: -999;
 }
 
-.before-load .loading {
-  opacity: 1;
-  z-index: 999;
-}
-
 .loading-circle {
   width: 5rem;
   height: 5rem;
@@ -232,7 +268,7 @@ nav {
 }
 nav ul {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1200px;
   height: 100%;
   margin: 0 auto;
   display: -webkit-box;
@@ -275,7 +311,7 @@ header {
 }
 header > div {
   width: 100%;
-  max-width: 1180px;
+  max-width: 1200px;
   height: 100%;
   margin: 0 auto;
   display: -webkit-box;

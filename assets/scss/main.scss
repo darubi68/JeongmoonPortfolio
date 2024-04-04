@@ -113,14 +113,12 @@
 
             .main-imgBox {
                 & .original {
-                    animation: rolling-start 1s ease-out both,
-                        rolling1 25s linear 2s infinite;
+                    animation: rolling1 30s linear infinite;
                 }
 
                 & .clone {
                     top: 100%;
-                    animation: rolling-start 1s ease-out both,
-                        rolling2 25s linear 2s infinite;
+                    animation: rolling2 30s linear infinite;
                 }
 
                 & .ios-type {
@@ -134,28 +132,16 @@
 
             &>:nth-child(2) {
                 & .original {
-                    animation: rolling-start 1s ease-out both,
-                        rolling1 25s linear 1s infinite;
+                    animation: rolling1 30s linear -2s infinite;
                 }
 
                 & .clone {
-                    animation: rolling-start 1s ease-out both,
-                        rolling2 25s linear 1s infinite;
+                    animation: rolling2 30s linear -2s infinite;
                 }
 
                 & .ios-type {
                     transform: translate3d(0, -8%, 0);
                 }
-            }
-        }
-
-        @keyframes rolling-start {
-            0% {
-                transform: translate3d(0, 20%, 0);
-            }
-
-            100% {
-                transform: translate3d(0, 0%, 0);
             }
         }
 

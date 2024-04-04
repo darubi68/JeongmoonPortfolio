@@ -21,8 +21,6 @@ header {
 }
 
 main {
-    // height: 100svh;
-    // padding: 10rem 4rem;
     min-height:100svh;
     height:auto;
     padding:100px 4rem 4rem;
@@ -30,7 +28,6 @@ main {
     @include flex;
 
     .main-grid {
-        // max-width: $max-width;
         max-width:1366px;
         @include flex(space-between);
     }
