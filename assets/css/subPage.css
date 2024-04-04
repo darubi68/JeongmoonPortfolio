@@ -236,10 +236,10 @@ main.main-7 .keyword {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4rem;
-  width: 75%;
+  width: 70%;
 }
 #pmsSolution .content-detail .pmsSolution-video {
-  width: 25%;
+  width: 30%;
   padding-left: 4rem;
 }
 #pmsSolution .content-detail .pmsSolution-video video {
@@ -416,11 +416,11 @@ main.main-7 .keyword {
     grid-template-columns: repeat(2, 1fr);
   }
   #pmsSolution .content-detail .photo-gallery {
-    width: 65%;
+    width: 60%;
     grid-template-columns: repeat(1, 1fr);
   }
   #pmsSolution .content-detail .pmsSolution-video {
-    width: 35%;
+    width: 40%;
   }
   .page-navigation {
     padding: 2rem;
@@ -458,10 +458,15 @@ main.main-7 .keyword {
     border-radius: 0.3rem;
   }
   #pmsSolution .content-detail .photo-gallery {
+    width: 60%;
     gap: 2rem 1rem;
   }
   #pmsSolution .content-detail .pmsSolution-video {
+    width: 40%;
     padding-left: 1rem;
+  }
+  #pmsSolution .content-detail .pmsSolution-video video {
+    margin-bottom: 2rem;
   }
   .page-navigation {
     padding: 2rem 1rem;
