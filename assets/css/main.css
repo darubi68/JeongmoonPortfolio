@@ -1261,12 +1261,15 @@ section,
     padding: 6rem 1rem;
   }
   #main .main-text {
-    padding: 10rem 1rem 6rem;
+    padding: 10rem 1rem 5rem;
   }
   #main .main-text > img {
     width: 4rem;
     padding: 0.6rem;
     border-radius: 0.8rem;
+  }
+  #main .main-text > div .text-obj {
+    margin-bottom: 1.5rem;
   }
   #main .main-text > div .text-obj span {
     font-size: 2.8rem;
@@ -1300,9 +1303,6 @@ section,
   }
   #about .about-text > p {
     padding-bottom: 1rem;
-  }
-  #about .about-text button {
-    margin-bottom: 3rem;
   }
   #about .career-list:not(:last-of-type) {
     margin-bottom: 2.4rem;

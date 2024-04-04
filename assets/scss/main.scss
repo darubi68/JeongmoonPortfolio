@@ -985,7 +985,7 @@ section,
     }
 
     #main .main-text {
-        padding: 10rem 1rem 6rem;
+        padding: 10rem 1rem 5rem;
 
         >img {
             width: 4rem;
@@ -995,6 +995,7 @@ section,
 
         >div {
             .text-obj {
+                margin-bottom:1.5rem;
                 span {
                     font-size: 2.8rem;
                 }
@@ -1036,10 +1037,6 @@ section,
         .about-text {
             >p {
                 padding-bottom: 1rem;
-            }
-
-            button {
-                margin-bottom: 3rem;
             }
         }
 
