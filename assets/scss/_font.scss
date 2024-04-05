@@ -1,51 +1,35 @@
-
-// Bootstrap icon
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
-
-@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
-
-// Web Font
 @font-face {
     font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
-    font-style: normal;
-    font-weight: 100;
-}
-@font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
+    src: url('../../assets/font/Pretendard-ExtraLight.woff2') format('font-woff2'),
+    url('../../assets/font/Pretendard-ExtraLight.woff') format('font-woff');
     font-style: normal;
     font-weight: 200;
 }
 @font-face {
     font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+    src: url('../../assets/font/Pretendard-Light.woff2') format('font-woff2'),
+    url('../../assets/font/Pretendard-Light.woff') format('font-woff');
     font-style: normal;
     font-weight: 300;
 }
 @font-face {
     font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    src: url('../../assets/font/Pretendard-Regular.woff2') format('font-woff2')
+    url('../../assets/font/Pretendard-Regular.woff') format('font-woff');
     font-style: normal;
     font-weight: 400;
 }
 @font-face {
     font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
-    font-style: normal;
-    font-weight: 500;
-}
-@font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+    src: url('../../assets/font/Pretendard-Medium.woff2') format('font-woff2'),
+    url('../../assets/font/Pretendard-Medium.woff') format('font-woff');
     font-style: normal;
     font-weight: 600;
 }
-@font-face {
-    font-family: 'Pretendard';
-    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
-    font-style: normal;
-    font-weight: 700;
-}
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../../assets/font/Montserrat-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}

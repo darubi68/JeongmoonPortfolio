@@ -1,47 +1,32 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
-@import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @font-face {
   font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff") format("woff");
-  font-style: normal;
-  font-weight: 100;
-}
-@font-face {
-  font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff") format("woff");
+  src: url("../../assets/font/Pretendard-ExtraLight.woff2") format("font-woff2"), url("../../assets/font/Pretendard-ExtraLight.woff") format("font-woff");
   font-style: normal;
   font-weight: 200;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff") format("woff");
+  src: url("../../assets/font/Pretendard-Light.woff2") format("font-woff2"), url("../../assets/font/Pretendard-Light.woff") format("font-woff");
   font-style: normal;
   font-weight: 300;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  src: url("../../assets/font/Pretendard-Regular.woff2") format("font-woff2") url("../../assets/font/Pretendard-Regular.woff") format("font-woff");
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff") format("woff");
-  font-style: normal;
-  font-weight: 500;
-}
-@font-face {
-  font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff") format("woff");
+  src: url("../../assets/font/Pretendard-Medium.woff2") format("font-woff2"), url("../../assets/font/Pretendard-Medium.woff") format("font-woff");
   font-style: normal;
   font-weight: 600;
 }
 @font-face {
-  font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff") format("woff");
+  font-family: "Montserrat";
+  src: url("../../assets/font/Montserrat-Regular.ttf") format("truetype");
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
 }
 #main {
   width: 100%;
@@ -95,7 +80,7 @@
   -webkit-animation: text 1.5s infinite;
           animation: text 1.5s infinite;
   font-size: 4.4rem;
-  font-weight: bold;
+  font-weight: 600;
 }
 #main .main-text > div .text-obj span:nth-child(1) {
   -webkit-animation-delay: 0.1s;
@@ -528,6 +513,9 @@ section,
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
+#design .design-list .swiper-wrapper .swiper-slide .design-keyword span {
+  color: #747474;
+}
 #design .design-list .swiper-wrapper .swiper-slide h5 {
   padding: 1.5rem 0 0.4rem 0;
 }
@@ -697,7 +685,7 @@ section,
   display: none;
 }
 #project.full .project-item .project-content dl dt {
-  font-weight: bold;
+  font-weight: 600;
   padding-bottom: 0.4rem;
 }
 #project.full .project-item .project-content dl dd:not(:last-child) {
@@ -1014,15 +1002,11 @@ section,
 #inactive-modal .modal-container .modal-content .modal-body > div {
   text-align: center;
 }
-#inactive-modal .modal-container .modal-content .modal-body > div strong {
-  font-weight: 400;
+#inactive-modal .modal-container .modal-content .modal-body > div span {
   padding-bottom: 1rem;
   color: #4d8d6e;
   font-size: 1.6rem;
   display: block;
-}
-#inactive-modal .modal-container .modal-content .modal-body > div strong span {
-  font-weight: 700;
 }
 #inactive-modal .modal-container .modal-content .modal-body > div p {
   line-height: 1.6rem;

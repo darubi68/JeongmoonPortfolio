@@ -241,9 +241,9 @@ function modalOpen(e) {
     if (e.classList.contains('inactive')) {
         inactiveModal.classList.add('modal-show');
         inactiveModal.classList.remove('modal-hide');
-    } else if (e.closest('.design-list')) {
+    } else if (e.closest('.design-list')) {        
         const img = document.createElement('img');
-        img.src = `./assets/img/design/${e.dataset.img}.png`;
+        img.src = `./assets/img/design/${e.dataset.img}.webp`;
         designModal.classList.remove('modal-hide');
         designModal.classList.add('modal-show');
         designModalContainer.appendChild(img);

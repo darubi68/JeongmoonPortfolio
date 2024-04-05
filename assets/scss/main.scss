@@ -33,7 +33,7 @@
                     position: relative;
                     animation: text 1.5s infinite;
                     font-size: 4.4rem;
-                    font-weight: bold;
+                    font-weight: 600;
 
                     @for $i from 1 through 7 {
                         &:nth-child(#{$i}) {
@@ -311,6 +311,12 @@ section,
                     }
                 }
 
+                .design-keyword {
+                    span {
+                        color: $text-subColor;
+                    }
+                }
+
                 h5 {
                     padding: 1.5rem 0 0.4rem 0;
                 }
@@ -460,7 +466,7 @@ section,
 
                 dl {
                     dt {
-                        font-weight: bold;
+                        font-weight: 600;
                         padding-bottom: 0.4rem;
                     }
 
@@ -624,16 +630,11 @@ section,
                 >div {
                     text-align: center;
 
-                    strong {
-                        font-weight: 400;
+                    span {
                         padding-bottom: 1rem;
                         color: $primery-1;
                         font-size: 1.6rem;
                         display: block;
-
-                        span {
-                            font-weight: 700;
-                        }
                     }
 
                     p {
