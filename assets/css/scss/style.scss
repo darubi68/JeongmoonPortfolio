@@ -12,9 +12,8 @@
 }
 
 body {
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.1rem;
+    font-weight: 300;
+    font-size: 1rem;
     background-color: #fff;
     color: $text-color;
 
@@ -88,7 +87,7 @@ h6 {
 }
 
 p.b-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .en {
@@ -209,8 +208,7 @@ nav {
 
         li {
             text-transform: uppercase;
-            font-weight: 200;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             cursor: pointer;
             height: 100%;
             @include flex;
@@ -231,7 +229,7 @@ header {
         justify-content: flex-end;
 
         strong {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             letter-spacing: -0.5px;
         }
     }
@@ -367,9 +365,7 @@ footer {
 
 // 992px 이하
 @include tablet {
-    footer {
-        .contact-head {}
-    }
+
 }
 
 
@@ -414,14 +410,6 @@ footer {
     nav,
     header {
         padding: 0 2rem;
-    }
-
-    nav ul li {
-        font-size: 0.8rem;
-    }
-
-    header>div strong {
-        font-size: 1.2rem;
     }
 
     footer {

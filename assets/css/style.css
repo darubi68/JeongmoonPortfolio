@@ -1,32 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @font-face {
   font-family: "Pretendard";
-  src: url("../../assets/font/Pretendard-ExtraLight.woff2") format("font-woff2"), url("../../assets/font/Pretendard-ExtraLight.woff") format("font-woff");
-  font-style: normal;
-  font-weight: 200;
-}
-@font-face {
-  font-family: "Pretendard";
-  src: url("../../assets/font/Pretendard-Light.woff2") format("font-woff2"), url("../../assets/font/Pretendard-Light.woff") format("font-woff");
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff") format("woff");
   font-style: normal;
   font-weight: 300;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("../../assets/font/Pretendard-Regular.woff2") format("font-woff2") url("../../assets/font/Pretendard-Regular.woff") format("font-woff");
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
   font-style: normal;
   font-weight: 400;
 }
 @font-face {
   font-family: "Pretendard";
-  src: url("../../assets/font/Pretendard-Medium.woff2") format("font-woff2"), url("../../assets/font/Pretendard-Medium.woff") format("font-woff");
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff") format("woff");
   font-style: normal;
   font-weight: 600;
-}
-@font-face {
-  font-family: "Montserrat";
-  src: url("../../assets/font/Montserrat-Regular.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 400;
 }
 * {
   margin: 0;
@@ -39,9 +28,8 @@
 }
 
 body {
-  font-weight: 400;
-  font-style: normal;
-  font-size: 1.1rem;
+  font-weight: 300;
+  font-size: 1rem;
   background-color: #fff;
   color: #393939;
 }
@@ -113,7 +101,7 @@ h6 {
 }
 
 p.b-text {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .en {
@@ -268,8 +256,7 @@ nav ul {
 }
 nav ul li {
   text-transform: uppercase;
-  font-weight: 200;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   cursor: pointer;
   height: 100%;
   display: -webkit-box;
@@ -310,7 +297,7 @@ header > div {
           justify-content: flex-end;
 }
 header > div strong {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   letter-spacing: -0.5px;
 }
 
@@ -460,12 +447,6 @@ footer.grid .contact-head strong {
   nav,
   header {
     padding: 0 2rem;
-  }
-  nav ul li {
-    font-size: 0.8rem;
-  }
-  header > div strong {
-    font-size: 1.2rem;
   }
   footer .section-grid {
     padding: 5rem 2rem;
