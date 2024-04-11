@@ -33,7 +33,7 @@ main {
           align-items: center;
 }
 main .main-grid {
-  max-width: 1366px;
+  max-width: 1200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
