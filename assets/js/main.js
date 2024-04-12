@@ -1,4 +1,3 @@
-/* -------------------- project -------------------- */
 const contact = document.getElementById('contact');
 const project = document.getElementById('project');
 const projectBody = document.querySelector('.project-body');
@@ -34,12 +33,11 @@ function projectBackScroll() {
 function subPageChange(event) {
     const el = event.target;
     let link = el.closest('.project-item').dataset.page;
-    // if (event.ctrlKey) {
-    //     window.open(`/page/${link}.html`, '_blank').focus();
-    // } else {
-    //     location.href = `/page/${link}.html`;
-    // }
-    location.href = `/page/${link}.html`;
+    if (event.ctrlKey) {
+        window.open(`/page/${link}.html`, '_blank').focus();
+    } else {
+        location.href = `/page/${link}.html`;
+    }
 }
 
 // full&grid 변경 이벤트
@@ -47,11 +45,9 @@ function projectSetClass(value) {
     project.className = value;
     contact.className = value;
     AOS.refresh();
-    
     if(value === 'grid') {
         projectSwitch.checked = true;
         matchMedia("screen and (max-width: 992px)").matches ? '' : localStorage.setItem('mode',`${value}`);
-
         const projectItem = document.querySelectorAll('#project.grid .project-item');
         projectItem.forEach((el, idx) => {
             el.addEventListener('click', ()=> {
@@ -67,7 +63,6 @@ function projectSetClass(value) {
 //프로젝트 보기방식 변경 
 function projectChangeView(check) {
     projectBody.style.opacity = 0;
-
     projectBody.addEventListener('transitionend', () => {
         if (check === false) {
             projectSetClass('full');
@@ -86,8 +81,6 @@ projectBtn.forEach(el => {
 
 projectSwitch.addEventListener('change', () => projectChangeView(projectSwitch.checked));
 
-
-
 /* -------------------- design -------------------- */
 const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 
@@ -97,24 +90,17 @@ tabContentLi.forEach(e => {
     });
 });
 
-let swiper = new Swiper(".design-list", {
-    // mousewheel: true,    
+let swiper = new Swiper(".design-list", {  
     slidesPerView: '1',
     centeredSlides: true,
     spaceBetween: 10,
     grabCursor: true,
     loop: true,
-    // loopAdditionalSlides: 2,
     speed: 300,
     pagination: {
         el: ".design-list .swiper-pagination",
         clickable: true,
-        // dynamicBullets: true,
     },
-    // autoplay: {
-    //     delay: 2000,
-    //     disableOnInteraction: false,
-    // },
     breakpoints: {
         768: {
             slidesPerView: '2',
@@ -130,8 +116,6 @@ let swiper = new Swiper(".design-list", {
         }
     },
 });
-
-
 
 /* -------------------- about -------------------- */
 const about = document.getElementById('about');
@@ -155,10 +139,8 @@ function aboutSetLayout(value) {
 }
 
 aboutBtn.addEventListener('click', function() {
-    location.href = 'https://smiling-cesium-689.notion.site/259c32eafc6840cfa9082670ccdd404f?pvs=4';
+    location.href = 'https://jeongmoon.notion.site/Han-Jeongmoon-259c32eafc6840cfa9082670ccdd404f?pvs=4';
 })
-
-
 
 /* -------------------- main -------------------- */
 const main = document.getElementById('main');
@@ -173,8 +155,6 @@ function mainSetLayout() {
     else a = (window.innerWidth / 2) * Math.cos(35 * Math.PI / 180);
     mainImgGrid.style.width = `${a+b}px`;
 }
-
-
 
 /* -------------------- nav header -------------------- */
 const nav = document.getElementById("nav");
@@ -204,28 +184,6 @@ function navHeaderAnimation() {
     prevScroll = currentScroll;
 }
 
-
-
-/* -------------------- top button -------------------- */
-// const topButton = document.getElementById('top-button');
-// // 탑버튼 이벤트
-// function scrollTop() {
-//     if (window.scrollY > 200) {
-//         topButton.classList.add('top-active');
-//     } else {
-//         topButton.classList.remove('top-active');
-//     }
-// }
-// topButton.addEventListener('click', () => {
-//     window.scrollTo({
-//         top: 0,
-//         behavior: 'smooth'
-//     });
-//     // vhSet();
-// })
-
-
-
 /* -------------------- modal -------------------- */
 // 모달 open/close
 const modal = document.querySelectorAll('.modal');
@@ -237,7 +195,6 @@ const modalCloseBtn = document.querySelectorAll('.modal-close');
 
 function modalOpen(e) {
     document.body.classList.add('not-scroll');
-    // swiper.autoplay.stop();
     if (e.classList.contains('inactive')) {
         inactiveModal.classList.add('modal-show');
         inactiveModal.classList.remove('modal-hide');
@@ -251,7 +208,6 @@ function modalOpen(e) {
             modalLoading();
         }
     }
-
     function modalLoading() {
         designModal.classList.remove('before-load');
         designLoading.addEventListener('transitionend', (e) => {
@@ -262,7 +218,6 @@ function modalOpen(e) {
 
 function modalClose(e) {
     document.body.classList.remove('not-scroll');
-    // swiper.autoplay.start();
     e.closest('.modal').classList.add('modal-hide');
     e.closest('.modal').classList.remove('modal-show');
     setTimeout(() => {
@@ -278,17 +233,12 @@ modalCloseBtn.forEach(e => {
     })
 });
 
-
-
-
 function checkOS() {
     const type = navigator.userAgent.toLowerCase();
     if (type.indexOf('iphone') > -1 || type.indexOf('ipad') > -1 || type.indexOf('ipod') > -1) {
         return true;
     }
 };
-
-
 
 /* -------------------- window -------------------- */
 
@@ -324,8 +274,6 @@ window.addEventListener('load', () => {
     document.getElementById('main-loading').addEventListener('transitionend', (e) => {
         e.target.remove();
     });
-
-
 
     window.addEventListener('scroll', () => {
         navHeaderAnimation();
