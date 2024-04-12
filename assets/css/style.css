@@ -1,26 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 @font-face {
   font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff") format("woff");
-  font-style: normal;
-  font-weight: 300;
-}
-@font-face {
-  font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
-  font-style: normal;
+  src: url("../../assets/font/Pretendard-Regular.woff2") format("font-woff2"), url("../../assets/font/Pretendard-Regular.woff") format("font-woff");
   font-weight: 400;
 }
 @font-face {
-  font-family: "Pretendard";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff") format("woff");
-  font-style: normal;
-  font-weight: 600;
+  font-family: "Montserrat";
+  src: url("../../assets/font/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
 }
 * {
   margin: 0;
   padding: 0;
-  outline: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Montserrat", "Pretendard", sans-serif;
@@ -28,7 +18,7 @@
 }
 
 body {
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1rem;
   background-color: #fff;
   color: #393939;
@@ -74,6 +64,10 @@ img {
 h1,
 h2 {
   text-transform: capitalize;
+}
+
+h3, h4, h5, h6 {
+  font-weight: 600;
 }
 
 h1 {
@@ -241,7 +235,7 @@ nav {
 }
 nav ul {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   height: 100%;
   margin: 0 auto;
   display: -webkit-box;
@@ -283,7 +277,7 @@ header {
 }
 header > div {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   height: 100%;
   margin: 0 auto;
   display: -webkit-box;
@@ -479,5 +473,8 @@ footer.grid .contact-head strong {
   }
   .modal {
     padding: 1rem;
+  }
+  .modal .modal-container::-webkit-scrollbar {
+    width: 6px;
   }
 }

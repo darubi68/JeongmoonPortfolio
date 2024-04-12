@@ -3,6 +3,7 @@
 
 h2 {
     font-size: 2.5rem;
+    font-weight: 600;
 }
 
 header {
@@ -26,7 +27,7 @@ main {
     @include flex;
 
     .main-grid {
-        max-width:1200px;
+        max-width:$max-width;
         @include flex(space-between);
     }
 
@@ -204,16 +205,6 @@ main {
         }
     }
 }
-
-@media (max-width:1366px) {
-    main {
-        padding:10rem 4rem;
-        .main-grid {
-            align-items: flex-start;
-        }
-    }
-}
-
 
 
 // 1200px 이하

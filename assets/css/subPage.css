@@ -1,5 +1,6 @@
 h2 {
   font-size: 2.5rem;
+  font-weight: 600;
 }
 
 header {
@@ -33,7 +34,7 @@ main {
           align-items: center;
 }
 main .main-grid {
-  max-width: 1200px;
+  max-width: 1280px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -161,10 +162,10 @@ main.main-7 .keyword {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  max-width: 1200px;
+  max-width: 1280px;
 }
 .content-detail .photo-gallery {
-  max-width: 1200px;
+  max-width: 1280px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 4rem;
@@ -216,7 +217,7 @@ main.main-7 .keyword {
 }
 .page-navigation .section-grid {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -290,16 +291,6 @@ main.main-7 .keyword {
   background-color: #4d8d6e;
 }
 
-@media (max-width: 1366px) {
-  main {
-    padding: 10rem 4rem;
-  }
-  main .main-grid {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-}
 @media (max-width: 1200px) {
   h2 {
     font-size: max(2rem, 3.2vw);

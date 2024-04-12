@@ -145,7 +145,7 @@ aboutBtn.addEventListener('click', function() {
 /* -------------------- main -------------------- */
 const main = document.getElementById('main');
 const mainImgGrid = document.querySelector('.main-imgGrid');
-const imgBox = document.querySelectorAll('.main-imgBox >div');
+const imgBox = document.querySelectorAll('.main-imgBox img');
 
 // 메인 레이아웃 셋팅
 function mainSetLayout() {
@@ -243,7 +243,6 @@ function checkOS() {
 /* -------------------- window -------------------- */
 
 window.addEventListener('load', () => {
-    main.style.height = `${window.innerHeight}px`;
     mainSetLayout();
     checkOS() ? imgBox.forEach(el => el.className = 'ios-type') : '';
 
@@ -285,7 +284,6 @@ window.addEventListener('load', () => {
     let width = window.innerWidth;
     window.addEventListener('resize', () => {
         if (width !== window.innerWidth) {
-            main.style.height = `${window.innerHeight}px`;
             mainSetLayout();
 
             if(matchMedia("screen and (max-width: 992px)").matches) {

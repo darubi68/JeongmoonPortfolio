@@ -5,14 +5,14 @@
 * {
     margin: 0;
     padding: 0;
-    outline: none;
+    // outline: none;
     box-sizing: border-box;
     font-family: $en, $kr, sans-serif;
     -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1rem;
     background-color: #fff;
     color: $text-color;
@@ -60,6 +60,9 @@ img {
 h1,
 h2 {
     text-transform: capitalize;
+}
+h3,h4,h5,h6 {
+    font-weight: 600;
 }
 
 h1 {
@@ -363,12 +366,6 @@ footer {
 }
 
 
-// 992px 이하
-@include tablet {
-
-}
-
-
 // 768px 이하
 @include mobile {
     body {
@@ -460,5 +457,9 @@ footer {
 
     .modal {
         padding: 1rem;
+
+        .modal-container::-webkit-scrollbar {
+            width: 6px;
+        }
     }
 }
