@@ -27,8 +27,6 @@ main {
 
     .main-grid {
         max-width:1200px;
-        // border-left:1px solid #ddd;
-        // border-right:1px solid #ddd;
         @include flex(space-between);
     }
 
