@@ -214,9 +214,9 @@ section,
     .text-list>p {
         line-height: 2rem;
         padding-bottom: 1.5rem;
-        // &:last-of-type {
-        //     padding-bottom: 5rem;
-        // }
+        &:last-of-type {
+            padding-bottom: 5rem;
+        }
     }
 
 
@@ -857,11 +857,6 @@ section,
 
     .about-img {
         height: 50vh;
-
-        .about-imgBackground,
-        img {
-            width: calc(50vh * 0.77);
-        }
     }
 
     .about-text {
@@ -970,17 +965,18 @@ section,
         min-height: 25rem;
         height: 44vh;
 
-        .about-imgBackground,
-        img {
-            height: calc(100% - 1rem);
-            width: calc(100% - 1rem);
-            max-width: 22rem;
+        .about-imgBackground {
+            display: none;
         }
 
         img {
-            transform: translateY(1rem);
-            left: 1rem;
             object-position: top;
+            height: 100%;
+            width: 100%;
+            max-width: 20rem;
+            left:50%;
+            top:50%;
+            transform: translate(-50%, -50%);
         }
     }
 

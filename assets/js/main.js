@@ -138,9 +138,9 @@ function aboutSetLayout(value) {
     AOS.refresh();
 }
 
-aboutBtn.addEventListener('click', function() {
-    location.href = 'https://jeongmoon.notion.site/Han-Jeongmoon-259c32eafc6840cfa9082670ccdd404f?pvs=4';
-})
+// aboutBtn.addEventListener('click', function() {
+//     location.href = 'https://jeongmoon.notion.site/Han-Jeongmoon-259c32eafc6840cfa9082670ccdd404f?pvs=4';
+// })
 
 /* -------------------- main -------------------- */
 const main = document.getElementById('main');

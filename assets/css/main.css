@@ -312,6 +312,9 @@ section,
   line-height: 2rem;
   padding-bottom: 1.5rem;
 }
+.about-text .text-list > p:last-of-type {
+  padding-bottom: 5rem;
+}
 .about-text button {
   margin-bottom: 5rem;
 }
@@ -1143,10 +1146,6 @@ section,
   .about-img {
     height: 50vh;
   }
-  .about-img .about-imgBackground,
-  .about-img img {
-    width: 38.5vh;
-  }
   .about-text .text-list > p {
     line-height: 1.8rem;
   }
@@ -1222,19 +1221,20 @@ section,
     min-height: 25rem;
     height: 44vh;
   }
-  .about-img .about-imgBackground,
-  .about-img img {
-    height: calc(100% - 1rem);
-    width: calc(100% - 1rem);
-    max-width: 22rem;
+  .about-img .about-imgBackground {
+    display: none;
   }
   .about-img img {
-    -webkit-transform: translateY(1rem);
-        -ms-transform: translateY(1rem);
-            transform: translateY(1rem);
-    left: 1rem;
     -o-object-position: top;
        object-position: top;
+    height: 100%;
+    width: 100%;
+    max-width: 20rem;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
   }
   .about-text > p {
     padding-bottom: 1rem;

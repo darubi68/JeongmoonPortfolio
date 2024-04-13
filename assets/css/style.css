@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Pretendard";
   src: url("../../assets/font/Pretendard-Regular.woff2") format("font-woff2"), url("../../assets/font/Pretendard-Regular.woff") format("font-woff");
-  font-weight: 400;
+  font-weight: 300;
 }
 @font-face {
   font-family: "Montserrat";
   src: url("../../assets/font/Montserrat-Regular.ttf") format("truetype");
-  font-weight: 400;
+  font-weight: 300;
 }
 * {
   margin: 0;
@@ -18,7 +18,7 @@
 }
 
 body {
-  font-weight: 400;
+  font-weight: 300;
   font-size: 1rem;
   background-color: #fff;
   color: #393939;
