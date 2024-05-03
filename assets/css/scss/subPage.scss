@@ -6,25 +6,18 @@ h2 {
     font-weight: 600;
 }
 
-header {
-    height: 100px;
-    top: 0;
-    @include transition();
-
-    >div {
-        justify-content: space-between;
-        span {
-            font-size: 1.4rem;
-        }
+.header-container {
+    span {
+        font-size: 1.4rem;
     }
 }
 
 main {
     min-height:100svh;
     height:auto;
-    padding:100px 4rem 4rem;
+    padding:10rem 4rem;
     overflow: hidden;
-    @include flex;
+    @include flex();
 
     .main-grid {
         max-width:$max-width;
@@ -42,7 +35,7 @@ main {
     }
 
     .main-text {
-        width: 50%;
+        width: 52%;
 
         >h2 {
             padding: 0.5rem 0 2rem;
@@ -50,8 +43,10 @@ main {
 
         >div {
             padding-bottom:2rem;
-            h6 {
+            strong {
+                font-size: 1.2rem;
                 padding-bottom: 0.5rem;
+                display: block;
             }
 
             p {
@@ -91,7 +86,6 @@ main {
     }
 
 }
-
 
 
 .content-detail {
@@ -143,8 +137,6 @@ main {
         }
     }
 } 
-
-
 
 .page-navigation {
     padding: 4rem;
@@ -206,6 +198,10 @@ main {
     }
 }
 
+footer {
+    background-color: #fff;
+}
+
 
 // 1200px 이하
 @include desktop {
@@ -214,7 +210,7 @@ main {
     }
 
     main {
-        padding: 100px 4rem 8rem;
+        padding: 100px 4rem 10rem;
         display: block;
         height: auto !important;
 
@@ -228,7 +224,7 @@ main {
         }
 
         .main-img {
-            height: 46vh;
+            height: 50vh;
             margin-bottom: 2rem;
         }
     }
@@ -256,12 +252,8 @@ main {
 
 // 992px 이하
 @include tablet {
-    header {
-        height: 75px;
-    }
-
     main {
-        padding: 75px 4rem 8rem;
+        padding: 100px 4rem 8rem;
     }
 
     .content-detail {
@@ -272,17 +264,24 @@ main {
         padding: 3rem 4rem;
     }
 
+    footer .section-grid{
+        background-color: #fff;
+
+        .contact-head strong {
+            color: $primery-2;
+        }
+    }
 }
 
 
 // 768px 이하
 @include mobile {
-    header > div span {
+    .header-container span {
         font-size: 1.2rem;
     }
 
     main {
-        padding: 75px 2rem 6rem;
+        padding: 80px 2rem 6rem;
 
         .main-text {
             >p {
@@ -334,12 +333,8 @@ main {
         font-size: 1.5rem;
     }
 
-    header {
-        height: 50px;
-    }
-
     main {
-        padding: calc(6rem - 50px) 1rem 6rem;
+        padding:80px 1rem 6rem;
 
         .main-img {
             height: 42vh;

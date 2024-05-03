@@ -5,7 +5,6 @@
 * {
     margin: 0;
     padding: 0;
-    // outline: none;
     box-sizing: border-box;
     font-family: $en, $kr, sans-serif;
     -webkit-tap-highlight-color: transparent;
@@ -61,40 +60,15 @@ h1,
 h2 {
     text-transform: capitalize;
 }
-h3,h4,h5,h6 {
-    font-weight: 600;
-}
 
-h1 {
-    font-size: 3.2rem;
-}
-
-h2 {
-    font-size: 2.6rem;
-}
-
-h3 {
-    font-size: 1.8rem;
-}
-
-h4 {
-    font-size: 1.6rem;
-}
-
+h3,
+h4,
 h5 {
-    font-size: 1.3rem;
-}
-
-h6 {
-    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 p.b-text {
     font-size: 1.1rem;
-}
-
-.en {
-    font-family: $en, sans-serif;
 }
 
 i,
@@ -103,7 +77,9 @@ i,
 }
 
 button {
-    font-size: 0.9rem;
+    border: none;
+    background-color: transparent;
+    text-transform: uppercase;
     cursor: pointer;
 }
 
@@ -114,9 +90,14 @@ strong {
 .point-title {
     @include flex(flex-start, flex-start);
 
-    img {
+    h3 {
+        font-size: 2.6rem;
+    }
+
+    div {
         width: 0.5rem;
         height: 0.5rem;
+        background-color: $primery-1;
     }
 }
 
@@ -178,17 +159,14 @@ strong {
 
 
 // 메뉴, 타이틀
-nav,
 header {
     width: 100%;
-    height: 50px;
+    height: 80px;
     padding: 0 4rem;
     position: fixed;
-    top: -50px;
-    left: 0;
     background-color: rgba(255, 255, 255, 0.1);
-    @include transition(top);
-    z-index: 20;
+    z-index: 700;
+    @include transition($duration:0.5s);
 
     &::before {
         content: " ";
@@ -197,52 +175,59 @@ header {
         backdrop-filter: blur(15px);
         z-index: -1;
     }
-}
 
-nav {
-    top: 0px;
-
-    ul {
+    .header-container {
         width: 100%;
-        max-width: $max-width;
         height: 100%;
+        max-width: $max-width;
         margin: 0 auto;
         @include flex(space-between, center);
+    }
+}
 
-        li {
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            cursor: pointer;
-            height: 100%;
-            @include flex;
+.header-left-wrap {
+    @include flex(center, center);
+
+    nav {
+        @include flex(center, center);
+
+        .page-anchor-btn {
+            line-height: 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+
+            &:not(:first-child) {
+                margin-left: 3rem;
+            }
+
+            &:hover {
+                color: $primery-1;
+            }
         }
     }
 }
 
-header {
-    @include flex(space-between, center);
-
-    >div {
-        width: 100%;
-        max-width: $max-width;
-        height: 100%;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-
-        strong {
-            font-size: 1.2rem;
-            letter-spacing: -0.5px;
-        }
-    }
+.open-nav-btn,
+.open-nav-wrap {
+    display: none;
 }
 
+.header-logo {
+    opacity: 1;
+    @include transition();
+
+    strong {
+        font-size: 1.4rem;
+    }
+}
 
 footer {
+    background-color: rgba(205, 227, 216, 0.2);
+
     .section-grid {
         padding: 8rem 4rem;
         border-radius: 0 10rem 0 0;
+        background-color: #fff;
     }
 
     .contact-head {
@@ -250,11 +235,12 @@ footer {
 
         .point-title {
             h1 {
+                font-size: 3.2rem;
                 color: $primery-1;
             }
 
             @media (min-width: 769px) {
-                img {
+                div {
                     width: 0.7rem;
                     height: 0.7rem;
                 }
@@ -264,7 +250,7 @@ footer {
         strong {
             font-size: 1.8rem;
             font-weight: 300;
-            color: $primery-4;
+            color: $primery-2;
         }
     }
 
@@ -278,26 +264,6 @@ footer {
             margin-bottom: 1rem;
         }
     }
-
-    &.full {
-        background-color: rgba(205, 227, 216, 0.2);
-
-        .section-grid {
-            background-color: #fff;
-        }
-    }
-
-    &.grid {
-        background-color: #fff;
-
-        .section-grid {
-            background-color: $primery-4;
-        }
-
-        .contact-head strong {
-            color: $back-color;
-        }
-    }
 }
 
 .modal {
@@ -308,7 +274,7 @@ footer {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 900;
+    z-index: 800;
     pointer-events: none;
     @include transition;
     @include flex;
@@ -358,11 +324,156 @@ footer {
 
     .modal-close {
         position: absolute;
+        top: 1rem;
+        right: 1rem;
     }
 }
 
 .not-scroll {
     overflow: hidden;
+}
+
+
+// 992px 이하
+
+@include tablet {
+
+    header {
+        padding: 0 4rem;
+
+        &.active {
+            background-color: #fff;
+
+            .open-nav-btn {
+                span {
+                    background-color: transparent;
+                }
+
+                span::before {
+                    background: $primery-1;
+                    transform: rotate(-225deg);
+                    top: 0px;
+                }
+
+                span::after {
+                    background: $primery-1;
+                    transform: rotate(225deg);
+                    top: 0px;
+                }
+            }
+
+            .open-nav-wrap {
+                opacity: 1;
+                transform: translateY(60px);
+            }
+
+            .header-logo {
+                opacity: 0;
+            }
+        }
+    }
+
+    .header-left-wrap {
+        nav {
+            display: none;
+        }
+    }
+
+    .open-nav-btn {
+        position: relative;
+        height: 50px;
+        width: 26px;
+        @include flex(center, center);
+        z-index: 701;
+
+        span,
+        span::before,
+        span::after {
+            position: absolute;
+            content: '';
+            width: 26px;
+            height: 3px;
+            left: 0;
+            background: $text-color;
+            @include transition($duration: 0.5s, $ease:cubic-bezier(0.77, 0, 0.175, 1));
+        }
+
+        span {
+            position: relative;
+            display: block;
+
+            &::before {
+                top: -8px;
+            }
+
+            &::after {
+                top: 8px;
+            }
+        }
+    }
+
+    .open-nav-wrap {
+        display: block;
+        position: fixed;
+        height: calc(100% - 60px);
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 4rem;
+        background-color: #fff;
+        opacity: 0;
+        transform: translateY(-100%);
+        @include transition($duration:0.5s);
+        z-index: 700;
+
+        nav {
+            @include flex(center, center);
+            flex-direction: column;
+
+            .page-anchor-btn {
+                font-size: 2.2rem;
+                font-weight: bold;
+                margin-bottom:3.2rem;
+                padding:0 1rem 0.5rem;
+                line-height: 3.2rem;
+                position:relative;
+                overflow: hidden;
+
+                &::after {
+                    position:absolute;
+                    content: "";
+                    width:100%;
+                    height:5px;
+                    left:-100%;
+                    bottom:0;
+                    background-color: $primery-2;
+                    @include transition(left);
+                }
+
+                &:hover {
+                    &::after {
+                        left:0%;
+                    }
+                }
+            }
+        }
+    }
+
+    .header-logo strong {
+        font-size: 1.3rem;
+    }
+
+    footer {
+        background-color: #fff;
+
+        .section-grid {
+            background-color: $primery-3;
+        }
+
+        .contact-head strong {
+            color: $back-color;
+        }
+    }
 }
 
 
@@ -372,43 +483,47 @@ footer {
         font-size: 0.9rem;
     }
 
-    h1 {
-        font-size: 2.8rem;
-    }
-
-    h2 {
+    .point-title h3 {
         font-size: 2.2rem;
-    }
-
-    h3 {
-        font-size: 1.6rem;
-    }
-
-    h4 {
-        font-size: 1.4rem;
-    }
-
-    h5 {
-        font-size: 1.2rem;
-    }
-
-    h6 {
-        font-size: 1.1rem;
     }
 
     p.b-text {
         font-size: 1rem;
     }
 
-    button {
-        font-size: 0.8rem;
-    }
-
-    nav,
     header {
-        padding: 0 2rem;
+        padding:0 2rem;
+        height:60px;
     }
 
+    .open-nav-btn {
+        width:24px;
+        span,
+        span::before,
+        span::after {
+            height: 2px;
+            width:24px;
+        }
+
+        span::before {
+            top:-7px;
+        }
+        span::after {
+            top:7px;
+        }
+    }
+    .open-nav-wrap {
+        padding: 3rem;
+
+        nav .page-anchor-btn {
+            font-size: 2rem;
+        }
+    }
+
+    .header-logo strong {
+        font-size: 1.2rem;
+    }
+    
     footer {
         .section-grid {
             padding: 5rem 2rem;
@@ -416,6 +531,12 @@ footer {
         }
 
         .contact-head {
+            .point-title {
+                h1 {
+                    font-size: 2.8rem;
+                }
+            }
+
             strong {
                 font-size: 1.6rem;
             }
@@ -431,27 +552,47 @@ footer {
 
 // 576px 이하
 @include mini {
+    .point-title {
+        h3 {
+            font-size: 2rem;
+        }
+
+        div {
+            width: 0.35rem;
+            height: 0.35rem;
+            background-color: $primery-1;
+        }
+    }
+
     .loading-circle {
         width: 3rem;
         height: 3rem;
     }
 
-    nav,
     header {
         padding: 0 1rem;
     }
 
-    footer .section-grid {
-        padding: 5rem 1rem;
-    }
-
-    footer .contact-head {
-        h1 {
-            font-size: 2.4rem;
+    footer {
+        .section-grid {
+            padding: 5rem 1rem;
         }
 
-        strong {
-            font-size: 1.4rem;
+        .contact-head {
+            .point-title {
+                h1 {
+                    font-size: 2.4rem;
+                }
+
+                div {
+                    width: 0.5rem;
+                    height: 0.5rem;
+                }
+            }
+
+            strong {
+                font-size: 1.4rem;
+            }
         }
     }
 

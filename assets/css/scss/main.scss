@@ -1,10 +1,15 @@
 @import 'mixin.scss';
 @import 'variables.scss';
 
+.show-1200,.show-992,.show-768,.show-576 {
+    display: none;
+}
+
+
 #main {
     width: 100%;
     height: 100svh;
-    @include flex(flex-end, center);
+    @include flex(flex-end, flex-end);
     overflow: hidden;
 }
 
@@ -12,12 +17,12 @@
     width: calc(50% - 4rem);
     height: 100%;
     max-width: $max-width/2;
-    padding: 10rem 4rem 10rem 0;
-    @include flex(flex-end, flex-start);
+    padding: calc(10rem + 50px) 4rem 10rem 0;
+    @include flex(center, flex-start);
     flex-direction: column;
 
     .text-obj {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         display: flex;
 
         span {
@@ -42,11 +47,15 @@
         }
     }
 
-    strong {
-        max-width: 32rem;
-        font-size: 1.2rem;
-        line-height: 2rem;
-        display: block;
+    .text-greetings {
+        font-size: min(3.3rem, 3.5vw);
+        line-height: min(4.3rem, 4.5vw);
+        margin-bottom:4rem;
+    }
+
+    .text-introduction {
+        font-size: min(1.3rem, 1.5vw);
+        line-height: min(2.3rem, 2.5vw);
     }
 }
 
@@ -97,9 +106,10 @@
     .main-imgGrid {
         @include col-grid(repeat(3, 1fr));
         transform: rotate(35deg);
-        height: 100%;
+        height: 125%;
         position: absolute;
-        left: -190px;
+        top: -15%;
+        left: -180px;
 
         .main-imgBox {
             & .original {
@@ -190,6 +200,7 @@ section,
         width: calc(100% - 6rem);
         max-width: 100%;
         height: calc(100% - 22rem);
+        max-height:600px;
         border: $dashed;
         border-radius: 1rem;
         right: 6rem;
@@ -199,6 +210,7 @@ section,
         position: absolute;
         max-width: calc(100% - 6rem);
         height: calc(100% - 22rem);
+        max-height:600px;
         border-radius: 1rem;
         right: 4rem;
         transform: translateY(2rem);
@@ -214,6 +226,7 @@ section,
     .text-list>p {
         line-height: 2rem;
         padding-bottom: 1.5rem;
+
         &:last-of-type {
             padding-bottom: 5rem;
         }
@@ -235,14 +248,20 @@ section,
     }
 
     .point-title {
-        color: $primery-2;
+        color: $primery-1;
+
+        h2 {
+            font-size: 1.8rem;
+        }
     }
 
     ul {
         li {
             padding-top: 1rem;
 
-            h6 {
+            strong {
+                display: block;
+                font-size: 1.2rem;
                 padding: 0.3rem 0;
             }
 
@@ -272,53 +291,41 @@ section,
 }
 
 .design-list {
-    .swiper-wrapper {
-        .swiper-slide {
-            cursor: pointer;
-            margin-bottom: 3rem;
-            opacity: 5;
+    .swiper-slide {
+        cursor: pointer;
+        opacity: 5;
 
-            &:not(.inactive):hover img {
-                scale: 1.1;
+        &:not(.inactive):hover img {
+            scale: 1.1;
+        }
+
+        &.inactive {
+            filter: opacity(0.5);
+            cursor: initial;
+        }
+
+        .design-thumbnail {
+            height: 16rem;
+            border-radius: 1rem;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                @include transition;
             }
+        }
 
-            &.inactive {
-                filter: opacity(0.5);
-                cursor: inherit;
-            }
-
-            .design-thumbnail {
-                height: 16rem;
-                border-radius: 1rem;
-                overflow: hidden;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    object-position: center top;
-                    @include transition;
-                }
-            }
-
-            .design-keyword {
-                span {
-                    color: $text-subColor;
-                }
-            }
-
-            h5 {
-                padding: 1.5rem 0 0.4rem 0;
-            }
+        h4 {
+            font-size: 1.3rem;
+            padding: 1.5rem 0 0.4rem 0;
         }
     }
 
-    .swiper-pagination {
-        bottom: 0;
-
-        .swiper-pagination-bullet-active {
-            background-color: $primery-1;
-        }
+    .swiper-button-next, .swiper-button-prev {
+        color:$primery-1;
     }
 }
 
@@ -333,88 +340,323 @@ section,
         max-width: $max-width;
     }
 
-    &.full {
-        overflow: hidden;
+    .project-head {
+        @include flex(space-between, flex-end);
+        height: 3rem;
+        margin-bottom: 3rem;
+    }
 
-        .project-item {
-            padding: 5rem;
-            @include flex(space-between, center);
+    .project-body {
+        width: 100%;
+        @include transition();
 
-            &:not(:last-child) {
-                border-bottom: $dashed;
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .project-item {
+        padding: 5rem;
+        @include flex(space-between, center);
+
+        &:not(:last-child) {
+            border-bottom: $dashed;
+        }
+    }
+
+    .project-thumbnail {
+        width: 45%;
+        height: 100%;
+        @include flex(center, center);
+    }
+
+    .project-content {
+        width: 50%;
+        height: 100%;
+
+        h4 {
+            margin-top: 0.2rem;
+            font-size: 1.8rem;
+        }
+
+        >*:not(button) {
+            padding-bottom: 2rem;
+        }
+
+        >div {
+            display: none;
+        }
+
+        dl {
+            dt {
+                font-weight: 600;
+                padding-bottom: 0.4rem;
             }
 
-            .project-thumbnail {
-                width: 45%;
-                height: 100%;
-                @include flex(center, center);
+            & dd:not(:last-child) {
+                padding-bottom: 1rem;
+            }
+        }
+
+        p {
+            line-height: 2rem;
+        }
+
+        button {
+            @include arrowButton(#fff, $primery-1);
+        }
+    }
+
+    .project-background {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: rgba(205, 227, 216, 0.2);
+        left: 0;
+        bottom: 0;
+        z-index: -10;
+        pointer-events: none;
+        transition: none;
+        @include transition(opacity);
+        transform: translateY(100%);
+
+        &.scroll-on {
+            position: fixed;
+            @include transition();
+        }
+    }
+}
+
+
+
+
+#inactive-modal {
+    .modal-container {
+        position: relative;
+        max-width: 22rem;
+        background-color: $back-color;
+        border-radius: 50%;
+
+        &::after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+        }
+
+        .modal-content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            @include flex;
+            flex-direction: column;
+            span {
+                padding-bottom: 1rem;
+                color: $primery-1;
+                font-size: 1.6rem;
+                display: block;
             }
 
-            .project-content {
-                width: 50%;
-                height: 100%;
+            p {
+                line-height: 1.6rem;
+                text-align: center;
+            }
+        }
+    }
+}
 
-                h4 {
-                    margin-top: 0.2rem;
-                    font-size: 1.8rem;
+#design-modal {
+
+    .loading {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-container {
+        width: 100%;
+        max-width: $max-width;
+        height: 100%;
+        overflow-y: auto;
+        padding-right: 8px;
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+}
+
+// 1200px 이하
+@include desktop {
+
+    .show-1200 {
+        display: block;
+    }
+
+    .hide-1200 {
+        display: none;
+    }
+
+    .main-text {
+        .text-obj {
+            span {
+                font-size: 3.8rem;
+            }
+
+            img {
+                width: 6vw;
+            }
+        }
+
+        .text-greetings {
+            font-size: min(3.3rem,3.4vw);
+            margin-bottom:2rem;
+        }
+
+        .text-introduction {
+            font-size: 1.2rem;
+            line-height: 2rem;
+        }
+    }
+
+    #project .project-item {
+        padding: 5rem 2rem 5rem 0;
+    }
+}
+
+
+// 992px 이하
+@include tablet {
+
+    .show-992 {
+        display: block;
+    }
+
+    #about .section-grid,
+    #design,
+    #project {
+        padding: 8rem 4rem;
+    }
+
+
+    #main {
+        display: inherit;
+        position: relative;
+    }
+
+    .main-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height:100%;
+        padding: calc(8rem + 50px) 4rem 8rem 4rem;
+        max-width: initial;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.85);
+        @include flex(center, center);
+
+        .text-obj {
+            img {
+                width: 4rem;
+            }
+        }
+
+        .text-greetings {
+            font-size: max(2rem, 4vw);
+            line-height: max(3rem, 5vw);
+            text-align: center;
+        }
+
+        .text-introduction {
+            text-align: center;
+            max-width:31rem;
+        }
+    }
+
+    .main-img {
+        width: 100%;
+        border-radius: 0;
+
+        .main-imgGrid {
+            .main-imgBox {
+                & .original {
+                    animation: rolling1 15s linear infinite;
                 }
 
-                >*:not(button) {
-                    padding-bottom: 2rem;
+                & .clone {
+                    animation: rolling2 15s linear infinite;
+                }
+            }
+
+            &>:nth-child(2) {
+                & .original {
+                    animation: rolling1 15s linear -4s infinite;
                 }
 
-                >div {
-                    display: none;
-                }
-
-                dl {
-                    dt {
-                        font-weight: 600;
-                        padding-bottom: 0.4rem;
-                    }
-
-                    & dd:not(:last-child) {
-                        padding-bottom: 1rem;
-                    }
-                }
-
-                p {
-                    line-height: 2rem;
-                }
-
-                button {
-                    @include arrowButton(#fff, $primery-1);
+                & .clone {
+                    animation: rolling2 15s linear -4s infinite;
                 }
             }
         }
     }
 
-    &.grid {
+
+    #about {
+        .section-grid {
+            display: inherit;
+        }
+    }
+
+    .about-img {
+        padding: 0;
+        width: 100%;
+        max-width: initial;
+        min-height: initial;
+        height: 56vh;
+        position: relative;
+        margin-bottom: 3rem;
+
+        .about-imgBackground {
+            height: calc(100% - 2rem);
+            width: calc(56vh * 0.7);
+            left: 0;
+        }
+
+        img {
+            height: calc(100% - 2rem);
+            width: calc(56vh * 0.7);
+            left: 2rem;
+            max-width: initial;
+        }
+
+    }
+
+    .about-text {
+        width: 100%;
+        max-width: initial;
+        padding: 0;
+
+        button {
+            padding: 0.8rem 5rem;
+            border-radius: 1.6rem;
+            border: 1px solid $primery-1;
+            background-color: transparent;
+            color: $primery-1;
+
+            &>:first-child {
+                display: none;
+            }
+        }
+    }
+
+    .design-list .swiper-wrapper .swiper-slide:not(.inactive):hover img {
+        scale: initial;
+    }
+
+    #project {
         .project-list {
-            @include col-grid(repeat(2, 1fr), 4rem);
-
-            .project-item {
-                cursor: pointer;
-
-                &:hover .project-thumbnail img {
-                    scale: 1.1;
-                }
-            }
-
-            .project-thumbnail {
-                width: 100%;
-                height: 22rem;
-                @include flex(center, center);
-                border-radius: 2rem;
-                overflow: hidden;
-                margin-bottom: 1.5rem;
-                box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-                pointer-events: none;
-
-                img {
-                    @include transition;
-                }
-            }
+            @include col-grid(repeat(2, 1fr), 4rem 2rem);
 
             @each $color,
             $sub in $project-color {
@@ -427,9 +669,17 @@ section,
 
             .project-content {
                 pointer-events: none;
+                width: 100%;
+                height: initial;
+
+                >* {
+                    padding-bottom: 0;
+                }
 
                 h4 {
+                    font-size: 1.5rem;
                     padding: 0.3rem 0;
+                    margin-top: 0;
                 }
 
                 >div {
@@ -437,6 +687,7 @@ section,
 
                     p {
                         padding-bottom: 1rem;
+                        line-height: initial;
                     }
 
                     .keyword {
@@ -478,348 +729,38 @@ section,
             }
         }
 
+        .project-item {
+            padding: 0;
+            display: block;
+            border-bottom: 0;
+            cursor: pointer;
+
+            &:not(:last-child) {
+                border-bottom: 0;
+            }
+
+            &:hover .project-thumbnail img {
+                scale: 1.1;
+            }
+        }
+
+        .project-thumbnail {
+            width: 100%;
+            height: 18rem;
+            @include flex(center, center);
+            border-radius: 2rem;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+
+            img {
+                @include transition;
+            }
+        }
+
         .project-background {
             display: none;
-        }
-    }
-}
-
-.project-head {
-    @include flex(space-between, flex-end);
-    height: 3rem;
-    margin-bottom: 3rem;
-
-    .project-viewSwitch {
-        .switch-label {
-            position: relative;
-            display: inline-block;
-            width: 5.6rem;
-            height: 3rem;
-
-            .switch-slider {
-                position: absolute;
-                cursor: pointer;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: $primery-2;
-                border-radius: 3rem;
-                @include transition;
-
-                &::before,
-                &::after {
-                    font-family: 'simple-line-icons';
-                    border-radius: 50%;
-                    height: 2.6rem;
-                    width: 2.6rem;
-                    position: absolute;
-                    @include flex(center, center);
-                }
-
-                &::before {
-                    content: "\e067";
-                    left: 0.2rem;
-                    bottom: 0.2rem;
-                    font-size: 1.2rem;
-                    background-color: white;
-                    color: $primery-1;
-                    @include transition(transform);
-                }
-
-                &::after {
-                    content: "\e06a";
-                    left: 2.8rem;
-                    bottom: 0.2rem;
-                    font-size: 1rem;
-                    color: $back-color;
-                }
-            }
-
-            input[type="checkbox"] {
-                opacity: 0;
-                width: 0;
-                height: 0;
-
-                &:checked+.switch-slider {
-                    background-color: $primery-3;
-
-                    &::before {
-                        content: "\e06a";
-                        font-size: 1rem;
-                        transform: translateX(2.6rem);
-                    }
-
-                    &::after {
-                        content: "\e067";
-                        font-size: 1.2rem;
-                        transform: translateX(-2.6rem);
-                    }
-                }
-            }
-        }
-    }
-}
-
-.project-body {
-    width: 100%;
-    @include transition();
-
-    img {
-        max-height: 100%;
-        max-width: 100%;
-    }
-}
-
-.project-background {
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: rgba(205, 227, 216, 0.2);
-    left: 0;
-    bottom: 0;
-    z-index: -10;
-    pointer-events: none;
-    transition: none;
-    @include transition(opacity);
-    transform: translateY(100%);
-
-    &.scroll-on {
-        position: fixed;
-        @include transition();
-    }
-}
-
-
-
-#inactive-modal {
-    .modal-container {
-        position: relative;
-        max-width: 22rem;
-        background-color: $back-color;
-        border-radius: 50%;
-
-        &::after {
-            content: "";
-            display: block;
-            padding-bottom: 100%;
-        }
-
-        .modal-content {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            @include flex;
-            flex-direction: column;
-
-            .modal-body {
-                max-width: 100%;
-                @include flex;
-
-                >div {
-                    text-align: center;
-
-                    span {
-                        padding-bottom: 1rem;
-                        color: $primery-1;
-                        font-size: 1.6rem;
-                        display: block;
-                    }
-
-                    p {
-                        line-height: 1.6rem;
-                    }
-                }
-            }
-        }
-
-        .modal-close {
-            right: 0;
-            top: 0;
-        }
-    }
-}
-
-#design-modal {
-
-    .loading {
-        background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .modal-container {
-        width: 100%;
-        max-width: $max-width;
-        height: 100%;
-        overflow-y: auto;
-        padding-right: 8px;
-
-        img {
-            width: 100%;
-            display: block;
-        }
-    }
-
-    .modal-close {
-        top: 1rem;
-        right: 1rem;
-    }
-}
-
-
-
-// 1200px 이하
-@include desktop {
-
-    .main-text {
-        .text-obj {
-            span {
-                font-size: 3.8rem;
-            }
-
-            img {
-                width: 6vw;
-            }
-        }
-    }
-
-    #project.full .project-item {
-        padding: 5rem 2rem 5rem 0;
-    }
-
-    #project.grid .project-list {
-        gap: 4rem 2rem;
-
-        .project-thumbnail {
-            height: 20rem;
-        }
-    }
-}
-
-
-// 992px 이하
-@include tablet {
-
-    #about .section-grid,
-    #design,
-    #project,
-    .main-text {
-        padding: 8rem 4rem;
-    }
-
-
-    #main {
-        display: inherit;
-        position: relative;
-    }
-
-    .main-text {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        max-width: inherit;
-        z-index: 10;
-        background: rgba(255, 255, 255, 0.8);
-
-        .text-obj {
-            img {
-                width: 4rem;
-            }
-        }
-    }
-
-    .main-img {
-        width: 100%;
-        border-radius: 0;
-
-        .main-imgGrid {
-            .main-imgBox {
-                & .original {
-                    animation: rolling1 15s linear infinite;
-                }
-
-                & .clone {
-                    animation: rolling2 15s linear infinite;
-                }
-            }
-
-            &>:nth-child(2) {
-                & .original {
-                    animation: rolling1 15s linear -4s infinite;
-                }
-
-                & .clone {
-                    animation: rolling2 15s linear -4s infinite;
-                }
-            }
-        }
-    }
-
-
-    #about {
-        .section-grid {
-            display: inherit;
-        }
-    }
-
-    .about-img {
-        padding: 0;
-        width: 100%;
-        max-width: inherit;
-        min-height: inherit;
-        height: 56vh;
-        position: relative;
-        margin-bottom: 3rem;
-
-        .about-imgBackground {
-            height: calc(100% - 2rem);
-            width: calc(56vh * 0.7);
-            left: 0;
-        }
-
-        img {
-            height: calc(100% - 2rem);
-            width: calc(56vh * 0.7);
-            left: 2rem;
-            max-width: inherit;
-        }
-
-    }
-
-    .about-text {
-        width: 100%;
-        max-width: inherit;
-        padding: 0;
-
-        button {
-            padding: 0.8rem 5rem;
-            border-radius: 1.6rem;
-            border: 1px solid $primery-1;
-            background-color: transparent;
-            color: $primery-1;
-
-            &>:first-child {
-                display: none;
-            }
-        }
-    }
-
-    .design-list .swiper-wrapper .swiper-slide:not(.inactive):hover img {
-        scale: inherit;
-    }
-
-    .project-viewSwitch {
-        display: none;
-    }
-
-    #project.grid .project-list {
-        .project-item:hover .project-thumbnail img {
-            scale: inherit;
-        }
-
-        .project-thumbnail {
-            height: 18rem;
         }
     }
 
@@ -827,7 +768,7 @@ section,
         padding: 4rem;
 
         .modal-content {
-            max-width: inherit;
+            max-width: initial;
         }
     }
 }
@@ -835,15 +776,20 @@ section,
 
 // 768px 이하
 @include mobile {
+    
+    .show-768 {
+        display: block;
+    }
 
     #about .section-grid,
     #design,
-    #project,
-    .main-text {
+    #project {
         padding: 6rem 2rem;
     }
 
     .main-text {
+        padding: calc(6rem + 50px) 2rem 6rem 2rem;
+
         .text-obj {
             span {
                 font-size: 3.2rem;
@@ -852,6 +798,11 @@ section,
             img {
                 width: 3.4rem;
             }
+        }
+
+        .text-greetings {
+            font-size: 1.8rem;
+            line-height: 2.8rem;
         }
     }
 
@@ -870,6 +821,11 @@ section,
     }
 
     .career-list {
+
+        .point-title h2 {
+            font-size: 1.6rem;
+        }
+
         ul {
             li {
                 padding: 0.4rem 0;
@@ -877,35 +833,36 @@ section,
                 &:first-of-type {
                     padding-top: 0.6rem;
                 }
-            }
 
-            h6 {
+                strong {
+                    font-size: 1.1rem;
+                    padding: 0.2rem 0;
+                }
+            }
+        }
+    }
+
+    .design-list .swiper-slide h4 {
+        font-size: 1.2rem;
+        padding: 1.2rem 0 0.2rem 0;
+    }
+
+    #project {
+        .project-list {
+            @include col-grid(initial, 3rem 0);
+
+            .project-content h4 {
+                font-size: 1.4rem;
                 padding: 0.2rem 0;
             }
         }
     }
 
-    .design-tab {
-        display: none;
-
-        li.active {
-            padding: 0 1rem;
-        }
-    }
-
-    #project.grid .project-list {
-        @include col-grid(inherit, 3rem 0);
-    }
-
-    #project.grid .project-list .project-content h4 {
-        padding: 0.2rem 0;
-    }
-
     #inactive-modal .modal-container {
-        max-width: 20rem;
+        max-width: 19rem;
 
-        .modal-content .modal-body>div {
-            strong {
+        .modal-content {
+            span {
                 font-size: 1.4rem;
                 padding-bottom: 0.5rem;
             }
@@ -921,26 +878,19 @@ section,
 // 576px 이하
 @include mini {
 
-    h2 {
-        font-size: 2rem;
-    }
-
-    h3 {
-        font-size: 1.5rem;
-    }
-
-    h4 {
-        font-size: 1.3rem;
+    .show-576 {
+        display: block;
     }
 
     #about .section-grid,
     #design,
-    #project,
-    .main-text {
+    #project {
         padding: 6rem 1rem;
     }
 
     .main-text {
+        padding: calc(6rem + 50px) 1rem 6rem 1rem;
+
         .text-obj {
             margin-bottom: 1.5rem;
 
@@ -953,10 +903,14 @@ section,
             }
         }
 
-        strong {
-            width: 100%;
-            max-width: 30rem;
+        .text-greetings {
+            max-width:20rem;
+        }
+
+        .text-introduction {
+            max-width:28rem;
             font-size: 1.1rem;
+            line-height: 1.8rem;
         }
     }
 
@@ -974,8 +928,8 @@ section,
             height: 100%;
             width: 100%;
             max-width: 20rem;
-            left:50%;
-            top:50%;
+            left: 50%;
+            top: 50%;
             transform: translate(-50%, -50%);
         }
     }
@@ -990,18 +944,26 @@ section,
         &:not(:last-of-type) {
             margin-bottom: 2.4rem;
         }
+
+        .point-title h2 {
+            font-size: 1.5rem;
+        }
     }
 
     .design-head {
         margin-bottom: 2rem;
     }
 
-    .project-head {
-        margin-bottom: 2rem;
-    }
+    #project {
+        .project-list {
+            .project-content h4 {
+                font-size: 1.3rem;
+            }
+        }
 
-    #project.grid .project-list .project-thumbnail {
-        height: 16rem;
+        .project-thumbnail {
+            height: 16rem;
+        }
     }
 
     #design-modal {

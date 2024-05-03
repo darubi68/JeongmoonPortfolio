@@ -1,7 +1,32 @@
+// 하단 목록, 이전, 다음 버튼
+const subPageBtn = document.querySelectorAll('.page-navigation .section-grid > div');
+const projectListBtn = document.querySelectorAll('.page-navigation .section-grid > span');
 
-// 홈으로 
+function moveSubPage(e) {
+    if (e.type === 'click' || e.key === "Enter") location.href = `../../page/${e.target.dataset.url}.html`;
+}
+
+function moveProjectList(e) {
+    const address = e.target.closest('.wrapper').id;
+    if (e.type === 'click' || e.key === "Enter") {
+        sessionStorage.setItem('url',`${address}`);
+        location.href = `../../index.html`;
+    }
+}
+
+subPageBtn.forEach(el => {
+    el.addEventListener('click', moveSubPage)
+    el.addEventListener('keydown', moveSubPage);
+});
+
+projectListBtn.forEach(el => {
+    el.addEventListener('click', moveProjectList)
+    el.addEventListener('keydown', moveProjectList);
+})
+
+// 홈으로
 function moveHome() {
-    location.href = `../../index.html`;
+    location.href = `../../index.html`; 
 }
 
 // 메인 vh 조정
@@ -10,23 +35,6 @@ const main = document.getElementsByTagName('main');
 function vhSet() {
     let vh = window.innerHeight * 0.01;
     main[0].style.height = `calc(${vh}px * 100)`;
-}
-
-
-// 헤더 높이 효과
-const header = document.getElementsByTagName("header");
-
-function headerAnimation() {
-    let w = window.innerWidth;
-    const nw = (w < 577) ? 50 :
-        (w < 993) ? 75 :
-        100;
-
-    if (window.pageYOffset > 200) {
-        header[0].style.height = '50px';
-    } else {
-        header[0].style.height = `${nw}px`;
-    }
 }
 
 // header, footer 끌어다 쓰기
@@ -45,42 +53,21 @@ function includeHtml() {
     })
 };
 
-
-
 /* -------------------- window -------------------- */
 const wrapper = document.querySelectorAll('.wrapper');
-const moveSubPage = document.querySelectorAll('.page-navigation .section-grid > div');
-const moveProjectList = document.querySelectorAll('.page-navigation .section-grid > span');
-
 
 window.addEventListener('load', () => {
 
     includeHtml();
 
-    if (matchMedia("screen and (min-width: 1367px)").matches) vhSet();
+    // if (matchMedia("screen and (min-width: 1367px)").matches) vhSet();
 
-    moveSubPage.forEach(el => {
-        el.addEventListener('click', function(el){
-            location.href = `../../page/${el.target.dataset.url}.html`;
-        })
-    })
-
-    moveProjectList.forEach(el => {
-        el.addEventListener('click', function(el) {
-            const address = el.target.closest('.wrapper').id;
-            sessionStorage.setItem('url',`${address}`);
-            location.href = `../../index.html`;
-        })
-    })
-
-    window.addEventListener('scroll', () => {
-        headerAnimation();
-    });
+    window.addEventListener('scroll', () => {});
 
     window.addEventListener('orientationchange', () => {});
 
     window.addEventListener('resize', () => {
-        matchMedia("screen and (min-width: 1367px)").matches ? vhSet() : main[0].style.height = 'auto';
+        // matchMedia("screen and (min-width: 1367px)").matches ? vhSet() : main[0].style.height = 'auto';
     });
 
     document.body.classList.remove('before-load');

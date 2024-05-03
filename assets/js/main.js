@@ -1,12 +1,10 @@
 const contact = document.getElementById('contact');
 const project = document.getElementById('project');
-const projectBody = document.querySelector('.project-body');
 const projectBtn = document.querySelectorAll('.project-item button');
-const projectSwitch = document.getElementById('project-switch');
 const sceneBackground = document.querySelector('.project-background');
 const normalScene = document.querySelectorAll('.normal-scene');
 
-// 프로젝트(grid) background 스크롤 이벤트
+// 프로젝트 background 스크롤 이벤트
 function projectBackScroll() {
     let normalSceneHeight = 0;
     for (let i = 0; i < normalScene.length; i++) {
@@ -29,6 +27,20 @@ function projectBackScroll() {
     }
 }
 
+// 프로젝트 레이아웃 변경에 따른 이벤트 트리거 변경
+function projectEventChange() {
+    const projectItem = document.querySelectorAll('#project .project-item');
+    projectItem.forEach((el, idx) => {
+        el.setAttribute('tabindex','0');
+        el.addEventListener('click', () => { 
+            projectBtn[idx].click(); 
+        });
+        el.addEventListener('keydown', (e) => {
+            if(e.key === "Enter") projectBtn[idx].click();
+         });
+    })
+}
+
 // 프로젝트 서브페이지 연결
 function subPageChange(event) {
     const el = event.target;
@@ -40,66 +52,32 @@ function subPageChange(event) {
     }
 }
 
-// full&grid 변경 이벤트
-function projectSetClass(value) {
-    project.className = value;
-    contact.className = value;
-    AOS.refresh();
-    if(value === 'grid') {
-        projectSwitch.checked = true;
-        matchMedia("screen and (max-width: 992px)").matches ? '' : localStorage.setItem('mode',`${value}`);
-        const projectItem = document.querySelectorAll('#project.grid .project-item');
-        projectItem.forEach((el, idx) => {
-            el.addEventListener('click', ()=> {
-                projectBtn[idx].click();
-            });
-        })
-    } else {
-        projectSwitch.checked = false;
-        localStorage.clear('mode');
-    }
-}
-
-//프로젝트 보기방식 변경 
-function projectChangeView(check) {
-    projectBody.style.opacity = 0;
-    projectBody.addEventListener('transitionend', () => {
-        if (check === false) {
-            projectSetClass('full');
-        } else {
-            projectSetClass('grid');
-        }
-        projectBody.style.opacity = 1;
-    }, {
-        once: true
-    });
-}
-
 projectBtn.forEach(el => {
     el.addEventListener('click', (event) => subPageChange(event));
 })
-
-projectSwitch.addEventListener('change', () => projectChangeView(projectSwitch.checked));
 
 /* -------------------- design -------------------- */
 const tabContentLi = document.querySelectorAll('.design-list > ul > li');
 
 tabContentLi.forEach(e => {
     e.addEventListener('click', () => {
-        modalOpen(e);
+        modalOpen(e)
+    });
+    e.addEventListener('keydown', (el) => {
+        if (el.key === "Enter") modalOpen(e);
     });
 });
 
-let swiper = new Swiper(".design-list", {  
+let swiper = new Swiper(".design-list", {
     slidesPerView: '1',
     centeredSlides: true,
     spaceBetween: 10,
     grabCursor: true,
     loop: true,
     speed: 300,
-    pagination: {
-        el: ".design-list .swiper-pagination",
-        clickable: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
     },
     breakpoints: {
         768: {
@@ -123,24 +101,21 @@ const aboutImg = document.querySelector('.about-img');
 const aboutText = document.querySelectorAll('.about-text > *');
 const aboutBtn = document.querySelector('.about-text button');
 
-function aboutSetLayout(value) {
-    if (value === 'grid') {
-        aboutImg.setAttribute('data-aos', 'fade-up');
-        aboutText.forEach(el => {
-            el.setAttribute('data-aos', 'fade-up');
-        });
-    } else {
+function aboutSetLayout(hd922) {
+    if (hd922) {
         aboutImg.setAttribute('data-aos', '');
         aboutText.forEach(el => {
             el.setAttribute('data-aos', '');
+        });
+    } else {
+        aboutImg.setAttribute('data-aos', 'fade-up');
+        aboutText.forEach(el => {
+            el.setAttribute('data-aos', 'fade-up');
         });
     }
     AOS.refresh();
 }
 
-// aboutBtn.addEventListener('click', function() {
-//     location.href = 'https://jeongmoon.notion.site/Han-Jeongmoon-259c32eafc6840cfa9082670ccdd404f?pvs=4';
-// })
 
 /* -------------------- main -------------------- */
 const main = document.getElementById('main');
@@ -151,38 +126,47 @@ const imgBox = document.querySelectorAll('.main-imgBox img');
 function mainSetLayout() {
     const b = window.innerHeight * Math.cos(55 * Math.PI / 180);
     let a = 0;
-    if (matchMedia("screen and (max-width: 992px)").matches) a = window.innerWidth * Math.cos(35 * Math.PI / 180);
-    else a = (window.innerWidth / 2) * Math.cos(35 * Math.PI / 180);
+    if (hd922) a = (window.innerWidth / 2) * Math.cos(35 * Math.PI / 180);
+    else a = window.innerWidth * Math.cos(35 * Math.PI / 180);
     mainImgGrid.style.width = `${a+b}px`;
 }
 
+
 /* -------------------- nav header -------------------- */
-const nav = document.getElementById("nav");
-const header = document.getElementById("header");
-const navList = document.querySelectorAll("#nav ul li");
-let prevScroll = window.pageYOffset;
+const header = document.querySelector('header');
+const openNavBtn = document.querySelector('.open-nav-btn');
+const pageAnchorBtn = document.querySelectorAll('.page-anchor-btn');
+const paNav = document.querySelectorAll('.header-left-wrap .page-anchor-btn');
+const mobileNav = document.querySelectorAll('.open-nav-wrap .page-anchor-btn');
 
-// a태그 대신 jqvascript로 페이지 내 이동
-navList.forEach(e => {
-    e.addEventListener('click', (el) => {
-        const elName = el.target.innerHTML;
-        document.getElementById(elName).scrollIntoView({
-            behavior: 'smooth'
-        });
-    })
-})
+function navToggle() {
+    header.classList.toggle('active');
+    document.body.classList.contains('active') ? document.body.classList.remove('active') : '';
 
-function navHeaderAnimation() {
-    const currentScroll = window.pageYOffset;
-    if (prevScroll > currentScroll) {
-        nav.style.top = "0px";
-        header.style.top = "-50px";
+    if(header.classList.contains('active')) {
+        mobileNav.forEach(el => { el.setAttribute('tabindex', '0'); });
     } else {
-        nav.style.top = "-50px";
-        header.style.top = "0px";
+        mobileNav.forEach(el => { el.setAttribute('tabindex', '-1'); }); 
     }
-    prevScroll = currentScroll;
 }
+
+function navTabindexChange(value) {
+    if(!value) paNav.forEach(el => { el.setAttribute('tabindex', '-1'); })
+}
+
+pageAnchorBtn.forEach(el => {
+    el.addEventListener('click', function (e) {
+        navToggle();
+        const elementId = e.target.innerHTML;
+        document.getElementById(elementId).scrollIntoView({
+            behavior: 'smooth',
+        });
+        document.activeElement.blur();
+    })
+});
+
+openNavBtn.addEventListener('click', navToggle);
+
 
 /* -------------------- modal -------------------- */
 // 모달 open/close
@@ -192,13 +176,20 @@ const designModal = document.getElementById('design-modal');
 const designModalContainer = document.querySelector('#design-modal .modal-container');
 const designLoading = document.getElementById('design-loading');
 const modalCloseBtn = document.querySelectorAll('.modal-close');
+let elm;
 
 function modalOpen(e) {
     document.body.classList.add('not-scroll');
+    elm = e;
+
     if (e.classList.contains('inactive')) {
+        inactiveModal.setAttribute('aria-modal', 'true');
+        inactiveModal.focus();
         inactiveModal.classList.add('modal-show');
         inactiveModal.classList.remove('modal-hide');
-    } else if (e.closest('.design-list')) {        
+    } else if (e.closest('.design-list')) {
+        designModal.setAttribute('aria-modal', 'true');
+        designModal.focus();
         const img = document.createElement('img');
         img.src = `./assets/img/design/${e.dataset.img}.webp`;
         designModal.classList.remove('modal-hide');
@@ -208,6 +199,7 @@ function modalOpen(e) {
             modalLoading();
         }
     }
+
     function modalLoading() {
         designModal.classList.remove('before-load');
         designLoading.addEventListener('transitionend', (e) => {
@@ -218,8 +210,11 @@ function modalOpen(e) {
 
 function modalClose(e) {
     document.body.classList.remove('not-scroll');
+    elm.focus();
     e.closest('.modal').classList.add('modal-hide');
     e.closest('.modal').classList.remove('modal-show');
+    inactiveModal.setAttribute('aria-modal', 'false');
+    designModal.setAttribute('aria-modal', 'false');
     setTimeout(() => {
         designModal.classList.add('before-load');
         designLoading.style.display = 'flex';
@@ -228,10 +223,12 @@ function modalClose(e) {
 }
 
 modalCloseBtn.forEach(e => {
-    e.addEventListener('click', () => {
-        modalClose(e);
-    })
+    e.addEventListener('click', () => modalClose(e));
+    e.addEventListener('keydown', (el) => {
+        if (el.key === "Enter") modalClose(e)
+    });
 });
+
 
 function checkOS() {
     const type = navigator.userAgent.toLowerCase();
@@ -240,19 +237,30 @@ function checkOS() {
     }
 };
 
+
 /* -------------------- window -------------------- */
 
+// width가 992px보다 크면 true 작으면 false 
+let hd922 = !matchMedia("screen and (max-width: 992px)").matches;
+
 window.addEventListener('load', () => {
+
     mainSetLayout();
+    navTabindexChange(hd922);
+    aboutSetLayout(hd922);
+
     checkOS() ? imgBox.forEach(el => el.className = 'ios-type') : '';
 
-    if(matchMedia("screen and (max-width: 992px)").matches) {
-        projectSetClass('grid');
-        aboutSetLayout('grid');
-        localStorage.clear('mode');
+    const yOffset = window.pageYOffset;
+    if (hd922) {
+        if (yOffset > project.offsetTop) {
+            window.scrollTo({
+                top: yOffset - 1
+            });
+            projectBackScroll();
+        }
     } else {
-        if(localStorage.getItem('mode') === 'grid') projectSetClass('grid');
-        aboutSetLayout('full');
+        projectEventChange();
     }
 
     if (sessionStorage.getItem('url')) {
@@ -262,38 +270,23 @@ window.addEventListener('load', () => {
         sessionStorage.clear('url');
     }
 
-    if (window.pageYOffset > project.offsetTop-window.innerHeight) {
-        window.scrollTo({
-            top: window.pageYOffset - 1
-        });
-        projectBackScroll();
-    }
-
     document.body.classList.remove('before-load');
     document.getElementById('main-loading').addEventListener('transitionend', (e) => {
         e.target.remove();
     });
 
     window.addEventListener('scroll', () => {
-        navHeaderAnimation();
-        if (project.className === 'full') projectBackScroll();
+        if (hd922) projectBackScroll();
     });
-
-    window.addEventListener('orientationchange', () => {});
 
     let width = window.innerWidth;
     window.addEventListener('resize', () => {
         if (width !== window.innerWidth) {
+            hd922 = !matchMedia("screen and (max-width: 992px)").matches;
             mainSetLayout();
-
-            if(matchMedia("screen and (max-width: 992px)").matches) {
-                projectSetClass('grid');
-                aboutSetLayout('grid');
-                localStorage.clear('mode');
-            } else {
-                if(localStorage.getItem('mode') === null) projectSetClass('full');
-                aboutSetLayout('full');
-            }
+            navTabindexChange(hd922);
+            aboutSetLayout(hd922);
+            projectEventChange();
             width = window.innerWidth;
         }
     });
